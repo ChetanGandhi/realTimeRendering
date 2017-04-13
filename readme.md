@@ -4,5 +4,7 @@ Code repository for Real Time Rendering course. All thanks to [Dr. Vijay Gokhale
 
 ![theUltimateCreation](theUltimateCreation.png?raw=true "The Ultimate Creation")
 
+##### There is a difference between knowing the path and walking the path...
+
 ##### Assignments
 * [Empty Window](window)
