@@ -16,5 +16,6 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Empty Window](window)
 * [Color Window](colorWindow)
 * [Fullscreen Window](fullscreenWindow)
+* [Fullscreen Color Window](fullscreenColorWindow)
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
