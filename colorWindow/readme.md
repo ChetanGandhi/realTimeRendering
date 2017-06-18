@@ -21,28 +21,40 @@ cl.exe /EHsc colorWindow.cpp user32.lib kernel32.lib gdi32.lib
 
 ###### Preview
 - Red Window
-![redWindow](preview/red.png?raw=true "Red Window")
+![redWindow][redWindow-image]
 
 - Green Window
-![greenWindow](preview/green.png?raw=true "Green Window")
+![greenWindow][greenWindow-image]
 
 - Blue Window
-![blueWindow](preview/blue.png?raw=true "Blue Window")
+![blueWindow][blueWindow-image]
 
 - Cyan Window
-![cyanWindow](preview/cyan.png?raw=true "Cyan Window")
+![cyanWindow][cyanWindow-image]
 
 - Magenta Window
-![magentaWindow](preview/magenta.png?raw=true "Magenta Window")
+![magentaWindow][magentaWindow-image]
 
 - Yellow Window
-![yellowWindow](preview/yellow.png?raw=true "Yellow Window")
+![yellowWindow][yellowWindow-image]
 
 - Black Window
-![blackWindow](preview/black.png?raw=true "Black Window")
+![blackWindow][blackWindow-image]
 
 - White Window
-![whiteWindow](preview/white.png?raw=true "White Window")
+![whiteWindow][whiteWindow-image]
 
 - No Color Assigned
-![noColorWindow](preview/no_color.png?raw=true "No color assigned")
+![noColorWindow][noColorWindow-image]
+
+<!-- Image declaration -->
+
+[redWindow-image]: ./preview/red.png "Red Window"
+[greenWindow-image]: ./preview/green.png "Green Window"
+[blueWindow-image]: ./preview/blue.png "Blue Window"
+[cyanWindow-image]: ./preview/cyan.png "Cyan Window"
+[magentaWindow-image]: ./preview/magenta.png "Magenta Window"
+[yellowWindow-image]: ./preview/yellow.png "Yellow Window"
+[blackWindow-image]: ./preview/black.png "Black Window"
+[whiteWindow-image]: ./preview/white.png "White Window"
+[noColorWindow-image]: ./preview/no_color.png "No color assigned"

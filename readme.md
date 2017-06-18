@@ -18,4 +18,6 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Fullscreen Window](fullscreenWindow)
 * [Fullscreen Color Window](fullscreenColorWindow)
 
+<!-- Image declaration -->
+
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"

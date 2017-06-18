@@ -22,37 +22,58 @@ cl.exe /EHsc fullscreenColorWindow.cpp user32.lib kernel32.lib gdi32.lib
 
 ###### Preview
 - Red Window
-![redWindow](preview/red.png?raw=true "Red Window")
-![fullscreenRedWindow](preview/fullscreenRed.png?raw=true "Fullscreen Red Window")
+![redWindow][redWindow-image]
+![fullscreenRedWindow][fullscreenRedWindow-image]
 
 - Green Window
-![greenWindow](preview/green.png?raw=true "Green Window")
-![fullscreenGreenWindow](preview/fullscreenGreen.png?raw=true "Fullscreen Green Window")
+![greenWindow][greenWindow-image]
+![fullscreenGreenWindow][fullscreenGreenWindow-image]
 
 - Blue Window
-![blueWindow](preview/blue.png?raw=true "Blue Window")
-![fullscreenBlueWindow](preview/fullscreenBlue.png?raw=true "Fullscreen Blue Window")
+![blueWindow][blueWindow-image]
+![fullscreenBlueWindow][fullscreenBlueWindow-image]
 
 - Cyan Window
-![cyanWindow](preview/cyan.png?raw=true "Cyan Window")
-![fullscreenCyanWindow](preview/fullscreenCyan.png?raw=true "Fullscreen Cyan Window")
+![cyanWindow][cyanWindow-image]
+![fullscreenCyanWindow][fullscreenCyanWindow-image]
 
 - Magenta Window
-![magentaWindow](preview/magenta.png?raw=true "Magenta Window")
-![fullscreenMagentaWindow](preview/fullscreenMagenta.png?raw=true "Fullscreen Magenta Window")
+![magentaWindow][magentaWindow-image]
+![fullscreenMagentaWindow][fullscreenMagentaWindow-image]
 
 - Yellow Window
-![yellowWindow](preview/yellow.png?raw=true "Yellow Window")
-![fullscreenYellowWindow](preview/fullscreenYellow.png?raw=true "Fullscreen Yellow Window")
+![yellowWindow][yellowWindow-image]
+![fullscreenYellowWindow][fullscreenYellowWindow-image]
 
 - Black Window
-![blackWindow](preview/black.png?raw=true "Black Window")
-![fullscreenBlackWindow](preview/fullscreenBlack.png?raw=true "Fullscreen Black Window")
+![blackWindow][blackWindow-image]
+![fullscreenBlackWindow][fullscreenBlackWindow-image]
 
 - White Window
-![whiteWindow](preview/white.png?raw=true "White Window")
-![fullscreenWhiteWindow](preview/fullscreenWhite.png?raw=true "Fullscreen White Window")
+![whiteWindow][whiteWindow-image]
+![fullscreenWhiteWindow][fullscreenWhiteWindow-image]
 
 - No Color Assigned
-![noColorWindow](preview/no_color.png?raw=true "No color assigned")
-![fullscreenNoColorWindow](preview/fullscreen_no_color.png?raw=true "Fullscreen No color assigned")
+![noColorWindow][noColorWindow-image]
+![fullscreenNoColorWindow][fullscreenNoColorWindow-image]
+
+<!-- Image declaration -->
+
+[redWindow-image]: ./preview/red.png "Red Window"
+[fullscreenRedWindow-image]: ./preview/fullscreenRed.png "Fullscreen Red Window"
+[greenWindow-image]: ./preview/green.png "Green Window"
+[fullscreenGreenWindow-image]: ./preview/fullscreenGreen.png "Fullscreen Green Window"
+[blueWindow-image]: ./preview/blue.png "Blue Window"
+[fullscreenBlueWindow-image]: ./preview/fullscreenBlue.png "Fullscreen Blue Window"
+[cyanWindow-image]: ./preview/cyan.png "Cyan Window"
+[fullscreenCyanWindow-image]: ./preview/fullscreenCyan.png "Fullscreen Cyan Window"
+[magentaWindow-image]: ./preview/magenta.png "Magenta Window"
+[fullscreenMagentaWindow-image]: ./preview/fullscreenMagenta.png "Fullscreen Magenta Window"
+[yellowWindow-image]: ./preview/yellow.png "Yellow Window"
+[fullscreenYellowWindow-image]: ./preview/fullscreenYellow.png "Fullscreen Yellow Window"
+[blackWindow-image]: ./preview/black.png "Black Window"
+[fullscreenBlackWindow-image]: ./preview/fullscreenBlack.png "Fullscreen Black Window"
+[whiteWindow-image]: ./preview/white.png "White Window"
+[fullscreenWhiteWindow-image]: ./preview/fullscreenWhite.png "Fullscreen White Window"
+[noColorWindow-image]: ./preview/no_color.png "No color assigned"
+[fullscreenNoColorWindow-image]: ./preview/fullscreen_no_color.png "Fullscreen No color assigned"

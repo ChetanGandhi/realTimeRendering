@@ -13,7 +13,12 @@ cl.exe /EHsc fullscreenWindow.cpp user32.lib kernel32.lib gdi32.lib
 
 ###### Preview
 - Normal Mode
-![normalWindow](preview/normalWindow.png?raw=true "Normal Window")
+![normalWindow][normalWindow-image]
 
 - Fullscreen Mode
-![fullscreenWindow](preview/fullscreenWindow.png?raw=true "Fullscreen Window")
+![fullscreenWindow][fullscreenWindow-image]
+
+<!-- Image declaration -->
+
+[normalWindow-image]: ./preview/normalWindow.png "Normal Window"
+[fullscreenWindow-image]: ./preview/fullscreenWindow.png "Fullscreen Window"
