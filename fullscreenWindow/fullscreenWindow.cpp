@@ -14,8 +14,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - Empty Window");
-    TCHAR szApplicationClassName[] = TEXT("RTR_WINDOW");
+    TCHAR szApplicationTitle[] = TEXT("CG - Fullscreen Window");
+    TCHAR szApplicationClassName[] = TEXT("RTR_FULLSCREEN_WINDOW");
 
     wndClassEx.cbSize = sizeof(WNDCLASSEX);
     wndClassEx.style = CS_HREDRAW | CS_VREDRAW;
