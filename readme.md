@@ -14,6 +14,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### Assignments
 * [Empty Window](window)
+* [Color Window](colorWindow)
 * [Fullscreen Window](fullscreenWindow)
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
