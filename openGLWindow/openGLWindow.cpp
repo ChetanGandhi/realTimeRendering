@@ -50,12 +50,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
     }
 
     DWORD styleExtra = WS_EX_APPWINDOW;
-    DWORD style = WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | WS_VISIBLE;
+    dwStyle = WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | WS_VISIBLE;
 
-    hWnd = CreateWindow(
+    hWnd = CreateWindowEx(styleExtra,
         szApplicationClassName,
         szApplicationTitle,
-        style,
+        dwStyle,
         windowRect.left,
         windowRect.top,
         windowRect.right - windowRect.left,
@@ -63,8 +63,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
         NULL,
         NULL,
         hInstance,
-        NULL
-        );
+        NULL);
 
     if(!hWnd)
     {
