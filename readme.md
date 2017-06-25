@@ -17,7 +17,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Color Window](colorWindow)
 * [Fullscreen Window](fullscreenWindow)
 * [Fullscreen Color Window](fullscreenColorWindow)
-* [OpenGL Window](openGLWindow)
+* [OpenGL Window: The Wrong Way](openGLWindowWrongWay)
 
 <!-- Image declaration -->
 
