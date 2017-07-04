@@ -19,6 +19,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Fullscreen Color Window](fullscreenColorWindow)
 * [OpenGL Window: The Wrong Way](openGLWindowWrongWay)
 * [OpenGL Window: The Right Way](openGLWindow)
+* [Triangle](triangle)
 
 <!-- Image declaration -->
 
