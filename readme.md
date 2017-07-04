@@ -20,6 +20,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [OpenGL Window: The Wrong Way](openGLWindowWrongWay)
 * [OpenGL Window: The Right Way](openGLWindow)
 * [Triangle](triangle)
+* [Rectangle](rectangle)
 
 <!-- Image declaration -->
 
