@@ -8,7 +8,7 @@ HGLRC hrc = NULL;
 
 DWORD dwStyle;
 WINDOWPLACEMENT wpPrev = { sizeof(WINDOWPLACEMENT) };
-RECT windowRect = {0, 0, 800, 600};
+RECT windowRect = {0, 0, 600, 600};
 
 bool isFullscreen = false;
 bool isActive = false;
@@ -29,7 +29,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
     WNDCLASSEX wndClassEx;
     MSG message;
     TCHAR szApplicationTitle[] = TEXT("CG - Major and Minor Y Axis");
-    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_Major_Minor_X_AXIS");
+    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_MAJOR_MINOR_X_AXIS");
     bool done = false;
 
     wndClassEx.cbSize = sizeof(WNDCLASSEX);

@@ -8,7 +8,7 @@ HGLRC hrc = NULL;
 
 DWORD dwStyle;
 WINDOWPLACEMENT wpPrev = { sizeof(WINDOWPLACEMENT) };
-RECT windowRect = {0, 0, 800, 600};
+RECT windowRect = {0, 0, 600, 600};
 
 bool isFullscreen = false;
 bool isActive = false;
@@ -32,7 +32,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
     WNDCLASSEX wndClassEx;
     MSG message;
     TCHAR szApplicationTitle[] = TEXT("CG - Bordered Square on Graph Paper");
-    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_Bordered_Square_Graph_Paper");
+    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_BORDERED_SQUARE_GRAPH_PAPER");
     bool done = false;
 
     wndClassEx.cbSize = sizeof(WNDCLASSEX);
