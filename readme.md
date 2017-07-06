@@ -10,17 +10,31 @@ Code repository for Real Time Rendering course. All thanks to [Dr. Vijay Gokhale
 
 Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
-<h1></h1>
+# Assignments
 
-##### Assignments
+##### Win32
+
 * [Empty Window](window)
 * [Color Window](colorWindow)
 * [Fullscreen Window](fullscreenWindow)
 * [Fullscreen Color Window](fullscreenColorWindow)
+
+##### OpenGL
+
 * [OpenGL Window: The Wrong Way](openGLWindowWrongWay)
 * [OpenGL Window: The Right Way](openGLWindow)
 * [Triangle](triangle)
 * [Rectangle](rectangle)
+* [X Axis](xAxis)
+* [Y Axis](yAxis)
+* [X-Y Axis](xyAxis)
+* [Major Minor X Axis](majorMinorXAxis)
+* [Major Minor Y Axis](majorMinorYAxis)
+* [Graph Paper](graphPaper)
+* [Graph Paper Bordered Triangle](graphPaperBorderedTriangle)
+* [Graph Paper Bordered Square](graphPaperBorderedSquare)
+* [Graph Paper Point Circle](graphPaperPointCircle)
+* [Graph Paper Line Circle](graphPaperLineCircle)
 
 <!-- Image declaration -->
 
