@@ -32,7 +32,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
     WNDCLASSEX wndClassEx;
     MSG message;
     TCHAR szApplicationTitle[] = TEXT("CG - Point at Center");
-    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_POINT_AT_CENTER_PAPER");
+    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_POINT_AT_CENTER");
     bool done = false;
 
     wndClassEx.cbSize = sizeof(WNDCLASSEX);
