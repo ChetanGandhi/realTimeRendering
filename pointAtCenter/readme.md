@@ -19,7 +19,6 @@ cl.exe /EHsc /D:UNICODE /DEBUG pointAtCenter.cpp user32.lib kernel32.lib gdi32.l
 - Press ```7``` Key to set point side to 7.
 - Press ```8``` Key to set point side to 8.
 - Press ```9``` Key to set point side to 9.
-- Press ```0``` Key to set point side to 0.
 
 ###### Preview
 ![pointAtCenter][pointAtCenter-image]
