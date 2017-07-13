@@ -16,4 +16,4 @@ cl.exe /EHsc /D:UNICODE /DEBUG multiColoredTriangle.cpp user32.lib kernel32.lib 
 
 <!-- Image declaration -->
 
-[multiColoredTriangle-image]: ./preview/multiColoredTriangle.png "OpenGL multiColoredTriangle"
+[multiColoredTriangle-image]: ./preview/multiColoredTriangle.png "OpenGL Multi Colored Triangle"
