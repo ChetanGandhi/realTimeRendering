@@ -4,7 +4,7 @@ Triangle
 ###### How to compile
 
 ```
-cl.exe /EHsc /D:UNICODE /DEBUG triangle.cpp user32.lib kernel32.lib gdi32.lib openGL32.lib
+cl.exe /EHsc /DUNICODE /Zi triangle.cpp user32.lib kernel32.lib gdi32.lib openGL32.lib
 ```
 
 ###### Keyboard shortcuts

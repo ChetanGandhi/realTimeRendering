@@ -8,7 +8,7 @@ The ```SwapBuffers``` is an Win32 API, as we are in fixed-function OpenGL.
 ###### How to compile
 
 ```
-cl.exe /EHsc /D:UNICODE /DEBUG openGLWindow.cpp user32.lib kernel32.lib gdi32.lib openGL32.lib
+cl.exe /EHsc /DUNICODE /Zi openGLWindow.cpp user32.lib kernel32.lib gdi32.lib openGL32.lib
 ```
 
 ###### Keyboard shortcuts

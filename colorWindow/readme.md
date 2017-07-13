@@ -4,7 +4,7 @@ Color Window
 ###### How to compile
 
 ```
-cl.exe /EHsc colorWindow.cpp user32.lib kernel32.lib gdi32.lib
+cl.exe /EHsc /DUNICODE /Zi colorWindow.cpp user32.lib kernel32.lib gdi32.lib
 ```
 
 ###### Keyboard Shortcuts

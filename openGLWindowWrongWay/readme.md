@@ -8,7 +8,7 @@ This is because rendering done by ```WM_PATNT``` is single buffered, single thre
 ###### How to compile
 
 ```
-cl.exe /EHsc /D:UNICODE /DEBUG openGLWindow.cpp user32.lib kernel32.lib gdi32.lib openGL32.lib
+cl.exe /EHsc /DUNICODE /Zi openGLWindow.cpp user32.lib kernel32.lib gdi32.lib openGL32.lib
 ```
 
 ###### Keyboard shortcuts

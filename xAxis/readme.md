@@ -4,7 +4,7 @@ X Axis
 ###### How to compile
 
 ```
-cl.exe /EHsc /D:UNICODE /DEBUG xAxis.cpp user32.lib kernel32.lib gdi32.lib openGL32.lib
+cl.exe /EHsc /DUNICODE /Zi xAxis.cpp user32.lib kernel32.lib gdi32.lib openGL32.lib
 ```
 
 ###### Keyboard shortcuts

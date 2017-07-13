@@ -4,7 +4,7 @@ Fullscreen Window
 ###### How to compile
 
 ```
-cl.exe /EHsc fullscreenWindow.cpp user32.lib kernel32.lib gdi32.lib
+cl.exe /EHsc /DUNICODE /Zi fullscreenWindow.cpp user32.lib kernel32.lib gdi32.lib
 ```
 
 ###### Keyboard shortcuts

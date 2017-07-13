@@ -4,7 +4,7 @@ Fullscreen Color Window
 ###### How to compile
 
 ```
-cl.exe /EHsc fullscreenColorWindow.cpp user32.lib kernel32.lib gdi32.lib
+cl.exe /EHsc /DUNICODE /Zi fullscreenColorWindow.cpp user32.lib kernel32.lib gdi32.lib
 ```
 
 ###### Keyboard shortcuts
