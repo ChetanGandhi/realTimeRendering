@@ -324,7 +324,7 @@ void drawPointCircle()
 
     glColor3f(1.0f, 1.0f, 0.0f);
 
-    for (float angle = 0.0f; angle < (2.0f * M_PI); angle += 0.1f)
+    for (float angle = 0.0f; angle < (2.0f * M_PI); angle += 0.001f)
     {
         glVertex3f(cos(angle) * 0.5f, sin(angle) * 0.5f, 0.0f);
     }
