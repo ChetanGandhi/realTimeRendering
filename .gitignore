@@ -21,8 +21,9 @@
 .AppleDouble
 .LSOverride
 
+# Do not add this as we have folder name icon
 # Icon must end with two \r
-Icon
+#Icon
 
 # Thumbnails
 ._*

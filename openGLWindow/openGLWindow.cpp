@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <gl/GL.h>
 
+#include "resources/resource.h"
+
 HWND hWnd = NULL;
 HDC hdc = NULL;
 HGLRC hrc = NULL;
@@ -36,8 +38,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
     wndClassEx.cbWndExtra = 0;
     wndClassEx.lpfnWndProc = WndProc;
     wndClassEx.hInstance = hInstance;
-    wndClassEx.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-    wndClassEx.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
+    wndClassEx.hIcon = LoadIcon(hInstance,MAKEINTRESOURCE(CP_ICON));
+    wndClassEx.hIconSm = LoadIcon(hInstance,MAKEINTRESOURCE(CP_ICON_SMALL));
     wndClassEx.hCursor = LoadCursor(NULL, IDC_ARROW);
     wndClassEx.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
     wndClassEx.lpszClassName = szApplicationClassName;

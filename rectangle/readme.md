@@ -3,8 +3,16 @@ Rectangle
 
 ###### How to compile
 
+- First compile the resource file.
+
 ```
-cl.exe /EHsc /DUNICODE /Zi rectangle.cpp user32.lib kernel32.lib gdi32.lib openGL32.lib
+rc.exe resource\resource.rc
+```
+
+- Now compile the program with resource file.
+
+```
+cl.exe /EHsc /DUNICODE /Zi rectangle.cpp /link resources\resource.res user32.lib kernel32.lib gdi32.lib openGL32.lib
 ```
 
 ###### Keyboard shortcuts

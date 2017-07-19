@@ -3,8 +3,16 @@ Fullscreen Window
 
 ###### How to compile
 
+- First compile the resource file.
+
 ```
-cl.exe /EHsc /DUNICODE /Zi fullscreenWindow.cpp user32.lib kernel32.lib gdi32.lib
+rc.exe resource\resource.rc
+```
+
+- Now compile the program with resource file.
+
+```
+cl.exe /EHsc /DUNICODE /Zi fullscreenWindow.cpp /link resources\resource.res user32.lib kernel32.lib gdi32.lib
 ```
 
 ###### Keyboard shortcuts
