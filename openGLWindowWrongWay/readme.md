@@ -1,5 +1,5 @@
-OpenGL Window | The Wrong Way
-============
+OpenGL Window Single Buffer | The Wrong Way
+===========================================
 
 This is not the correct way to implement the OpenGL rendering logic. The call to ```display``` should not be in game loop instead of in ```WM_PATNT```.
 
@@ -16,7 +16,7 @@ rc.exe resource\resource.rc
 - Now compile the program with resource file.
 
 ```
-cl.exe /EHsc /DUNICODE /Zi openGLWindow.cpp /link resources\resource.res user32.lib kernel32.lib gdi32.lib openGL32.lib
+cl.exe /EHsc /DUNICODE /Zi openGLWindowSingleBuffer.cpp /link resources\resource.res user32.lib kernel32.lib gdi32.lib openGL32.lib
 ```
 
 ###### Keyboard shortcuts
@@ -25,8 +25,8 @@ cl.exe /EHsc /DUNICODE /Zi openGLWindow.cpp /link resources\resource.res user32.
 
 ###### Preview
 - OpenGL Window
-![openGLlWindow][openGLWindow-image]
+![openGLWindowSingleBuffer][openGLWindowSingleBuffer-image]
 
 <!-- Image declaration -->
 
-[openGLWindow-image]: ./preview/openGLWindow.png "OpenGL Window"
+[openGLWindowSingleBuffer-image]: ./preview/openGLWindowSingleBuffer.png "OpenGL Window"

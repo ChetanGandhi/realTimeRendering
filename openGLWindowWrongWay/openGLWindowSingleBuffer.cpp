@@ -28,8 +28,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - OpenGl Window");
-    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_WINDOW");
+    TCHAR szApplicationTitle[] = TEXT("CG - OpenGL Window Single Buffer | The Wrong Way");
+    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_WINDOW_SINGLE_BUFFER");
     bool done = false;
 
     wndClassEx.cbSize = sizeof(WNDCLASSEX);
