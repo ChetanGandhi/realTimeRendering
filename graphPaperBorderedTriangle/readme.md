@@ -6,7 +6,9 @@ Bordered Triangle On Graph Paper
 - First compile the resource file.
 
 ```
-rc.exe resource\resource.rc
+cd resource
+rc.exe /V resource.rc
+cd ..
 ```
 
 - Now compile the program with resource file.

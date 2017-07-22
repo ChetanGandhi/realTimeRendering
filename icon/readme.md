@@ -6,15 +6,9 @@ Icon
 - First compile the resource file.
 
 ```
-rc.exe resource\resource.rc
-```
-
-- Now compile the program with resource file.
-
-- First compile the resource file.
-
-```
-rc.exe resource\resource.rc
+cd resource
+rc.exe /V resource.rc
+cd ..
 ```
 
 - Now compile the program with resource file.

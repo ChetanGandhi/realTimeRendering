@@ -10,7 +10,9 @@ The ```SwapBuffers``` is an Win32 API, as we are in fixed-function OpenGL.
 - First compile the resource file.
 
 ```
-rc.exe resource\resource.rc
+cd resource
+rc.exe /V resource.rc
+cd ..
 ```
 
 - Now compile the program with resource file.

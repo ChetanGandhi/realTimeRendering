@@ -10,7 +10,9 @@ This is because rendering done by ```WM_PATNT``` is single buffered, single thre
 - First compile the resource file.
 
 ```
-rc.exe resource\resource.rc
+cd resource
+rc.exe /V resource.rc
+cd ..
 ```
 
 - Now compile the program with resource file.
