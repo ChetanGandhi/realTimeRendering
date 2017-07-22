@@ -6,7 +6,7 @@ Bordered Square On Graph Paper
 - First compile the resource file.
 
 ```
-cd resource
+cd resources
 rc.exe /V resource.rc
 cd ..
 ```

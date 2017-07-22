@@ -6,7 +6,7 @@ Multi Colored Triangle
 - First compile the resource file.
 
 ```
-cd resource
+cd resources
 rc.exe /V resource.rc
 cd ..
 ```

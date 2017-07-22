@@ -6,7 +6,7 @@ Fullscreen Center Window By SystemParametersInfo
 - First compile the resource file.
 
 ```
-cd resource
+cd resources
 rc.exe /V resource.rc
 cd ..
 ```
