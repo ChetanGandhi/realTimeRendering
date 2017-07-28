@@ -27,4 +27,4 @@ cl.exe /EHsc /DUNICODE /Zi triangleAndSquareRotation.cpp /link resources\resourc
 
 <!-- Image declaration -->
 
-[triangleAndSquareRotation-image]: ./preview/triangleAndSquareRotation.png "OpenGL Modal Transformation"
+[triangleAndSquareRotation-image]: ./preview/triangleAndSquareRotation.png "OpenGL Triangle and Square Rotation"

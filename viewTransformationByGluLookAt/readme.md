@@ -62,4 +62,4 @@ cl.exe /EHsc /DUNICODE /Zi viewTransformationByGluLookAt.cpp /link resources\res
 
 <!-- Image declaration -->
 
-[viewTransformationByGluLookAt-image]: ./preview/viewTransformationByGluLookAt.png "OpenGL Modal Transformation"
+[viewTransformationByGluLookAt-image]: ./preview/viewTransformationByGluLookAt.png "OpenGL View Transformation"

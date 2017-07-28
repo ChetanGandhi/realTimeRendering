@@ -1,5 +1,5 @@
 Deathly Hallows Rotation
-======================
+========================
 
 ###### How to compile
 

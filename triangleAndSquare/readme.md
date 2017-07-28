@@ -26,4 +26,4 @@ cl.exe /EHsc /DUNICODE /Zi triangleAndSquare.cpp /link resources\resource.res us
 
 <!-- Image declaration -->
 
-[triangleAndSquare-image]: ./preview/triangleAndSquare.png "OpenGL Modal Transformation"
+[triangleAndSquare-image]: ./preview/triangleAndSquare.png "OpenGL Triangle and Square"
