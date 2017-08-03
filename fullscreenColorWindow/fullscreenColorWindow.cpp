@@ -109,7 +109,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
             break;
 
-                        case 0x52: // r
+            case 0x52: // r
             colorCode = 1;
             InvalidateRect(hWnd, NULL, TRUE);
             break;
