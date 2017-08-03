@@ -1,6 +1,6 @@
 Real Time Rendering
 ===================
-Code repository for Real Time Rendering course. All thanks to [Dr. Vijay Gokhale](http://astromedicomp.org/dr-vijay-gokhale)
+Code repository for Real Time Rendering course. All thanks to [Dr. Vijay Gokhale](windows/http://astromedicomp.org/dr-vijay-gokhale)
 
 ![theUltimateCreation][theUltimateCreation-image]
 
@@ -14,27 +14,27 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### Win32
 
-* [Empty Window](window)
-* [Color Window](colorWindow)
-* [Fullscreen Window](fullscreenWindow)
-* [Fullscreen Color Window](fullscreenColorWindow)
+* [Empty Window](windows/window)
+* [Color Window](windows/colorWindow)
+* [Fullscreen Window](windows/fullscreenWindow)
+* [Fullscreen Color Window](windows/fullscreenColorWindow)
 
 ##### OpenGL
 
-* [OpenGL Window: The Wrong Way](openGLWindowWrongWay)
-* [OpenGL Window: The Right Way](openGLWindow)
-* [Triangle](triangle)
-* [Rectangle](rectangle)
-* [X Axis](xAxis)
-* [Y Axis](yAxis)
-* [X-Y Axis](xyAxis)
-* [Major Minor X Axis](majorMinorXAxis)
-* [Major Minor Y Axis](majorMinorYAxis)
-* [Graph Paper](graphPaper)
-* [Graph Paper Bordered Triangle](graphPaperBorderedTriangle)
-* [Graph Paper Bordered Square](graphPaperBorderedSquare)
-* [Graph Paper Point Circle](graphPaperPointCircle)
-* [Graph Paper Line Circle](graphPaperLineCircle)
+* [OpenGL Window: The Wrong Way](windows/openGLWindowWrongWay)
+* [OpenGL Window: The Right Way](windows/openGLWindow)
+* [Triangle](windows/triangle)
+* [Rectangle](windows/rectangle)
+* [X Axis](windows/xAxis)
+* [Y Axis](windows/yAxis)
+* [X-Y Axis](windows/xyAxis)
+* [Major Minor X Axis](windows/majorMinorXAxis)
+* [Major Minor Y Axis](windows/majorMinorYAxis)
+* [Graph Paper](windows/graphPaper)
+* [Graph Paper Bordered Triangle](windows/graphPaperBorderedTriangle)
+* [Graph Paper Bordered Square](windows/graphPaperBorderedSquare)
+* [Graph Paper Point Circle](windows/graphPaperPointCircle)
+* [Graph Paper Line Circle](windows/graphPaperLineCircle)
 
 <!-- Image declaration -->
 
