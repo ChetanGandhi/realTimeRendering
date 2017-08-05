@@ -37,6 +37,6 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Graph Paper Point Circle](windows/graphPaperPointCircle)
 * [Graph Paper Line Circle](windows/graphPaperLineCircle)
 
-<!-- Image declaration -->
+<!--Image declaration-->
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
