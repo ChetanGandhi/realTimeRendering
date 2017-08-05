@@ -20,10 +20,10 @@ bool isFullscreen = false;
 bool isActive = false;
 bool isEscapeKeyPressed = false;
 
-GLfloat angleCubeX = 0.0f;
+GLfloat angleCube = 0.0f;
 GLfloat angleCubeY = 0.0f;
 GLfloat angleCubeZ = 0.0f;
-GLfloat anglePyramidY = 0.0f;
+GLfloat anglePyramid = 0.0f;
 GLfloat speed = 0.1f;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
@@ -236,10 +236,12 @@ void initialize(void)
         hdc = NULL;
     }
 
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClearDepth(1.0f);
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    glShadeModel(GL_SMOOTH);
+    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
     // This is required for DirectX
     resize(windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
@@ -247,29 +249,17 @@ void initialize(void)
 
 void update(void)
 {
-    angleCubeX -= speed;
-    angleCubeY += speed;
-    angleCubeZ -= speed;
-    anglePyramidY += speed;
+    angleCube -= speed;
+    anglePyramid += speed;
 
-    if(angleCubeX <= -360.0f)
+    if(angleCube <= -360.0f)
     {
-        angleCubeX = 0.0f;
+        angleCube = 0.0f;
     }
 
-    if(angleCubeY >= -360.0f)
+    if(anglePyramid >= 360.0f)
     {
-        angleCubeY = 0.0f;
-    }
-
-    if(angleCubeZ <= -360.0f)
-    {
-        angleCubeZ = 0.0f;
-    }
-
-    if(anglePyramidY >= 360.0f)
-    {
-        anglePyramidY = 0.0f;
+        anglePyramid = 0.0f;
     }
 }
 
@@ -280,15 +270,13 @@ void display(void)
 
     glLoadIdentity();
     glTranslatef(-1.5f, 0.0f, -7.0f);
-    glRotatef(anglePyramidY, 0.0f, 1.0f, 0.0f);
+    glRotatef(anglePyramid, 0.0f, 1.0f, 0.0f);
     drawPyramid();
 
     glLoadIdentity();
     glTranslatef(1.5f, 0.0f, -7.0f);
-    glRotatef(angleCubeX, 1.0f, 0.0f, 0.0f);
-    glRotatef(angleCubeY, 0.0f, 1.0f, 0.0f);
-    glRotatef(angleCubeZ, 0.0f, 0.0f, 1.0f);
-    gl
+    glScalef(0.75f, 0.75f, 0.75f);
+    glRotatef(angleCube, 1.0f, 1.0f, 1.0f);
     drawCube();
 
     SwapBuffers(hdc);
@@ -344,6 +332,7 @@ void drawPyramid(void)
 void drawCube(void)
 {
     glBegin(GL_QUADS);
+
 	//Top face
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glVertex3f(1.0f, 1.0f, -1.0f);
@@ -385,6 +374,7 @@ void drawCube(void)
 	glVertex3f(-1.0f, 1.0f, -1.0f);
 	glVertex3f(-1.0f, -1.0f, -1.0f);
 	glVertex3f(-1.0f, -1.0f, 1.0f);
+
     glEnd();
 }
 
