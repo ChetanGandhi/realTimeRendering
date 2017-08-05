@@ -63,6 +63,6 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Cube Rotation](windows/cubeRotation)
 * [Pyramid and Cube Rotation](windows/pyramidAndCubeRotation)
 
-<!-- Image declaration -->
+<!--Image declaration-->
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
