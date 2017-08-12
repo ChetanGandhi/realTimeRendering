@@ -8,9 +8,10 @@ The angle used was 45 degree, which was not right, setting it to 0 degree makes 
 - First compile the resource file.
 
 ```
+set root=%CD%
 cd resources
 rc.exe /V resource.rc
-cd ..
+cd %root%
 ```
 
 - Now compile the program with resource file.

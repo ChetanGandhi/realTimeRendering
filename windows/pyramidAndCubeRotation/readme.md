@@ -6,9 +6,10 @@ Pyramid and Cube Rotation
 - First compile the resource file.
 
 ```
+set root=%CD%
 cd resources
 rc.exe /V resource.rc
-cd ..
+cd %root%
 ```
 
 - Now compile the program with resource file.
