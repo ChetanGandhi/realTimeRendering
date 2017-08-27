@@ -62,6 +62,8 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Pyramid Rotation](windows/pyramidRotation)
 * [Cube Rotation](windows/cubeRotation)
 * [Pyramid and Cube Rotation](windows/pyramidAndCubeRotation)
+* [Robot Arm](windows/robotArm)
+* [Solar System](windows/solarSystem)
 
 <!--Image declaration-->
 
