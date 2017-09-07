@@ -15,8 +15,10 @@ cd %root%
 - Now compile the program with resource file.
 
 ```
-cl.exe /EHsc /DUNICODE /Zi IndiaAnimation.cpp /link resources\resource.res user32.lib kernel32.lib gdi32.lib openGL32.lib
+cl.exe /EHsc /DUNICODE /Zi IndiaAnimation.cpp /link resources\resource.res user32.lib kernel32.lib gdi32.lib Winmm.lib openGL32.lib
 ```
+
+- ```Winmm.lib``` is required for audion playback.
 
 ###### Keyboard shortcuts
 - Press ```Esc``` key to quit.

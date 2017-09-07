@@ -64,8 +64,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - India");
-    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_INDIA");
+    TCHAR szApplicationTitle[] = TEXT("CG - India Animation");
+    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_INDIA_ANIMATION");
     bool done = false;
 
     wndClassEx.cbSize = sizeof(WNDCLASSEX);
