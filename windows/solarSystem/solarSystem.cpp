@@ -153,6 +153,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
                     toggleFullscreen(hWnd, isFullscreen);
                 break;
 
+                default:
+                break;
+            }
+
+        break;
+
+        case WM_CHAR:
+            switch(wParam)
+            {
                 case 'D':
                     day = (day + 6) % 360;
                 break;
@@ -168,11 +177,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
                 case 'Y':
                     year = (year - 3) % 360;
                 break;
-
-                default:
-                break;
             }
-
         break;
 
         case WM_LBUTTONDOWN:
