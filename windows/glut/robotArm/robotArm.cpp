@@ -28,7 +28,7 @@ void mouse(int button, int state, int x, int y);
 int main(int argc,char** argv)
 {
 	glutInit(&argc,argv);
-	glutInitDisplayMode(GLUT_RGB);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowSize(windowRect.right - windowRect.left ,windowRect.bottom - windowRect.top);
     glutCreateWindow("CG - GLUT Robot Arm");
     initialize();
@@ -46,10 +46,12 @@ void keyboard(unsigned char key, int x, int y)
     {
         case 'E':
             angleElbow = (angleElbow + 3) % 360;
+            glutPostRedisplay();
         break;
 
         case 'e':
             angleElbow = (angleElbow - 3) % 360;
+            glutPostRedisplay();
         break;
 
         case 27:
@@ -72,10 +74,12 @@ void keyboard(unsigned char key, int x, int y)
 
         case 'S':
             angleShoulder = (angleShoulder + 3) % 360;
+            glutPostRedisplay();
         break;
 
         case 's':
             angleShoulder = (angleShoulder - 3) % 360;
+            glutPostRedisplay();
         break;
 
         default:

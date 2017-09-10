@@ -62,18 +62,22 @@ void keyboard(unsigned char key, int x, int y)
 
         case 'D':
             day = (day + 6) % 360;
-        break;
+            glutPostRedisplay();
+            break;
 
-        case 'd':
+            case 'd':
             day = (day - 3) % 360;
-        break;
+            glutPostRedisplay();
+            break;
 
-        case 'y':
+            case 'y':
             year = (year + 3) % 360;
-        break;
+            glutPostRedisplay();
+            break;
 
-        case 'Y':
-        year = (year - 3) % 360;
+            case 'Y':
+            year = (year - 3) % 360;
+            glutPostRedisplay();
         break;
 
         default:
