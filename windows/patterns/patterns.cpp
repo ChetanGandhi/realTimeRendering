@@ -32,6 +32,7 @@ void drawPatterns(void);
 void drawDotPattern(void);
 void drawBoxPattern(void);
 void drawTrianglePattern(void);
+void drawBoxTrianglePattern(void);
 void drawLineRayPattern(void);
 void drawColoredBoxPattern(void);
 void resize(int width, int height);
@@ -265,6 +266,13 @@ void drawPatterns(void)
     glTranslatef(20.0f * widthByHeightRatio, -40.0f * heightByWidthRatio, -6.0f);
     drawColoredBoxPattern();
 
+    glLoadIdentity();
+    glTranslatef(20.0f * widthByHeightRatio, -40.0f * heightByWidthRatio, -6.0f);
+    drawBoxPattern();
+
+    glLoadIdentity();
+    glTranslatef(-40.0f * widthByHeightRatio, -40.0f * heightByWidthRatio, -6.0f);
+    drawBoxTrianglePattern();
 }
 
 void drawDotPattern(void)
@@ -310,28 +318,41 @@ void drawTrianglePattern(void)
 {
     GLfloat difference = 25.0f / 3.0f;
 
-    for(int counter = 0; counter < 3; ++counter)
+    for(int rowCounter = 0; rowCounter < 3; ++rowCounter)
     {
-        glBegin(GL_LINE_LOOP);
-        glColor3f(1.0f, 1.0f, 1.0f);
-        glVertex3f(difference * 0.0f, difference * (0.0f + counter), 0.0f);
-        glVertex3f(difference * 0.0f, difference * (1.0f + counter), 0.0f);
-        glVertex3f(difference * 1.0f, difference * (1.0f + counter), 0.0f);
-        glEnd();
+        for(int columnCounter = 0; columnCounter < 3; ++columnCounter)
+        {
+            glBegin(GL_LINE_LOOP);
+            glColor3f(1.0f, 1.0f, 1.0f);
+            glVertex3f(difference * (0.0f + rowCounter), difference * (0.0f + columnCounter), 0.0f);
+            glVertex3f(difference * (0.0f + rowCounter), difference * (1.0f + columnCounter), 0.0f);
+            glVertex3f(difference * (1.0f + rowCounter), difference * (1.0f + columnCounter), 0.0f);
+            glEnd();
+        }
+    }
+}
 
-        glBegin(GL_LINE_LOOP);
-        glColor3f(1.0f, 1.0f, 1.0f);
-        glVertex3f(difference * 1.0f, difference * (0.0f + counter), 0.0f);
-        glVertex3f(difference * 1.0f, difference * (1.0f + counter), 0.0f);
-        glVertex3f(difference * 2.0f, difference * (1.0f + counter), 0.0f);
-        glEnd();
+void drawBoxTrianglePattern(void)
+{
+    GLfloat difference = 25.0f / 3.0f;
+    for(int rowCounter = 0; rowCounter < 3; ++rowCounter)
+    {
+        for(int columnCounter = 0; columnCounter < 3; ++columnCounter)
+        {
+            glBegin(GL_LINE_LOOP);
+            glColor3f(1.0f, 1.0f, 1.0f);
+            glVertex3f(difference * (0.0f + rowCounter), difference * (0.0f + columnCounter), 0.0f);
+            glVertex3f(difference * (0.0f + rowCounter), difference * (1.0f + columnCounter), 0.0f);
+            glVertex3f(difference * (1.0f + rowCounter), difference * (1.0f + columnCounter), 0.0f);
+            glVertex3f(difference * (1.0f + rowCounter), difference * (0.0f + columnCounter), 0.0f);
+            glEnd();
 
-        glBegin(GL_LINE_LOOP);
-        glColor3f(1.0f, 1.0f, 1.0f);
-        glVertex3f(difference * 2.0f, difference * (0.0f + counter), 0.0f);
-        glVertex3f(difference * 2.0f, difference * (1.0f + counter), 0.0f);
-        glVertex3f(difference * 3.0f, difference * (1.0f + counter), 0.0f);
-        glEnd();
+            glBegin(GL_LINES);
+            glColor3f(1.0f, 1.0f, 1.0f);
+            glVertex3f(difference * (0.0f + rowCounter), difference * (0.0f + columnCounter), 0.0f);
+            glVertex3f(difference * (1.0f + rowCounter), difference * (1.0f + columnCounter), 0.0f);
+            glEnd();
+        }
     }
 }
 
@@ -372,30 +393,34 @@ void drawLineRayPattern(void)
 void drawColoredBoxPattern(void)
 {
     GLfloat difference = 25.0f / 3.0f;
-    glBegin(GL_QUADS);
 
-    for(int counter = 0; counter < 3; ++counter)
+    for(int rowCounter = 0; rowCounter < 3; ++rowCounter)
     {
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex3f(difference * 0.0f, difference * (0.0f + counter), 0.0f);
-        glVertex3f(difference * 0.0f, difference * (1.0f + counter), 0.0f);
-        glVertex3f(difference * 1.0f, difference * (1.0f + counter), 0.0f);
-        glVertex3f(difference * 1.0f, difference * (0.0f + counter), 0.0f);
+        for(int columnCounter = 0; columnCounter < 3; ++columnCounter)
+        {
+            glBegin(GL_QUADS);
+            if(columnCounter == 0)
+            {
+                glColor3f(1.0f, 0.0f, 0.0f);
+            }
 
-        glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex3f(difference * 1.0f, difference * (0.0f + counter), 0.0f);
-        glVertex3f(difference * 1.0f, difference * (1.0f + counter), 0.0f);
-        glVertex3f(difference * 2.0f, difference * (1.0f + counter), 0.0f);
-        glVertex3f(difference * 2.0f, difference * (0.0f + counter), 0.0f);
+            if(columnCounter == 1)
+            {
+                glColor3f(0.0f, 1.0f, 0.0f);
+            }
 
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex3f(difference * 2.0f, difference * (0.0f + counter), 0.0f);
-        glVertex3f(difference * 2.0f, difference * (1.0f + counter), 0.0f);
-        glVertex3f(difference * 3.0f, difference * (1.0f + counter), 0.0f);
-        glVertex3f(difference * 3.0f, difference * (0.0f + counter), 0.0f);
+            if(columnCounter == 2)
+            {
+                glColor3f(0.0f, 0.0f, 1.0f);
+            }
+
+            glVertex3f(difference * (0.0f + columnCounter), difference * (0.0f + rowCounter), 0.0f);
+            glVertex3f(difference * (0.0f + columnCounter), difference * (1.0f + rowCounter), 0.0f);
+            glVertex3f(difference * (1.0f + columnCounter), difference * (1.0f + rowCounter), 0.0f);
+            glVertex3f(difference * (1.0f + columnCounter), difference * (0.0f + rowCounter), 0.0f);
+            glEnd();
+        }
     }
-
-    glEnd();
 }
 
 void resize(int width, int height)
