@@ -1,4 +1,4 @@
-First Window
+Empty Window
 ============
 
 ###### How to compile
@@ -14,9 +14,9 @@ g++ -o window window.cpp -lX11
 - Press ```F``` or ```f``` to toggle full-screen mode.
 
 ###### Preview
-- First Window
-![window][window-image]
+- Empty Window
+![emptyWindow][emptyWindow-image]
 
 <!-- Image declaration -->
 
-[window-image]: ./preview/window.png "First Window"
+[emptyWindow-image]: ./preview/emptyWindow.png "First Window"

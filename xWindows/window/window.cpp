@@ -94,7 +94,7 @@ void createWindow(void)
         exit(EXIT_FAILURE);
     }
 
-    XStoreName(display, window, "CG - First XWindow");
+    XStoreName(display, window, "CG - Empty Window");
 
     Atom windowManagerDelete = XInternAtom(display, "WM_DELETE_WINDOW", True);
     XSetWMProtocols(display, window, &windowManagerDelete, 1);
