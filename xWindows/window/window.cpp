@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
-
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/XKBlib.h>
@@ -19,7 +18,7 @@ Colormap colormap;
 Window window;
 
 void createWindow(void);
-void cleanup();
+void cleanup(void);
 void handleEvent(XEvent *event);
 void toggleFullscreen(bool isFullscreen);
 
@@ -61,7 +60,7 @@ void createWindow(void)
 
     if(visualInfo == NULL)
     {
-        printf("Error: Unable to allocate memory for visual info.");
+        printf("Error: Unable to allocate memory for visual info.\n");
         cleanup();
         exit(EXIT_FAILURE);
     }
@@ -70,7 +69,7 @@ void createWindow(void)
 
     if(result == 0)
     {
-        printf("Error: Unable to get visual.");
+        printf("Error: Unable to get visual.\n");
         cleanup();
         exit(EXIT_FAILURE);
     }
@@ -110,7 +109,7 @@ void handleEvent(XEvent *event)
         case MapNotify: // Window created.
         break;
 
-        case KeyPress: // key events.
+        case KeyPress: // Key events.
             keySymbol = XkbKeycodeToKeysym(display, event->xkey.keycode, 0, 0);
 
             switch(keySymbol)
@@ -161,7 +160,7 @@ void handleEvent(XEvent *event)
             windowHeight = event->xconfigure.height;
         break;
 
-        case Expose: // Pant window.
+        case Expose: // Paint window.
         break;
 
         case DestroyNotify: // Window destroyed, cleanup resources.
