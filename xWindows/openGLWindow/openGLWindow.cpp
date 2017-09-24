@@ -21,7 +21,7 @@ Window window;
 GLXContext glxContext;
 
 void createWindow(void);
-void initializeOpenGL(void);
+void initialize(void);
 void cleanup(void);
 void handleEvent(XEvent *event);
 void display(void);
@@ -34,7 +34,7 @@ int main(void)
     bool done = false;
 
     createWindow();
-    initializeOpenGL();
+    initialize();
 
     while(!done)
     {
@@ -111,7 +111,7 @@ void createWindow(void)
     XMapWindow(gDisplay, window);
 }
 
-void initializeOpenGL(void)
+void initialize(void)
 {
     glxContext = glXCreateContext(gDisplay, visualInfo, NULL, GL_TRUE);
     glXMakeCurrent(gDisplay, window, glxContext);
@@ -177,6 +177,7 @@ void handleEvent(XEvent *event)
         case ConfigureNotify: // Window configuration change, like resize.
             windowWidth = event->xconfigure.width;
             windowHeight = event->xconfigure.height;
+            resize(windowWidth, windowHeight);
         break;
 
         case Expose: // Paint window.
