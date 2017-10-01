@@ -61,10 +61,17 @@ void createWindow(void)
 
     static int frameBufferAttributes[] = {
         GLX_RGBA,
-        GLX_RED_SIZE, 1,
-        GLX_GREEN_SIZE, 1,
-        GLX_BLUE_SIZE, 1,
-        GLX_ALPHA_SIZE, 1,
+        GLX_RED_SIZE, 8,
+        GLX_GREEN_SIZE, 8,
+        GLX_BLUE_SIZE, 8,
+        GLX_ALPHA_SIZE, 8,
+        GLX_DOUBLEBUFFER, True,
+        GLX_DEPTH_SIZE, 24,
+        GLX_DEPTH_SIZE, 24,
+        // GLX_X_RENDERABLE, true, // did not work.
+        GLX_X_VISUAL_TYPE, GLX_TRUE_COLOR,
+        // GLX_DRAWABLE_TYPE, GLX_WINDOW_BIT, // did not work.
+        // GLX_RENDER_TYPE, GLX_RGBA_BIT, // did not work.
         None
     };
 
@@ -117,6 +124,9 @@ void initialize(void)
 {
     glxContext = glXCreateContext(gDisplay, visualInfo, NULL, GL_TRUE);
     glXMakeCurrent(gDisplay, window, glxContext);
+    glClearDepth(1.0f);
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LEQUAL);
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     resize(windowWidth, windowHeight);
 }
