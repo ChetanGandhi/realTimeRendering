@@ -120,7 +120,7 @@ void createWindow(void)
         exit(EXIT_FAILURE);
     }
 
-    XStoreName(gDisplay, window, "CG - Depth And Double Buffer");
+    XStoreName(gDisplay, window, "CG - Solar System");
 
     Atom windowManagerDelete = XInternAtom(gDisplay, "WM_DELETE_WINDOW", True);
     XSetWMProtocols(gDisplay, window, &windowManagerDelete, 1);
