@@ -78,7 +78,7 @@ void createWindow(void)
         GLX_X_VISUAL_TYPE, GLX_TRUE_COLOR,
         // GLX_DRAWABLE_TYPE, GLX_WINDOW_BIT, // did not work.
         // GLX_RENDER_TYPE, GLX_RGBA_BIT, // did not work.
-       None
+        None
     };
 
     gDisplay = XOpenDisplay(NULL);
