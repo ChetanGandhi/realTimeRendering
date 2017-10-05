@@ -10,6 +10,8 @@
 #include <GL/glx.h>
 
 bool isFullscreen = false;
+bool isCloseButtonClicked = false;
+bool isEscapeKeyPressed = false;
 
 int windowWidth = 800;
 int windowHeight = 600;
@@ -45,6 +47,7 @@ int main(void)
             handleEvent(&event);
         }
 
+        done = (isCloseButtonClicked || isEscapeKeyPressed);
         display();
     }
 
@@ -135,8 +138,7 @@ void handleEvent(XEvent *event)
             switch(keySymbol)
             {
                 case XK_Escape:
-                    cleanup();
-                    exit(EXIT_SUCCESS);
+                    isEscapeKeyPressed = true;
                 break;
 
                 case XK_F:
@@ -188,8 +190,7 @@ void handleEvent(XEvent *event)
         break;
 
         case 33: // Windows close button event.
-            cleanup();
-            exit(EXIT_SUCCESS);
+            isCloseButtonClicked = true;
         break;
 
         default:

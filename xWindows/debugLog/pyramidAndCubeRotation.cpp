@@ -11,6 +11,8 @@
 #include <GL/glu.h>
 
 bool isFullscreen = false;
+bool isCloseButtonClicked = false;
+bool isEscapeKeyPressed = false;
 
 int windowWidth = 800;
 int windowHeight = 600;
@@ -65,6 +67,7 @@ int main(void)
             handleEvent(&event);
         }
 
+        done = (isCloseButtonClicked || isEscapeKeyPressed);
         update();
         display();
     }
@@ -186,18 +189,17 @@ void handleEvent(XEvent *event)
         switch(keySymbol)
         {
             case XK_Escape:
-            cleanup();
-            exit(EXIT_SUCCESS);
+                    isEscapeKeyPressed = true;
             break;
 
             case XK_F:
             case XK_f:
-            isFullscreen = !isFullscreen;
-            toggleFullscreen(isFullscreen);
+                isFullscreen = !isFullscreen;
+                toggleFullscreen(isFullscreen);
             break;
 
             case XK_9:
-            speed = 0.9f;
+                speed = 0.9f;
             break;
 
             default:
@@ -208,26 +210,27 @@ void handleEvent(XEvent *event)
         {
             speed = 0.1f * (keySymbol - XK_0);
         }
+
         break;
 
         case ButtonPress: // Mouse event.
-        switch(event->xbutton.button)
-        {
-            case 1: // Left button.
-            break;
+            switch(event->xbutton.button)
+            {
+                case 1: // Left button.
+                break;
 
-            case 2: // Middle button.
-            break;
+                case 2: // Middle button.
+                break;
 
-            case 3: // Right button.
-            break;
+                case 3: // Right button.
+                break;
 
-            case 4: // Mouse wheel up.
-            break;
+                case 4: // Mouse wheel up.
+                break;
 
-            case 5: // Mouse wheel down.
-            break;
-        }
+                case 5: // Mouse wheel down.
+                break;
+            }
 
         break;
 
@@ -235,9 +238,9 @@ void handleEvent(XEvent *event)
         break;
 
         case ConfigureNotify: // Window configuration change, like resize.
-        windowWidth = event->xconfigure.width;
-        windowHeight = event->xconfigure.height;
-        resize(windowWidth, windowHeight);
+            windowWidth = event->xconfigure.width;
+            windowHeight = event->xconfigure.height;
+            resize(windowWidth, windowHeight);
         break;
 
         case Expose: // Paint window.
@@ -247,8 +250,7 @@ void handleEvent(XEvent *event)
         break;
 
         case 33: // Windows close button event.
-        cleanup();
-        exit(EXIT_SUCCESS);
+            isCloseButtonClicked = true;
         break;
 
         default:
