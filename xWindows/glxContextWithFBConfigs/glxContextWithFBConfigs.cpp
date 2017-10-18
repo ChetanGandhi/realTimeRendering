@@ -68,9 +68,6 @@ int main(void)
 
 void createWindow(void)
 {
-
-
-
     XSetWindowAttributes windowAttributes;     // This is an array of all available FBConfig matching to frameBufferAttributes.
     GLXFBConfig *pGLXFBConfigs = NULL;
     XVisualInfo *pTempXVisualInfo = NULL;
