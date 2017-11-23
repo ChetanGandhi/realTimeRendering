@@ -1,0 +1,4 @@
+#define CP_ICON 101
+#define CP_ICON_SMALL 102
+#define STONE_BMP 103
+#define VIJAY_KUNDALI_BMP 104
