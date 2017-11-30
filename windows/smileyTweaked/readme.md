@@ -46,7 +46,6 @@ cl.exe /EHsc /DUNICODE /Zi smileyTweaked.cpp /link resources\resource.res user32
 
 <!-- Image declaration -->
 
--
 [whiteSquare-image]: ./preview/whiteSquare.png "White Square"
 [bottomLeftQuadrant-image]: ./preview/bottomLeftQuadrant.png "Bottom Left Quadrant"
 [fullTexture-image]: ./preview/fullTexture.png "Full Texture"
