@@ -468,9 +468,6 @@ void drawSphere(void)
 
     // Pop back to initial state.
     glPopMatrix();
-
-    // Pop the elbow transformation state.
-    glPopMatrix();
 }
 
 void resize(int width, int height)
