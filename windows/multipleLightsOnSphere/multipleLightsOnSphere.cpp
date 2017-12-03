@@ -357,7 +357,9 @@ void drawSphere(void)
     glPushMatrix();
 
     glRotatef(angleRedLight, 1.0f, 0.0f, 0.0f);
+    lightZeroPosition[0] = 0;
     lightZeroPosition[1] = angleRedLight;
+    lightZeroPosition[2] = 0;
     glLightfv(GL_LIGHT0, GL_POSITION, lightZeroPosition);
 
     // Light 0 pop
@@ -368,6 +370,8 @@ void drawSphere(void)
 
     glRotatef(angleGreenLight, 0.0f, 1.0f, 0.0f);
     lightOnePosition[0] = angleRedLight;
+    lightOnePosition[1] = 0;
+    lightOnePosition[2] = 0;
     glLightfv(GL_LIGHT1, GL_POSITION, lightOnePosition);
 
     // Light 1 pop
@@ -378,6 +382,8 @@ void drawSphere(void)
 
     glRotatef(angleBlueLight, 0.0f, 0.0f, 1.0f);
     lightTwoPosition[0] = angleRedLight;
+    lightTwoPosition[1] = 0;
+    lightTwoPosition[2] = 0;
     glLightfv(GL_LIGHT2, GL_POSITION, lightTwoPosition);
 
     // Light 2 pop
