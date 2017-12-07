@@ -3,4 +3,4 @@ Assignments on 17-11-2017
 
 ###### Windows
 
-* [pyramidAndCubeRotationWithLight](../../windows/pyramidAndCubeRotationWithLight)
+* [Pyramid and Cube Rotation with Light](../../windows/pyramidAndCubeRotationWithLight)

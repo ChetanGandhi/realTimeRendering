@@ -3,5 +3,5 @@ Assignments on 19-11-2017
 
 ###### Windows
 
-* [multipleLightsOnSphere](../../windows/multipleLightsOnSphere)
-* [pyramidCubeSphereRotationWithLight](../../windows/pyramidCubeSphereRotationWithLight)
+* [Multiple Lights On Sphere](../../windows/multipleLightsOnSphere)
+* [Pyramid Cube Sphere Rotation with Light](../../windows/pyramidCubeSphereRotationWithLight)
