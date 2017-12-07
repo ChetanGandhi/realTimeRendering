@@ -1,0 +1,45 @@
+01) Download Latest Stable Version Of Android Studio 3.0.1 From https://developer.android.com/studio/index.html
+    [ File Name : android-studio-ide-171.4443003-windows.exe ]
+
+02) Keep Internet 'On'.
+
+02) Double Click On It And Follow The Instructions, Keep Everything Default As It Is.
+
+03) If Everything Is Kept Without Any Change, After Installation, Android Studio Will Start On Its Own.
+
+04) Continue With Default 'Do not import settings' Selected.
+
+05) Let It Download And Install With 'Standard' Setup Selected.
+
+06) Keep Default UI Theme ( IntelliJ ) As It Is.
+
+07) Finish The Installation Which Will Start Downloading Following Components Of About 970 MB :
+    A) Android Studio Install Location : C:\Program Files\Android\Android Studio
+    B) Android SDK Download And Install Location : C:\Users\<username>\AppData\Local\Android\Sdk
+       Components :
+       ------------
+       a) Android SDK Build-Tools 27.0.1
+       b) Android SDK Platform 27
+       c) Android SDK Platform-Tools
+       d) Android SDK Tools
+       e) Android Support Repository
+       f) Google Repository
+       g) Intel x86 Emulator Accelerator (HAXM installer)
+       h) SDK Patch Applier v4
+
+08) Path Settings : 
+    Control Panel > System > Advanced System Settings > Environment Variables > System variables > Path > 
+    Edit >
+    Type Following 3 Lines One Below The Other :
+    C:\Users\<username>\AppData\Local\Android\Sdk\tools
+    C:\Users\<username>\AppData\Local\Android\Sdk\tools\bin
+    C:\Users\<username>\AppData\Local\Android\Sdk\platform-tools
+====================================================================================================================
+See Later :
+===========
+09) After Installation And First Hello Project Build, The Android Configuration Becomes :
+    - Android Studio 3.0.1 [ Location : C:\Program Files\Android\Android Studio ]
+    - Build Tools 26.0.2 And 27.0.1 [ Location :  C:\Users\<username>\AppData\Local\Android\Sdk\build-tools ]
+    - Platforms Auto-Installed During Installation And Project Building Are 
+      Android-25, Android-26 And Android-27 [ Location : C:\Users\<username>\AppData\Local\Android\Sdk\platforms ]
+    - Default Android Studio Project Location : C:\Users\<username>\AndroidStudioProjects

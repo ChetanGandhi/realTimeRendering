@@ -1,0 +1,119 @@
+00) Keep Internet 'On' Before  Starting Following Steps.
+
+01) Start 'Android Studio.app' from Programs.
+
+02) 'Welcome to Android Studio' window appears.
+    In it click on 'Start a new Android Studio project'
+
+03) 'Create New Project' window appears.
+    In it, 
+    a) Type desired 'Application name', say 'Window'
+    b) Type desired 'Company domain', say 'astromedicomp.com'
+    c) Type or choose 'Project location''
+       I created this inside '_Template' directory.
+
+    * Above settings let the 'Package name' to become 'com.astromedicomp.window'
+      [ i.e. domain name in reverse order appended by application name ]
+
+    If needed, check 'Include C++ support', I kept it unchecked.
+    If needed, check 'Include Kotlin support', I kept it unchecked.
+
+    Click 'Next'
+
+04) 'Target Android Devices' window appears.
+    In it, under 'Select the form factors and minimum SDK' heading,
+    check the target device/devices on which this application should run.
+
+    For us, keep the default i.e. 'Phone and Tablet' checkbox checked,
+    or check it if not already checked.
+
+    For this checkbox, the default selected API level, as now in Android Studio 3.0.1 is
+    'API 15: Android 4.0.3 (IceCreamSandwich)'.
+
+    To see which Android OS version we have, on Android Phone/Device, 
+    go to settings > About and look for Android OS version.
+
+    To know proper API level for our phone/device, there is a line with a link below this 
+    check box saying : 'help me choose'
+
+    Click on that link to see 'Android Platform/API Version Distribution' window. This gives us
+    information that Android 7.0 has API Level 24 while Android 7.1 has API level 25 and so on.
+
+    Come back to 'Create New Project' window by pressing 'Ok' Or 'Cancel' button.
+
+    Now we know which API level to select.
+    So go to our checked 'Phone and Tablet' checkbox and from dropdown select proper API Level.
+    [ I chose 'API 25: Android 7.1.1 (Nougat)' ]
+
+    Press 'Next' button to continue.
+
+05) 'Add an Activity to Mobile' window appears.
+    In it choose 'Empty Activity'.
+    This is because we will do everything here onwards by code and not by Android Studio IDE.
+
+    Press 'Next' button to continue.
+
+06) 'Configure Activity' Window Appears.
+    In it,
+    a) Leave default 'Activity Name' with 'MainActivity' as it is.
+    b) Leave 'Generate Layout File' checkbox checked.
+    c) Leave default 'Layout Name' with 'activity_main' as it is.
+    d) Uncheck 'Backwards Compatibility (AppCompat)' checkbox.
+       So that our main activity will be inherited as 'Activity'
+       and NOT as 'AppCompatActivity'
+
+    Press 'Finish' button to continue.
+
+07) Next 'Project Building Info' window with progress bar appears which 
+    configures and installs all needed requested components and displays 
+    a log of installation.
+
+    * Sometimes it may give us error of absence of some dependancies with proper resolution
+      information and even link to install those dependancies. Follow to complete those 
+      dependancies [ for me, when I chose 'API 25' in step 4, It gave me error for absence of
+      Platform Build Tools 26.0.2 and shown me the link to install/update the same ]. 
+
+    Wait for build process to complete.
+    May take a long time to download and install.
+
+08) Finally our project window will appear showing 'MainActivity.java' File 
+    and we are ready to code.
+
+09) The Directory And File Structure At The Give Location is detailed in 
+    '05-Project-Directory Structure By Gradle.txt' File.
+
+10) At this point, when no file is yet modified manually, we can copy this whole directory 
+    and file structure as 'template' and later can modify it to suit our needs and even can use
+    this for purely 'command line' building.
+
+11) Enable your device to work as 'development' enabled and app deployable device.
+    a) Connect device to your development machine with a USB cable. 
+       [ On Windows OS, we may need to install the appropriate USB driver for our device ]
+    b) Enable USB debugging in the Developer options as follows by :
+       Settings > About > fins 'Build number' single tap 7 times > now device development enabled >
+       come back to 'Settings' > go to 'Developer options' > find and enable 'USB debugging'
+
+    * VIMP : On VMWare Fusion Windows 10 VM, I need To Plug My HTC-U11 In USB 2.0 Port ( not 3.0 )
+             To Get Correctly Detected By 'HTC Sync Manager'.
+
+12) Assuming step 11 is done and the device is connected to the system,
+    In Android Studio > left pane > select/click 'app' module > in menubar, choose > Run > Run 'app'
+
+13) 'Select Deployment Target' window appears.
+    - It shows our detected and connected physical devices and available 'android virtual devices'
+      (avd).
+    - It may also validate our device to be used by this system by telling us to respond positive
+      to a message displayed on device screen. 
+    - Additionally we can allow this system to be permanently validated for development on this
+      device by not displaying validation query again.
+
+14) In 'Select Deployment Target' window, now choose our desired device and press 'Ok' button.
+    It May gives us options to "Install & Run" or "Run without Install".
+    For the 1st time choose "Install & Run" option.
+
+15) We can see the window with white background with centrally located text "Hello World!".
+    Ignore few plugin warnings/errors if displayed and if we see the right output on device.
+    From Android Studio, Close The Project And Quit The Android Studio.
+
+16) To run the project on emulator, follow the 'b' link given in 'References' 
+    part of "01-System Configuration.txt" File.

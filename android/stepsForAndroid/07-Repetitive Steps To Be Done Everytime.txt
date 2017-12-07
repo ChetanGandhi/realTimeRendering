@@ -1,0 +1,61 @@
+After Copying Template Project directory And Files As A Whole To Some Another Directory,
+========================================================================================
+[ 
+  In VMWare based Windows10 VM, it seems that device connection to VM through Mac may fail 
+  if device is not connected to internet. 
+  So keep device connected to internet.
+]
+
+01) Go To The Respective Directory Where Template Directory And File Structure Resides.
+    Select All And Copy/Paste To Desired Directory ( Around 9 Contents : 3 Directories + 6 Files ).
+    [ '.gradle' directory may get regenerated everytime when built. So keep it or delete it everytime ]
+
+    Eg : Suppose our template directory is '_Template' having the directory structure that we want.
+         Suppose now we are going to use it to create window in portrait mode.
+         Then first create a new directory, say '00-Winow-Portrait' and copy all contents from
+         '_Template' directory ( not the '_Template' directory itself ) to '00-Window-Portrait' 
+         directory.
+
+02) First Go To app/src/main, Open AndroidManifest.xml And Change Last Component Of 'package'
+    Attribute As Needed.
+
+    Eg : Suppose right now the 'package' attribute is showing 'com.astromedicomp.window',
+         now we are going to create window in portrait mode, then change the last component 'window'
+         to something 'win_portrait' so that it looks 'com.astromedicomp.win_portrait'
+
+03) Then Go Inside app/src/main/java Directory And Reflect Same Above Change In directory Name
+    Of The Last Component.
+
+    Eg : Suppose due to package attribute 'com.astromedicomp.window', the directory structure of 'app'
+         directory is app/src/main/java/com/astromedicomp/window, where the last 3 subdirectories
+         match with the 3 components in package attribute.
+         Now in step 02 we changed our package attribute to 'com.astromedicomp.win_portrait', 
+         so to reflect this in above subdirectories, change the name of last subdirectory 
+         'window' to 'win_portrait'.
+         Means now the final directory structure of 'app' directory should look like :
+         app/src/main/java/com/astromedicomp/win_portrait, where the last 3 subdirectories match with 
+         the 3 components in new package attribute.
+
+04) Then Go Inside That final directory say 'win_portrait' and change 1st 'package' Statement in Every 
+     .java File to reflect same above change.
+
+    Eg : Suppose right now the 'MainActivity.java' file's first 'package' ststement looks like :
+
+         package com.astromedicomp.window;
+
+         To reflect the new chage in apackage attribute, change this line to :
+
+         package com.astromedicomp.win_portrait;
+
+         * Do this in all .java files and other relevant files as needed.
+
+05) Finally and OPTIONALLY go to app/src/main/res/values directory, edit strings.xml and change 
+    project's display name that will appear on device.
+
+    Eg : This is the name that user/we will see on the device when this app will be deploied.
+         Suppose previous app's name on this device was saying 'Window', you now can change it
+         to say : 'Portrait-Window'
+
+06) From here onwards, follow the steps 10 to 14 in '06-Steps For Android Project-CommandLine.txt' 
+    file to build, deploy and debug this new app.
+  

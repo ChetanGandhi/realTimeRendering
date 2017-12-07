@@ -1,0 +1,60 @@
+* The Directory And File Structure At The Give Location Looks Like Follows Alphabetically :
+
+    A) Directory : .gradle 
+                   [ this may get regenerated everytime, when built. So keep it or delete it everytime ]
+
+    B) Directory : .idea
+
+    C) Directory : app, which contains :
+       a) Directory : build, which contains :
+            i) Directory : generated
+           ii) Directory : intermediates
+          iii) Directory : outputs : IMPORTANT => Here final deployable '.apk' resides
+           iv) tmp
+       b) Directory : libs
+       c) Directory : src : As name suggests, this is the directory concerns with source code. 
+          This further contains :
+             i) Directory : androidTest
+            ii) Directory : main : IMPORTANT => Directory concerns with source code of our interest. 
+                This further contains :
+                * Directory : java : IMPORTANT => Has subdirectories of each component of our
+                                                  domain name in 'reverse' order. Means for domain
+                                                  astromedicomp.com, subdirectories created are 
+                                                  'com', 'astromedicomp', and then finally 
+                                                  subdirectory of our project name in lower case, 
+                                                  means 'window'.
+                                                  This final project name directory, contains the 
+                                                  main activity java file : MainActivity.java
+                                                  [ com > as > amc > window > MainActivity.java ]
+                * Directory : res : IMPORTANT => Contains many subdirectories, which will contain
+                                                 icons, layouts, raw files etc.
+                * File : AndroidManifest.xml : IMPORTANT : We edit this for project configuration.
+           iii) Directory : test
+       d) File : .gitignore
+       e) File : app.iml
+       f) File : build.gradle : IMPORTANT => One project can contain one or many modules. This file
+                                             deals with Module specific gradle build configuration.
+       g) File : proguard-rules.pro
+
+    D) Directory : build, concern mainly with 'android-profile' 
+                   [ this is different than the directory app > build ]
+
+    E) Directory : gradle
+
+    F) File : .gitignore
+
+    G) File : _Template.iml
+
+    H) File : build.gradle : IMPORTANT : This file is different than the app > build.gradle file.
+                                         This is a 'global to all project' and not just per module.
+
+    I) File : gradle.properties
+
+    J) File : gradlew : IMPORTANT => 'gradle-wrapper' script for command-line building in Linux,
+                                     macOS and other *IX platform OS.
+    
+    K) File : gradlew.bat : IMPORTANT => Same like above, but for Windows OS.
+
+    L) FILE : local.properties
+
+    M) File : settings.gradle

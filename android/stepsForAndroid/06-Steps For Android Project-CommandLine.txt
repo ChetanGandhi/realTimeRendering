@@ -1,0 +1,177 @@
+﻿00) Create A Directory ( Other Than The Default Android Studio's Project Directory ) 
+    To Hold Our Android Projects, Say 'MyAndroid'. 
+    Inside It Create Another Directory, Say '_Template'.
+    And Copy All Directories And Files As It Is To It.
+
+01) Delete following files and directoris from Explorer ( as we don't need them ) :
+
+    a) 2 directories from project's root directory :
+        i) .gradle
+       ii) .idea
+
+    b) 2 files :
+        i) project's root directory\.gitignore
+       ii) app\.gitignore
+
+    c) 2 .iml files : 
+        i) project's root directory\_Template.iml
+       ii) app\app.iml
+
+    d) 2 directories from app/src :
+        i)'androidTest'
+       ii) 'test'
+
+    e) 2 files from app/src/main/res/values directory :
+        i) colors.xml
+       ii) styles.xml
+       [ But AndroidManifest.xml needs to be updated accordingly. See below in step 5 ]
+
+02) From Command Prompt, 'cd' to the '_Template' directory.  
+
+03) Edit app/build.gradle file :
+
+    a) In 'android' block :
+       compileSdkVersion <target api version number or +1>
+
+       Eg :
+       ----
+       compileSdkVersion 25
+
+       Or
+
+       compileSdkVersion 26
+
+    b) In 'android > defaultConfig' block, following statements can be removed
+       because we are going to fulfill them in AndroidManifest.xml file.
+
+        applicationId "<domain name in reverse order>"
+        minSdkVersion 25
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+    IMPORTANT NOTE : For our purpose, keeping API level 25 is good for Android 7.1.1, 7.0.0 and 6.0.0
+                     Because if you change it to say 24, then roundIcon feature was absent and hence
+                     may flag error.
+
+04) copy <youricon> and <youricon_round> to 5 directories : mipmap_hdpi, mipmap_mdpi, mipmap_xhdpi,
+    Mipmap.xxhdpi and mipmap.xxxhdpi directories. Keep original default android's png files as they
+    are.
+
+05) Edit 'app/src/main/AndroidManifest.xml' to match 'AndroidManifest.xml' at above location.
+    So change icon names to our icon names :
+    a) To match with the target API level, write following block of targetSdkVersion and related
+       minSdkVersion:
+
+    <!-- VDG : target API Level 'android-25' -->
+    <uses-sdk
+    android:targetSdkVersion="25"
+    android:minSdkVersion="18" />
+
+    [ 
+      Note : For 'targetSdkVersion', for HTC-U11, use 25. If SGS8+, then it should be 24,
+             but we can keep it 25.See the IMOPRTANT NOTE in step 3.
+             For 'minSdkVersion', the number should be less than the targetSdkVersion.
+             We used 18, because OpenGL-ES 3.0 support starts from Android SDK 18
+    ]
+
+    b) From <application> block, remove following 3 un-necessary tags :
+
+        android:theme="@style/AppTheme
+
+        android:allowBackup="true"
+
+        android:supportsRtl="true"
+
+       [ IMPORTANT : but then do not forget to give '>' to relevant last statement ]
+
+    c) change 'android:icon=@mipmap/ic_launcher' to 
+              'android:icon=@mipmap/<youricon>'
+    d) change 'android:roundIcon=@mipmap/ic_launcher_round' to 
+              'android:roundIcon=@mipmap/<youricon>'
+
+       * Your Icon images should be 72x72.
+         Use Currently Present Icons i.e. ic_launcher And ic_launcher_round as guideline.
+
+06) Edit app/src/main/res/layout/activity_main.xml, experiment with the 'android:text' tag value
+    to print something other than "Hello World". But finally keep it as follows because we don't 
+    need so many features in it for our OpenGL purpose.
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+      >
+      <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+      />
+    </LinearLayout>
+
+07) Edit 'app/src/main/res/values/strings.xml' to give a displayable name to the application on 
+    emulator or device.
+
+    On Emulator/Device App Gets Installed By The Name That Is Specified In This File, 
+    Which Is By Default The Name Of Project. But If We Want Our App To Get Installed 
+    By Some Different Meaningful Name, We Can Change It In This File Under <resources> Block 
+    At <app_name> Tag, Irrespective Of Name Of Project.
+
+08) Project Directory/local.properties File : 
+    Should contain SDK Or NDK Directory Paths : sdk.dir= And ndk.dir
+    Keep both or keep relevant.
+
+09) IMPORTANT : Gradle defines a Domain Specific Language (DSL).
+                The 'buildscript' tag in project root directory's 'build.gradle' file is part of
+                that DSL. So the 'dependancies' block in this file, which contain a line :
+                classpath 'com.android.tools.build:gradle:3.0.1'
+                must be resolved. This is gradle's android plugin and gets updated very frequently
+                Time to time.
+
+    * So during build following process, internet MUST be enabled ( i.e. We must be online ) or else
+      Build process may fail.
+
+    * When Gradle builds this project the first time, the plugin will be downloaded and cached, 
+      so this task is only performed once. 
+
+10) Assuming we are in project's directory, give following command :
+    [ IMP : During Following Steps Internet Download Installation May Take Place At First Time ]
+
+    > gradlew.bat clean
+
+    > gradlew.bat build
+
+    [ When needed Use : gradlew.bat --version ]
+
+11) If everything goes well, the 'app\build\outputs\apk\debug' location will have the .apk File
+    say 'app-debug.apk'.
+
+12) Check Whether Emulator Or Device Is/Are Online Or Not By :
+
+    > adb devices
+
+    [ Our Connected Device ID Should Be Visible ]
+
+13) To Deploy :
+    [ Don't Forget To Uninstall The Same Named, Previously Deploied APK From The Device ]
+
+    > adb -d install -r app\build\outputs\apk\debug\<apk file>
+
+14) For debugging :
+    ===============
+    Open A New Console/Command Promp ( Need not to 'cd' in project's directory ) For 
+    Monitoring Android Device Log And Check Log For Output Of :
+    Any System.out.println() With ‘VDG:’ Tag, Used In Java Code. 
+   
+    > adb logcat | findstr /i VDG:
+
+    Where ‘VDG:’ Is Used As Tag To Locate Output In Debug Info On Console.
+
+    * When Needed Use : 
+
+    > adb logcat -c
+
+    To Clear/Flush The Log
+
+    * And Use Ctrl+C To Abort The ‘adb logcat’

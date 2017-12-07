@@ -1,0 +1,37 @@
+01) Go To Following Link http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html,
+    Then to 'Java SE Development Kit 8u152' And After 'Accepting License Agreement' Download 'jdk-8u152-windows-x64.exe'
+
+02) Install : Double click on the above downloaded '.exe' file. 
+
+    It Will Get Installed To :
+    a) JDK : C:\Program Files\Java\jdk1.8.0_152
+    b) JRE : C:\Program Files\Java\jre1.8.0_152
+
+03) Path Settings : 
+    Control Panel > System > Advanced System Settings > Environment Variables > System variables > Path > 
+    Edit >
+    Type Following 2 Lines One Below The Other :
+    C:\ProgramData\Oracle\Java\javapath [ * This Line May Be Already There ]
+    C:\Program Files\Java\jdk1.8.0_152\bin
+
+04) Close Control Panel.
+
+05) Open Usual Command Prompt ( VS Command Prompt Is Not Necessary Though Can Be Used ).
+
+06) Issue Following Commands To Check Correctness Of JDK Installation.
+
+    a) To See Whether Java Compiler Is Working :
+
+       > javac -help
+
+       The Output Should Show Various Java Compiler Command Line Options.
+
+    b) To See Whether Java Interpreter Is Working :
+
+       > java -version
+
+       The Output Should Be Java Version Related Info Like :
+
+       java version "1.8.0_152"
+       Java(TM) SE Runtime Environment (build 1.8.0_152-b16)
+       Java HotSpot(TM) 64-Bit Server VM (build 25.152-b16, mixed mode)

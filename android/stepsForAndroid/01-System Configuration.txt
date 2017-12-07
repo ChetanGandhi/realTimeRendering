@@ -1,0 +1,14 @@
+My System :
+===========
+Windows 10 Enterprise, 64 Bit On VMWare Fusion 10.0.1 On macOS 10.13.0, High Sierra 
+===================================================================================
+Reference :
+===========
+a) https://developer.android.com/training/basics/firstapp/creating-project.html
+b) https://developer.android.com/training/basics/firstapp/running-app.html
+===================================================================================
+My Mobile Devices :
+===================
+01) SGS8+   : Android 7.0.0 Nougat
+02) HTC-U11 : Android 7.1.1 Nougat
+===================================================================================
