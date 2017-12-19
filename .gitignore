@@ -434,6 +434,7 @@ out/
 #===========================
 !*.exe
 *.obj
+!**/resources/**/*.obj
 .history
 .gradle/
 !android/**/app/build/outputs/apk
