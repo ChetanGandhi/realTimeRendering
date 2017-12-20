@@ -19,11 +19,27 @@ MeshData monkeyHeadMeshData;
 bool isFullscreen = false;
 bool isActive = false;
 bool isEscapeKeyPressed = false;
+bool isLightingEnabled = false;
+
+GLboolean isWireframeEnabled = GL_TRUE;
 
 GLfloat angleMonkeyHead = 0.0f;
 GLfloat speed = 0.1f;
 
-GLboolean isWireframeEnabled = GL_TRUE;
+GLfloat lightZeroAmbient[] = {0.0f, 0.0f, 0.0f, 0.0f};
+GLfloat lightZeroDiffuse[] = {1.0f, 0.0f, 0.0f, 0.0f};
+GLfloat lightZeroSpecular[] = {1.0f, 0.0f, 0.0f, 0.0f};
+GLfloat lightZeroPosition[] = {2.0f, 1.0f, 1.0f, 0.0f};
+
+GLfloat lightOneAmbient[] = {0.0f, 0.0f, 0.0f, 0.0f};
+GLfloat lightOneDiffuse[] = {0.0f, 0.0f, 1.0f, 0.0f};
+GLfloat lightOneSpecular[] = {0.0f, 0.0f, 1.0f, 0.0f};
+GLfloat lightOnePosition[] = {-2.0f, 1.0f, 1.0f, 0.0f};
+
+GLfloat materialAmbient[] = {0.0f, 0.0f, 0.0f, 0.0f};
+GLfloat materialDiffuse[] = {1.0f, 1.0f, 1.0f, 1.0f};
+GLfloat materialSpecular[] = {1.0f, 1.0f, 1.0f, 1.0f};
+GLfloat matrialShininess[] = {50.0f, 50.0f, 50.0f, 50.0f};
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
 
@@ -173,6 +189,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
         case WM_CHAR:
             switch(wParam)
             {
+                case 'L':
+                case 'l':
+                    if(!isLightingEnabled) {
+                        isLightingEnabled = true;
+                        glEnable(GL_LIGHTING);
+                        glEnable(GL_LIGHT0);
+                        glEnable(GL_LIGHT1);
+                    }
+                    else {
+                        isLightingEnabled = false;
+                        glDisable(GL_LIGHTING);
+                        glDisable(GL_LIGHT0);
+                        glDisable(GL_LIGHT1);
+                    }
+                break;
+
                 case 'w':
                 case 'W':
                     if(isWireframeEnabled == GL_TRUE)
@@ -253,12 +285,26 @@ void initialize(void)
 
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClearDepth(1.0f);
+
+    glLightfv(GL_LIGHT0, GL_AMBIENT, lightZeroAmbient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightZeroDiffuse);
+    glLightfv(GL_LIGHT0, GL_POSITION, lightZeroPosition);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, lightZeroSpecular);
+
+    glLightfv(GL_LIGHT1, GL_AMBIENT, lightOneAmbient);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, lightOneDiffuse);
+    glLightfv(GL_LIGHT1, GL_POSITION, lightOnePosition);
+    glLightfv(GL_LIGHT1, GL_SPECULAR, lightOneSpecular);
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT, materialAmbient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, materialDiffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, materialSpecular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, matrialShininess);
+
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
     glShadeModel(GL_SMOOTH);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-
-    glEnable(GL_TEXTURE_2D);
 
     bool meshDataLoaded = loadMeshData("./resources/models/monkeyHead.obj", &monkeyHeadMeshData);
 
@@ -275,7 +321,7 @@ void initialize(void)
 
 void update(void)
 {
-    angleMonkeyHead -= speed;
+    angleMonkeyHead += speed;
 
     if(angleMonkeyHead >= 360.0f)
     {
@@ -288,7 +334,7 @@ void display(void)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    glTranslatef(0.0f, 0.0f, -5.0f);
+    glTranslatef(0.0f, 0.0f, -7.0f);
     glRotatef(angleMonkeyHead, 0.0f, 1.0f, 0.0f);
     glScalef(1.5f, 1.5f, 1.5f);
 
@@ -317,6 +363,9 @@ void drawMonkeyHead()
         for(int vertexCounter = 0; vertexCounter < monkeyHeadMeshData.faceTriangles[triangleCounter].size(); ++vertexCounter)
         {
             int vertexIndex = monkeyHeadMeshData.faceTriangles[triangleCounter][vertexCounter] - 1;
+            int normalIndex = monkeyHeadMeshData.faceNormals[triangleCounter][vertexCounter] - 1;
+
+            glNormal3f(monkeyHeadMeshData.normals[normalIndex][0], monkeyHeadMeshData.normals[normalIndex][1], monkeyHeadMeshData.normals[normalIndex][2]);
             glVertex3f(monkeyHeadMeshData.vertices[vertexIndex][0], monkeyHeadMeshData.vertices[vertexIndex][1], monkeyHeadMeshData.vertices[vertexIndex][2]);
         }
 
@@ -334,7 +383,7 @@ void resize(int width, int height)
     glViewport(0, 0, (GLsizei)width, (GLsizei)height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0f, (GLfloat)width/(GLfloat)height, -1.0f, 1.0f);
+    gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 1.0f, 100.0f);
 }
 
 void toggleFullscreen(HWND hWnd, bool isFullscreen)
