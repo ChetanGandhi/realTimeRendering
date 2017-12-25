@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <vector>
 
 #define MESH_FILE_LINE_BUFFER_SIZE 256
@@ -9,12 +10,13 @@
 #define NUMBER_OF_FACE_TOKENS 3
 
 typedef struct MeshData {
-    std::vector<std::vector<float>> vertices;
-    std::vector<std::vector<float>> textures;
-    std::vector<std::vector<float>> normals;
-    std::vector<std::vector<int>> faceTriangles;
-    std::vector<std::vector<int>> faceTextures;
-    std::vector<std::vector<int>> faceNormals;
+    // ‘>>’ should be ‘> >’ within a nested template argument list
+    std::vector< std::vector<float> > vertices;
+    std::vector< std::vector<float> > textures;
+    std::vector< std::vector<float> > normals;
+    std::vector< std::vector<int> > faceTriangles;
+    std::vector< std::vector<int> > faceTextures;
+    std::vector< std::vector<int> > faceNormals;
 } MeshData;
 
 void loadMeshData(char *fileName, MeshData *data);
@@ -138,11 +140,11 @@ void loadMeshData(char *fileName, MeshData *data)
 
     printf("--------------------\n");
     printf("Mesh file: %s\n", fileName);
-    printf("Vertices: %llu\n", data->vertices.size());
-    printf("Textures: %llu\n", data->textures.size());
-    printf("Normals: %llu\n", data->normals.size());
-    printf("Face triangles: %llu\n", data->faceTriangles.size());
-    printf("Face textures: %llu\n", data->faceTextures.size());
-    printf("Face normals: %llu\n", data->faceNormals.size());
+    printf("Vertices: %lu\n", data->vertices.size());
+    printf("Textures: %lu\n", data->textures.size());
+    printf("Normals: %lu\n", data->normals.size());
+    printf("Face triangles: %lu\n", data->faceTriangles.size());
+    printf("Face textures: %lu\n", data->faceTextures.size());
+    printf("Face normals: %lu\n", data->faceNormals.size());
     printf("--------------------\n");
 }
