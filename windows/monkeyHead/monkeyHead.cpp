@@ -6,6 +6,8 @@
 #include "resources/resource.h"
 #include "objParser.cpp"
 
+#define OBJ_FILE_PATH "./resources/models/monkeyHead.obj"
+
 HWND hWnd = NULL;
 HDC hdc = NULL;
 HGLRC hrc = NULL;
@@ -306,7 +308,7 @@ void initialize(void)
     glShadeModel(GL_SMOOTH);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
-    bool meshDataLoaded = loadMeshData("./resources/models/monkeyHead.obj", &monkeyHeadMeshData);
+    bool meshDataLoaded = loadMeshData(OBJ_FILE_PATH, &monkeyHeadMeshData);
 
     if(!meshDataLoaded)
     {
@@ -365,8 +367,8 @@ void drawMonkeyHead()
             int vertexIndex = monkeyHeadMeshData.faceTriangles[triangleCounter][vertexCounter] - 1;
             int normalIndex = monkeyHeadMeshData.faceNormals[triangleCounter][vertexCounter] - 1;
 
-            glNormal3f(monkeyHeadMeshData.normals[normalIndex][0], monkeyHeadMeshData.normals[normalIndex][1], monkeyHeadMeshData.normals[normalIndex][2]);
-            glVertex3f(monkeyHeadMeshData.vertices[vertexIndex][0], monkeyHeadMeshData.vertices[vertexIndex][1], monkeyHeadMeshData.vertices[vertexIndex][2]);
+            glNormal3fv(monkeyHeadMeshData.normals[normalIndex].data());
+            glVertex3fv(monkeyHeadMeshData.vertices[vertexIndex].data());
         }
 
         glEnd();
