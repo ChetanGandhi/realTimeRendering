@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Fullscreen My Text View</string>
+    <string name="text_message">Landscape fullscreen window, text view subclass created programmtically.</string>
+</resources>
