@@ -446,3 +446,4 @@ android/**/build/intermediates
 android/**/build/reports
 android/**/build/tmp
 android/**/build/android-profile
+!/android/**/local.properties

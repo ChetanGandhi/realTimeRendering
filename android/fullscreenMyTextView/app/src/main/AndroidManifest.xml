@@ -3,7 +3,7 @@
     package="com.github.chetangandhi.fullscreenMyTextView">
 
     <uses-sdk
-        android:targetSdkVersion="26"
+        android:targetSdkVersion="25"
         android:minSdkVersion="18" />
 
     <application
