@@ -5,12 +5,12 @@ import android.content.Context;
 import android.graphics.Color;
 import android.view.Gravity;
 
-public class MyView extends TextView {
+public class MyTextView extends TextView {
 
-    public MyView(Context context) {
+    MyTextView(Context context) {
         super(context);
 
-        this.setText("Hello from Class!!");
+        this.setText(R.string.text_message);
         this.setTextSize(60);
         this.setTextColor(Color.GREEN);
         this.setGravity(Gravity.CENTER);
