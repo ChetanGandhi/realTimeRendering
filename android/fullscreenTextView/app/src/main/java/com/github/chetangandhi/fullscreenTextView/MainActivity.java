@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
         this.getWindow().getDecorView().setBackgroundColor(Color.rgb(0, 0, 0));
 
         // Force activity window orientation to be Landscape
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
 
         // Create the text view.
         TextView textView = new TextView(this);
