@@ -238,6 +238,16 @@ void initialize(void)
         hdc = NULL;
     }
 
+    GLenum glewError = glewInit();
+	if (glewError != GLEW_OK)
+	{
+        fprintf(logFile, "Cannot initialize GLEW, Error: %d", glewError);
+        fflush(logFile);
+
+        cleanUp();
+        exit(EXIT_FAILURE);
+	}
+
     GLint extensionCount = 0;
     glGetIntegerv(GL_NUM_EXTENSIONS, &extensionCount);
 
@@ -246,9 +256,9 @@ void initialize(void)
 
     if(glGetStringi != NULL)
     {
-        for(int counter = 0; counter < extensionCount; ++extensionCount)
+        for(int counter = 0; counter < extensionCount; ++counter)
         {
-            fprintf(logFile, "%d] Extension name: %s\n", counter, glGetStringi(GL_EXTENSIONS, counter));
+            fprintf(logFile, "%d] Extension name: %s\n", counter + 1, (const char*)glGetStringi(GL_EXTENSIONS, counter));
             fflush(logFile);
         }
     }
@@ -256,19 +266,6 @@ void initialize(void)
     {
         fprintf(logFile, "Error | glGetStringi not found.\n");
     }
-
-    GLenum glewError = glewInit();
-	if (glewError != GLEW_OK)
-	{
-        fprintf(logFile, "Cannot initialize GLEW, Error: %d", glewError);
-        fflush(logFile);
-
-		wglDeleteContext(hrc);
-		hrc = NULL;
-
-        ReleaseDC(hWnd, hdc);
-		hdc = NULL;
-	}
 
     glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
     glClearDepth(1.0f);

@@ -1,4 +1,4 @@
-OpenGl GLES Extensions
+OpenGl GLEW Extensions
 ======================
 
 ###### How to compile
@@ -21,3 +21,17 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include extensions.cpp /link resources
 ###### Keyboard shortcuts
 - Press ```Esc``` key to quit.
 - Press ```f``` key to toggle fullscreen mode.
+
+###### Preview
+- Window
+
+    ![window][window-image]
+
+- Extension List
+
+    ![extensions][extensions-image]
+
+<!-- Image declaration -->
+
+[window-image]: ./preview/window.png "Window"
+[extensions-image]: ./preview/extensions.png "Extension list"
