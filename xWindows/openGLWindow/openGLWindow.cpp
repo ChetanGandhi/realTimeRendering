@@ -205,7 +205,7 @@ void display(void)
 
 void resize(int width, int height)
 {
-    if(windowHeight == 0)
+    if(height == 0)
     {
         height = 1;
     }
