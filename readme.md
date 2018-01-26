@@ -65,6 +65,85 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Robot Arm](windows/robotArm)
 * [Solar System](windows/solarSystem)
 
+Assignments on 12-11-2017
+=========================
+
+###### Windows
+
+* [Sphere with Light](windows/sphereWithLight)
+
+Assignments on 17-11-2017
+=========================
+
+###### Windows
+
+* [Pyramid and Cube Rotation with Light](windows/pyramidAndCubeRotationWithLight)
+
+Assignments on 19-11-2017
+=========================
+
+###### Windows
+
+* [Multiple Lights On Sphere](windows/multipleLightsOnSphere)
+* [Pyramid Cube Sphere Rotation with Light](windows/pyramidCubeSphereRotationWithLight)
+
+Assignments on 26-11-2017
+=========================
+
+###### Windows
+
+* [Material Sphere](windows/materialSphere)
+* [Spotlight Sphere](windows/spotlightSphere)
+
+###### Android
+* [Template](android/template)
+
+Assignments on 03-12-2017
+=========================
+
+###### Android
+* [Template](android/template)
+* [00 - Portrait Window](android/00-portraitWindow)
+
+Assignments on 17-12-2017
+=========================
+
+###### Windows
+
+* [Obj Parser](c/objParser)
+* [Monkey Head](windows/monkeyHead)
+
+Assignments on 31-12-2018
+=========================
+
+###### Android
+* [Fullscreen Text View](android/fullscreenTextView)
+* [Fullscreen Text View Subclass](android/fullscreenMyTextView)
+
+Assignments on 07-01-2018
+=========================
+
+###### Android
+* [GLES View](android/glesView)
+
+###### Windows
+* [GLEW Extensions](windows/pp/extensions)
+
+###### XWindows
+* [GLEW Extensions](xWindows/pp/extensions)
+
+Assignments on 13-01-2018
+=========================
+
+###### Windows
+* [Shader Window](windows/pp/shader)
+
+Assignments on 21-01-2018
+=========================
+
+###### Windows
+* [Triangle by Orthographic Projection](windows/pp/triangleOrtho)
+
 <!--Image declaration-->
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
