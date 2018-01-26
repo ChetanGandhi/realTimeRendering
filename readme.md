@@ -144,6 +144,9 @@ Assignments on 21-01-2018
 ###### Windows
 * [Triangle by Orthographic Projection](windows/pp/triangleOrtho)
 
+###### XWindows
+* [Triangle by Orthographic Projection](xWindows/pp/triangleOrtho)
+
 <!--Image declaration-->
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
