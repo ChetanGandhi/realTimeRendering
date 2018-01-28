@@ -44,7 +44,7 @@ public class GlesView extends GLSurfaceView implements GLSurfaceView.Renderer, O
 
     @Override
     public void onDrawFrame(GL10 gl) {
-        this.draw();
+        this.display();
     }
 
     @Override
@@ -112,8 +112,9 @@ public class GlesView extends GLSurfaceView implements GLSurfaceView.Renderer, O
         GLES32.glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
     }
 
-    private void draw() {
+    private void display() {
         GLES32.glClear(GLES32.GL_COLOR_BUFFER_BIT | GLES32.GL_DEPTH_BUFFER_BIT);
+        requestRender();
     }
 
     private void resize(int width, int height) {
