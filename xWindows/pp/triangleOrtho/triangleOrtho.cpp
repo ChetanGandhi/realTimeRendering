@@ -440,7 +440,7 @@ void initializeVertexShader()
 {
     vertexShaderObject = glCreateShader(GL_VERTEX_SHADER);
 
-    const GLchar *vertextShaderCode = "#version 450 core" \
+    const GLchar *vertexShaderCode = "#version 450 core" \
         "\n" \
         "in vec4 vertexPosition;" \
         "uniform mat4 mvpMatrix;" \
@@ -450,7 +450,7 @@ void initializeVertexShader()
         "   gl_Position = mvpMatrix * vertexPosition;" \
         "}";
 
-    glShaderSource(vertexShaderObject, 1, (const char**)&vertextShaderCode, NULL);
+    glShaderSource(vertexShaderObject, 1, (const char**)&vertexShaderCode, NULL);
     glCompileShader(vertexShaderObject);
 
     GLint infoLogLength = 0;
@@ -658,8 +658,15 @@ void cleanUp(void)
 
     if(shaderProgramObject)
     {
-        glDetachShader(shaderProgramObject, vertexShaderObject);
-        glDetachShader(shaderProgramObject, fragmentShaderObject);
+        if(vertexShaderObject)
+        {
+            glDetachShader(shaderProgramObject, vertexShaderObject);
+        }
+
+        if(fragmentShaderObject)
+        {
+            glDetachShader(shaderProgramObject, fragmentShaderObject);
+        }
     }
 
     if(vertexShaderObject)
