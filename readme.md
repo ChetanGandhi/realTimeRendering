@@ -147,6 +147,18 @@ Assignments on 21-01-2018
 ###### XWindows
 * [Triangle by Orthographic Projection](xWindows/pp/triangleOrtho)
 
+Assignments on 27-01-2018
+=========================
+
+###### Android
+* [Triangle by Orthographic Projection](android/triangleOrtho)
+
+Assignments on 28-01-2018
+=========================
+
+###### Windows
+* [Triangle By Perspective Projection](windows/pp/trianglePerspective)
+
 <!--Image declaration-->
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
