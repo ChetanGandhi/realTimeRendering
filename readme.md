@@ -65,99 +65,92 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Robot Arm](windows/robotArm)
 * [Solar System](windows/solarSystem)
 
-Assignments on 12-11-2017
-=========================
+# Assignments on 12-11-2017
 
-###### Windows
+##### Windows
 
 * [Sphere with Light](windows/sphereWithLight)
 
-Assignments on 17-11-2017
-=========================
+# Assignments on 17-11-2017
 
-###### Windows
+##### Windows
 
 * [Pyramid and Cube Rotation with Light](windows/pyramidAndCubeRotationWithLight)
 
-Assignments on 19-11-2017
-=========================
+# Assignments on 19-11-2017
 
-###### Windows
+##### Windows
 
 * [Multiple Lights On Sphere](windows/multipleLightsOnSphere)
 * [Pyramid Cube Sphere Rotation with Light](windows/pyramidCubeSphereRotationWithLight)
 
-Assignments on 26-11-2017
-=========================
+# Assignments on 26-11-2017
 
-###### Windows
+##### Windows
 
 * [Material Sphere](windows/materialSphere)
 * [Spotlight Sphere](windows/spotlightSphere)
 
-###### Android
+##### Android
 * [Template](android/template)
 
-Assignments on 03-12-2017
-=========================
+# Assignments on 03-12-2017
 
-###### Android
+##### Android
 * [Template](android/template)
 * [00 - Portrait Window](android/00-portraitWindow)
 
-Assignments on 17-12-2017
-=========================
+# Assignments on 17-12-2017
 
-###### Windows
+##### Windows
 
 * [Obj Parser](c/objParser)
 * [Monkey Head](windows/monkeyHead)
 
-Assignments on 31-12-2018
-=========================
+# Assignments on 31-12-2018
 
-###### Android
+##### Android
 * [Fullscreen Text View](android/fullscreenTextView)
 * [Fullscreen Text View Subclass](android/fullscreenMyTextView)
 
-Assignments on 07-01-2018
-=========================
+# Assignments on 07-01-2018
 
-###### Android
+##### Android
 * [GLES View](android/glesView)
 
-###### Windows
+##### Windows
 * [GLEW Extensions](windows/pp/extensions)
 
-###### XWindows
+##### XWindows
 * [GLEW Extensions](xWindows/pp/extensions)
 
-Assignments on 13-01-2018
-=========================
+# Assignments on 13-01-2018
 
-###### Windows
+##### Windows
 * [Shader Window](windows/pp/shader)
 
-Assignments on 21-01-2018
-=========================
+# Assignments on 21-01-2018
 
-###### Windows
+##### Windows
 * [Triangle by Orthographic Projection](windows/pp/triangleOrtho)
 
-###### XWindows
+##### XWindows
 * [Triangle by Orthographic Projection](xWindows/pp/triangleOrtho)
 
-Assignments on 27-01-2018
-=========================
+# Assignments on 27-01-2018
 
-###### Android
+##### Android
 * [Triangle by Orthographic Projection](android/triangleOrtho)
 
-Assignments on 28-01-2018
-=========================
+# Assignments on 28-01-2018
 
-###### Windows
+##### Windows
 * [Triangle By Perspective Projection](windows/pp/trianglePerspective)
+* [Multi Colored Triangle](windows/pp/multiColoredTriangle)
+* [Triangle and Square](windows/pp/triangleAndSquare)
+* [Triangle and Square Colored](windows/pp/triangleAndSquareColored)
+* [Triangle and Square Rotation](windows/pp/triangleAndSquareRotation)
+* [Pyramid and Cube Rotation](windows/pp/pyramidAndCubeRotation)
 
 <!--Image declaration-->
 
