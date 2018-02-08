@@ -577,8 +577,8 @@ void drawSquare()
     // Now bind the VAO to which we want to use
     glBindVertexArray(vaoSquare);
 
-    // Draw the triangle
-    // 3 is number of vertices in the array i.e. element count in squareVertices divide by 3 (x, y, z) component
+    // Draw the square
+    // 4 is number of vertices in the array i.e. element count in squareVertices divide by 3 (x, y, z) component
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 
     // unbind the vao
