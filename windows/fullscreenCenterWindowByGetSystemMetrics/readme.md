@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi fullscreenCenterWindowByGetSystemMetrics.cpp /link re
 ###### Preview
 ![fullscreenCenterWindowByGetSystemMetrics][fullscreenCenterWindowByGetSystemMetrics-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [fullscreenCenterWindowByGetSystemMetrics-image]: ./preview/fullscreenCenterWindowByGetSystemMetrics.png "Fullscreen Center Window By GetSystemMetrics"

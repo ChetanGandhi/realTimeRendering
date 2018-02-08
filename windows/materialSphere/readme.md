@@ -41,7 +41,7 @@ cl.exe /EHsc /DUNICODE /Zi materialSphere.cpp /link resources\resource.res user3
 - Lighting enabled: Z-Axis Rotation
 ![materialSphereLightOnZRotation-image][materialSphereLightOnZRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [materialSphereLightOff-image]: ./preview/materialSphereLightOff.png "Material Sphere with light off"
 [materialSphereLightOnXRotation-image]: ./preview/materialSphereLightOnXRotation.png "Material Sphere with light on and  X-Axis rotation"

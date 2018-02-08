@@ -32,6 +32,6 @@ Face normals: 968
 ###### Preview
 ![objParser][objParser-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [objParser-image]: ./preview/objParser.png "Obj Parser"

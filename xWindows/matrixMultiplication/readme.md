@@ -20,6 +20,6 @@ g++ -o matrixMultiplication matrixMultiplication.cpp -lX11 -lGL -lGLU
 ###### Preview
 ![matrixMultiplication][matrixMultiplication-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [matrixMultiplication-image]: ./preview/matrixMultiplication.png "Rotation by Matrix Multiplication"

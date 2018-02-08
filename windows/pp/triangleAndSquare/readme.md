@@ -27,6 +27,6 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include triangleAndSquare.cpp /link re
 
     ![triangleAndSquare][triangleAndSquare-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleAndSquare-image]: ./preview/triangleAndSquare.png "Triangle and Square"

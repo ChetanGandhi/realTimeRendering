@@ -21,6 +21,6 @@ g++ -o openGLWindow openGLWindow.cpp -lX11 -lGL -lGLU
 - Robot Arm
 ![robotArm][robotArm-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [robotArm-image]: ./preview/robotArm.png "Robot Arm"

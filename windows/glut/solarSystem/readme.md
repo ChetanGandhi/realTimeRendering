@@ -29,6 +29,6 @@ cl.exe /EHsc /DUNICODE /Zi /I %FREEGLUT_PATH%\include solarSystem.cpp /link reso
 ###### Preview
 ![solarSystem][solarSystem-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [solarSystem-image]: ./preview/solarSystem.png "Solar System"

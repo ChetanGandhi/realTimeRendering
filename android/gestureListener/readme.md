@@ -45,7 +45,7 @@ adb -d install -r app\build\outputs\apk\debug\app-debug.apk
 - Scroll
 ![scroll][scroll-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [helloWorldGestureDetector-image]: ./preview/helloWorldGestureDetector.png "Hello World Gesture Detector"
 [doubleTap-image]: ./preview/doubleTap.png "Double Tap"

@@ -30,6 +30,6 @@ cl.exe /EHsc /DUNICODE /Zi openGLWindowSingleBuffer.cpp /link resources\resource
 - OpenGL Window
 ![openGLWindowSingleBuffer][openGLWindowSingleBuffer-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [openGLWindowSingleBuffer-image]: ./preview/openGLWindowSingleBuffer.png "OpenGL Window"

@@ -19,6 +19,6 @@ g++ -o glxContextWithFBConfigs glxContextWithFBConfigs.cpp -lX11 -lGL -lGLU
 - Triangle and Square: GLX Context with Frame Buffer Configuration
 ![triangleAndSquare][triangleAndSquare-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleAndSquare-image]: ./preview/triangleAndSquare.png "Triangle and Square"

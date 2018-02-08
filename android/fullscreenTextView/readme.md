@@ -28,6 +28,6 @@ adb -d install -r app\build\outputs\apk\debug\app-debug.apk
 ###### Preview
 ![fullscreenTextView][fullscreenTextView-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [fullscreenTextView-image]: ./preview/fullscreenTextView.png "Fullscreen Text View"

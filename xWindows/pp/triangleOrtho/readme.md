@@ -15,6 +15,6 @@ g++ -o triangleOrtho triangleOrtho.cpp -lX11 -lGL -lGLU -lGLEW
 - Triangle Ortho
     ![triangleOrtho][triangleOrtho-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleOrtho-image]: ./preview/triangleOrtho.png "Extension list"

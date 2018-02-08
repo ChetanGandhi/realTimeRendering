@@ -33,7 +33,7 @@ cl.exe /EHsc /DUNICODE /Zi rectangle.cpp /link resources\resource.res user32.lib
 
 ![rectangleSmall][rectangleSmall-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [rectangle-image]: ./preview/rectangle.png "OpenGL Rectangle Small"
 [rectangleSmall-image]: ./preview/rectangleSmall.png "OpenGL Rectangle Small"

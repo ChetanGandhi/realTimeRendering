@@ -17,6 +17,6 @@ g++ -o graphPaper graphPaper.cpp -lX11 -lGL -lGLU
 ###### Preview
 ![graphPaper][graphPaper-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [graphPaper-image]: ./preview/graphPaper.png "Graph Paper"

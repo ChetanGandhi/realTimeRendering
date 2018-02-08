@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi kundali.cpp /link resources\resource.res user32.lib k
 ###### Preview
 ![kundali][kundali-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [kundali-image]: ./preview/kundali.png "OpenGL Kundali"

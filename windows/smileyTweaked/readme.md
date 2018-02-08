@@ -44,7 +44,7 @@ cl.exe /EHsc /DUNICODE /Zi smileyTweaked.cpp /link resources\resource.res user32
 - Center of Texture
 ![centerOfTexture][centerOfTexture-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [whiteSquare-image]: ./preview/whiteSquare.png "White Square"
 [bottomLeftQuadrant-image]: ./preview/bottomLeftQuadrant.png "Bottom Left Quadrant"

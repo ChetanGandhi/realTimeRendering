@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi fullscreenCenterWindowBySystemParametersInfo.cpp /lin
 ###### Preview
 ![fullscreenCenterWindowBySystemParametersInfo][fullscreenCenterWindowBySystemParametersInfo-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [fullscreenCenterWindowBySystemParametersInfo-image]: ./preview/fullscreenCenterWindowBySystemParametersInfo.png "Fullscreen Center Window By SystemParametersInfo"

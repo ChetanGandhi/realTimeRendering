@@ -18,7 +18,7 @@ g++ -o extensions extensions.cpp -lX11 -lGL -lGLU -lGLEW
 - Extension List
 ![extensions][extensions-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [window-image]: ./preview/window.png "Window"
 [extensions-image]: ./preview/extensions.png "Extension list"

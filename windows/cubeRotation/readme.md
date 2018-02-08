@@ -26,6 +26,6 @@ cl.exe /EHsc /DUNICODE /Zi cubeRotation.cpp /link resources\resource.res user32.
 ###### Preview
 ![cubeRotation][cubeRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [cubeRotation-image]: ./preview/cubeRotation.png "cube Rotation"

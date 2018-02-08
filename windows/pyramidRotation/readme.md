@@ -26,6 +26,6 @@ cl.exe /EHsc /DUNICODE /Zi pyramidRotation.cpp /link resources\resource.res user
 ###### Preview
 ![pyramidRotation][pyramidRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [pyramidRotation-image]: ./preview/pyramidRotation.png "Pyramid Rotation"

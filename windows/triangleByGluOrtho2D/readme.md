@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi triangleByGluOrtho2D.cpp /link resources\resource.res
 ###### Preview
 ![triangleByGluOrtho2D][triangleByGluOrtho2D-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleByGluOrtho2D-image]: ./preview/triangleByGluOrtho2D.png "OpenGL Triangle By GluOrtho2D"

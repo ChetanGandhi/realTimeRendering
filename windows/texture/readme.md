@@ -26,6 +26,6 @@ cl.exe /EHsc /DUNICODE /Zi texture.cpp /link resources\resource.res user32.lib k
 ###### Preview
 ![texture][texture-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [texture-image]: ./preview/texture.png "Texture"

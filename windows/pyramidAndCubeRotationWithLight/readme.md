@@ -31,7 +31,7 @@ cl.exe /EHsc /DUNICODE /Zi pyramidAndCubeRotationWithLight.cpp /link resources\r
 - Lighting disabled
 ![pyramidAndCubeRotationWithLightOff][pyramidAndCubeRotationWithLightOff-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [pyramidAndCubeRotationWithLightOn-image]: ./preview/pyramidAndCubeRotationWithLightOn.png "Pyramid and Cube rotation with light on"
 [pyramidAndCubeRotationWithLightOff-image]: ./preview/pyramidAndCubeRotationWithLightOff.png "Pyramid and Cube rotation with light off"

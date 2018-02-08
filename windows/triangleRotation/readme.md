@@ -26,6 +26,6 @@ cl.exe /EHsc /DUNICODE /Zi triangleRotation.cpp /link resources\resource.res use
 ###### Preview
 ![triangleRotation][triangleRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleRotation-image]: ./preview/triangleRotation.png "OpenGL Triangle Rotation"

@@ -55,7 +55,7 @@ g++ -o viewportPlacement viewportPlacement.cpp -lX11 -lGL -lGLU
 * Viewport Placement Center
 ![viewportPlacementCenter][viewportPlacementCenter-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [viewportPlacementFull-image]: ./preview/viewportPlacementFull.png "OpenGl Viewport Placement Full"
 [viewportPlacementLeftBottom-image]: ./preview/viewportPlacementLeftBottom.png "OpenGl Viewport Placement Left Bottom"

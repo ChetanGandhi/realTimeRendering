@@ -63,7 +63,7 @@ cl.exe /EHsc /DUNICODE /Zi viewportPlacement.cpp /link resources\resource.res us
 * Viewport Placement Center
 ![viewportPlacementCenter][viewportPlacementCenter-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [viewportPlacementFull-image]: ./preview/viewportPlacementFull.png "OpenGl Viewport Placement Full"
 [viewportPlacementLeftBottom-image]: ./preview/viewportPlacementLeftBottom.png "OpenGl Viewport Placement Left Bottom"

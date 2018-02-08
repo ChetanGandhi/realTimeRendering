@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi concentricCircles.cpp /link resources\resource.res us
 ###### Preview
 ![concentricCircles][concentricCircles-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [concentricCircles-image]: ./preview/concentricCircles.png "Concentric Circles"

@@ -27,6 +27,6 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include multiColoredTriangle.cpp /link
 
     ![multiColoredTriangle][multiColoredTriangle-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [multiColoredTriangle-image]: ./preview/multiColoredTriangle.png "Multi Colored Triangle"

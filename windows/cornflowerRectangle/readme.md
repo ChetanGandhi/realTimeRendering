@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi cornflowerRectangle.cpp /link resources\resource.res 
 ###### Preview
 ![cornflowerRectangle][cornflowerRectangle-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [cornflowerRectangle-image]: ./preview/cornflowerRectangle.png "OpenGL Cornflower Rectangle"

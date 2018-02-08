@@ -18,6 +18,6 @@ g++ -o checkerboardTexture checkerboardTexture.cpp -lX11 -lGL -lGLU
 
 ![checkerboardTexture][checkerboardTexture-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [checkerboardTexture-image]: ./preview/checkerboardTexture.png "Checkerboard Texture"

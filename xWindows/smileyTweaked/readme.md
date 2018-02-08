@@ -36,7 +36,7 @@ g++ -o smiley smiley.cpp -lX11 -lGL -lGLU -lSOIL
 - Center of Texture
 ![centerOfTexture][centerOfTexture-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [whiteSquare-image]: ./preview/whiteSquare.png "White Square"
 [bottomLeftQuadrant-image]: ./preview/bottomLeftQuadrant.png "Bottom Left Quadrant"

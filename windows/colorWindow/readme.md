@@ -58,7 +58,7 @@ cl.exe /EHsc /DUNICODE /Zi colorWindow.cpp /link resources\resource.res user32.l
 - No Color Assigned
 ![noColorWindow][noColorWindow-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [redWindow-image]: ./preview/red.png "Red Window"
 [greenWindow-image]: ./preview/green.png "Green Window"

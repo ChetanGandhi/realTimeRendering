@@ -26,6 +26,6 @@ cl.exe /EHsc /DUNICODE /Zi deathlyHallowsRotation.cpp /link resources\resource.r
 ###### Preview
 ![deathlyHallowsRotation][deathlyHallowsRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [deathlyHallowsRotation-image]: ./preview/deathlyHallowsRotation.png "Deathly Hallows Rotation"

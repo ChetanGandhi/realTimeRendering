@@ -27,6 +27,6 @@ cl.exe /EHsc /DUNICODE /Zi triangleByGluPerspective.cpp /link resources\resource
 ###### Preview
 ![triangleByGluPerspective][triangleByGluPerspective-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleByGluPerspective-image]: ./preview/triangleByGluPerspective.png "OpenGL Triangle By GluPerspective"

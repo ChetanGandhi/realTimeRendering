@@ -18,6 +18,6 @@ g++ -o deathlyHallowsRotation deathlyHallowsRotation.cpp -lX11 -lGL -lGLU
 ###### Preview
 ![deathlyHallowsRotation][deathlyHallowsRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [deathlyHallowsRotation-image]: ./preview/deathlyHallowsRotation.png "Deathly Hallows Rotation"

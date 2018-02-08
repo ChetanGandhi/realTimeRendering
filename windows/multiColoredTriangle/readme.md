@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi multiColoredTriangle.cpp /link resources\resource.res
 ###### Preview
 ![multiColoredTriangle][multiColoredTriangle-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [multiColoredTriangle-image]: ./preview/multiColoredTriangle.png "OpenGL Multi Colored Triangle"

@@ -28,6 +28,6 @@ cl.exe /EHsc /DUNICODE /Zi cubeRotationByMatrix.cpp /link resources\resource.res
 ###### Preview
 ![cubeRotationByMatrix][cubeRotationByMatrix-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [cubeRotationByMatrix-image]: ./preview/cubeRotationByMatrix.png "Cube Rotation by Matrix"

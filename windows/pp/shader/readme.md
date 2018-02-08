@@ -27,6 +27,6 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include extensions.cpp /link resources
 
     ![shaderWindow][shaderWindow-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [shaderWindow-image]: ./preview/shaderWindow.png "Window"

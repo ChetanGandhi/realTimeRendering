@@ -38,7 +38,7 @@ cl.exe /EHsc /DUNICODE /Zi monkeyHead.cpp /link resources\resource.res user32.li
 - Monkey head fill with lights
 ![fillWithLights][fillWithLights-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [fillWithLights-image]: ./preview/fillWithLights.png "Monkey head fill with lights"
 [fillWithoutLights-image]: ./preview/fillWithoutLights.png "Monkey head fill without lights"

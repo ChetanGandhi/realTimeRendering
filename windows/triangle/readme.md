@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi triangle.cpp /link resources\resource.res user32.lib 
 ###### Preview
 ![triangle][triangle-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangle-image]: ./preview/triangle.png "OpenGL Triangle"

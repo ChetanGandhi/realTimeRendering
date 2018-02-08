@@ -28,6 +28,6 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include pyramidAndCubeRotation.cpp /li
 
     ![pyramidAndCubeRotation][pyramidAndCubeRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [pyramidAndCubeRotation-image]: ./preview/pyramidAndCubeRotation.png "Pyramid and Cube Rotation"

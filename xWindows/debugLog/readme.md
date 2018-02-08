@@ -37,6 +37,6 @@ LOG: Entering handleEvent
 - Pyramid And Cube Rotation
 ![pyramidAndCubeRotation][pyramidAndCubeRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [pyramidAndCubeRotation-image]: ./preview/pyramidAndCubeRotation.png "Pyramid And Cube Rotation"

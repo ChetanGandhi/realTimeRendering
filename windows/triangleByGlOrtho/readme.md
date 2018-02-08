@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi triangleByGlOrtho.cpp /link resources\resource.res us
 ###### Preview
 ![triangleByGlOrtho][triangleByGlOrtho-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleByGlOrtho-image]: ./preview/triangleByGlOrtho.png "OpenGL Triangle"

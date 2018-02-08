@@ -17,6 +17,6 @@ g++ -o window window.cpp -lX11
 - Empty Window
 ![emptyWindow][emptyWindow-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [emptyWindow-image]: ./preview/emptyWindow.png "First Window"

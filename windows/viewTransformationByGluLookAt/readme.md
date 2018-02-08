@@ -61,6 +61,6 @@ cl.exe /EHsc /DUNICODE /Zi viewTransformationByGluLookAt.cpp /link resources\res
 ###### Preview
 ![viewTransformationByGluLookAt][viewTransformationByGluLookAt-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [viewTransformationByGluLookAt-image]: ./preview/viewTransformationByGluLookAt.png "OpenGL View Transformation"

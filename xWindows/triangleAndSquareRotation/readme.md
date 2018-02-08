@@ -19,6 +19,6 @@ g++ -o triangleAndSquareRotation triangleAndSquareRotation.cpp -lX11 -lGL -lGLU
 - Triangle And Square Rotation
 ![triangleAndSquareRotation][triangleAndSquareRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleAndSquareRotation-image]: ./preview/triangleAndSquareRotation.png "Triangle And Square Rotation"

@@ -29,6 +29,6 @@ cl.exe /EHsc /DUNICODE /Zi /I %FREEGLUT_PATH%\include robotArm.cpp /link resourc
 ###### Preview
 ![robotArm][robotArm-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [robotArm-image]: ./preview/robotArm.png "Robot Arm"

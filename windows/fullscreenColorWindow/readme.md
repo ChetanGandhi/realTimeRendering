@@ -68,7 +68,7 @@ cl.exe /EHsc /DUNICODE /Zi fullscreenColorWindow.cpp /link resources\resource.re
 ![noColorWindow][noColorWindow-image]
 ![fullscreenNoColorWindow][fullscreenNoColorWindow-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [redWindow-image]: ./preview/red.png "Red Window"
 [fullscreenRedWindow-image]: ./preview/fullscreenRed.png "Fullscreen Red Window"

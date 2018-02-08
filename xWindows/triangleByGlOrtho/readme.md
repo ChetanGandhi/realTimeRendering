@@ -19,6 +19,6 @@ g++ -o triangleByGlOrtho triangleByGlOrtho.cpp -lX11 -lGL -lGLU
 - Triangle By glOrtho
 ![triangleByGlOrtho][triangleByGlOrtho-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleByGlOrtho-image]: ./preview/triangleByGlOrtho.png "Triangle By glOrtho"

@@ -20,6 +20,6 @@ g++ -o triangleByGluPerspective triangleByGluPerspective.cpp -lX11 -lGL -lGLU
 - Triangle By gluPerspective
 ![triangleByGluPerspective][triangleByGluPerspective-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleByGluPerspective-image]: ./preview/triangleByGluPerspective.png "Triangle By gluPerspective"

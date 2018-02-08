@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi borderedSquare.cpp /link resources\resource.res user3
 ###### Preview
 ![borderedSquare][borderedSquare-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [borderedSquare-image]: ./preview/borderedSquare.png "Bordered Square on Graph Paper"

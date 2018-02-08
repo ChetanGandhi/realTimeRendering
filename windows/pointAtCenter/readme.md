@@ -34,6 +34,6 @@ cl.exe /EHsc /DUNICODE /Zi pointAtCenter.cpp /link resources\resource.res user32
 ###### Preview
 ![pointAtCenter][pointAtCenter-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [pointAtCenter-image]: ./preview/pointAtCenter.png "Point at Center"

@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi xAxis.cpp /link resources\resource.res user32.lib ker
 ###### Preview
 ![xAxis][xAxis-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [xAxis-image]: ./preview/xAxis.png "X Axis"

@@ -36,7 +36,7 @@ cl.exe /EHsc /DUNICODE /Zi spotlightSphere.cpp /link resources\resource.res user
 - Spotlight enabled
 ![spotlightOn][spotlightOn-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [lightOn-image]: ./preview/lightOn.png "Sphere with light on"
 [spotlightOn-image]: ./preview/spotlightOn.png "Sphere with spotlight on"

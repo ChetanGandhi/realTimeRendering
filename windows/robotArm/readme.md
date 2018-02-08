@@ -29,6 +29,6 @@ cl.exe /EHsc /DUNICODE /Zi robotArm.cpp /link resources\resource.res user32.lib 
 ###### Preview
 ![robotArm][robotArm-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [robotArm-image]: ./preview/robotArm.png "Robot Arm"

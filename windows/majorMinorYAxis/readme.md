@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi majorMinorYAxis.cpp /link resources\resource.res user
 ###### Preview
 ![majorMinorYAxis][majorMinorYAxis-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [majorMinorYAxis-image]: ./preview/majorMinorYAxis.png "Major and Minor Y Axis"

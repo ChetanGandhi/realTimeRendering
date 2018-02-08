@@ -59,6 +59,6 @@ cl.exe /EHsc /DUNICODE /Zi modalTransformation.cpp /link resources\resource.res 
 ###### Preview
 ![modalTransformation][modalTransformation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [modalTransformation-image]: ./preview/modalTransformation.png "OpenGL Modal Transformation"

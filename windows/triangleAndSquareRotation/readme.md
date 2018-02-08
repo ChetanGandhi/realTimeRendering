@@ -26,6 +26,6 @@ cl.exe /EHsc /DUNICODE /Zi triangleAndSquareRotation.cpp /link resources\resourc
 ###### Preview
 ![triangleAndSquareRotation][triangleAndSquareRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleAndSquareRotation-image]: ./preview/triangleAndSquareRotation.png "OpenGL Triangle and Square Rotation"

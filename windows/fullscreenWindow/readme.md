@@ -29,7 +29,7 @@ cl.exe /EHsc /DUNICODE /Zi fullscreenWindow.cpp /link resources\resource.res use
 - Fullscreen Mode
 ![fullscreenWindow][fullscreenWindow-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [normalWindow-image]: ./preview/normalWindow.png "Normal Window"
 [fullscreenWindow-image]: ./preview/fullscreenWindow.png "Fullscreen Window"

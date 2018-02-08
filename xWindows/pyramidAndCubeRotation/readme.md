@@ -19,6 +19,6 @@ g++ -o pyramidAndCubeRotation pyramidAndCubeRotation.cpp -lX11 -lGL -lGLU
 - Pyramid And Cube Rotation
 ![pyramidAndCubeRotation][pyramidAndCubeRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [pyramidAndCubeRotation-image]: ./preview/pyramidAndCubeRotation.png "Pyramid And Cube Rotation"

@@ -61,6 +61,6 @@ cl.exe /EHsc /DUNICODE /Zi square.cpp /link resources\resource.res user32.lib ke
 ###### Preview
 ![square][square-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [square-image]: ./preview/square.png "OpenGL Square"

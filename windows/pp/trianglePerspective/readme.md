@@ -27,6 +27,6 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include trianglePerspective.cpp /link 
 
     ![trianglePerspective][trianglePerspective-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [trianglePerspective-image]: ./preview/trianglePerspective.png "Triangle By Perspective Projection"

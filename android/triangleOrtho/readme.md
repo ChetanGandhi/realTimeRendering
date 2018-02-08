@@ -35,6 +35,6 @@ adb logcat -e "log to filter"
 - Triangle
     ![triangleOrtho][triangleOrtho-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleOrtho-image]: ./preview/triangleOrtho.png "Triangle by Orthographic Projection"

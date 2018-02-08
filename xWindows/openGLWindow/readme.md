@@ -19,6 +19,6 @@ g++ -o openGLWindow openGLWindow.cpp -lX11 -lGL -lGLU
 - OpenGL First Window
 ![openGLFirstWindow][openGLFirstWindow-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [openGLFirstWindow-image]: ./preview/openGLFirstWindow.png "OpenGL First Window"

@@ -27,6 +27,6 @@ cl.exe /EHsc /DUNICODE /Zi IndiaAnimation.cpp /link resources\resource.res user3
 ###### Preview
 ![IndiaAnimation][IndiaAnimation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [IndiaAnimation-image]: ./preview/IndiaAnimation.png "IndiaAnimation"

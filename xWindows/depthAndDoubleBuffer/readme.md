@@ -18,6 +18,6 @@ g++ -o depthAndDoubleBuffer depthAndDoubleBuffer.cpp -lX11 -lGL -lGLU
 - Depth And Double Buffer
 ![depthAndDoubleBuffer][depthAndDoubleBuffer-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [depthAndDoubleBuffer-image]: ./preview/depthAndDoubleBuffer.png "Depth And Double Buffer"

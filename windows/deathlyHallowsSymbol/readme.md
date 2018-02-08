@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi deathlyHallowsSymbol.cpp /link resources\resource.res
 ###### Preview
 ![deathlyHallowsSymbol][deathlyHallowsSymbol-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [deathlyHallowsSymbol-image]: ./preview/deathlyHallowsSymbol.png "Deathly Hallows"

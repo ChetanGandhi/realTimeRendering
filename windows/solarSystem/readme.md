@@ -29,6 +29,6 @@ cl.exe /EHsc /DUNICODE /Zi solarSystem.cpp /link resources\resource.res user32.l
 ###### Preview
 ![solarSystem][solarSystem-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [solarSystem-image]: ./preview/solarSystem.png "Solar System"

@@ -17,6 +17,6 @@ g++ -o smiley smiley.cpp -lX11 -lGL -lGLU -lSOIL
 ###### Preview
 ![smiley][smiley-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [smiley-image]: ./preview/smiley.png "Smiley"

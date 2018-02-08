@@ -27,6 +27,6 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include triangleOrtho.cpp /link resour
 
     ![triangle][triangle-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangle-image]: ./preview/triangle.png "Triangle"

@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi yAxis.cpp /link resources\resource.res user32.lib ker
 ###### Preview
 ![yAxis][yAxis-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [yAxis-image]: ./preview/yAxis.png "Y Axis"

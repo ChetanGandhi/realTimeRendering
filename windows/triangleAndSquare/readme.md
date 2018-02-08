@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi triangleAndSquare.cpp /link resources\resource.res us
 ###### Preview
 ![triangleAndSquare][triangleAndSquare-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleAndSquare-image]: ./preview/triangleAndSquare.png "OpenGL Triangle and Square"

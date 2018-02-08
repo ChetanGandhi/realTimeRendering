@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi borderedTriangle.cpp /link resources\resource.res use
 ###### Preview
 ![borderedTriangle][borderedTriangle-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [borderedTriangle-image]: ./preview/borderedTriangle.png "Bordered Triangle on Graph Paper"

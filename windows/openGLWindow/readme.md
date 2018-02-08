@@ -30,6 +30,6 @@ cl.exe /EHsc /DUNICODE /Zi openGLWindow.cpp /link resources\resource.res user32.
 - OpenGL Window
 ![openGLlWindow][openGLWindow-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [openGLWindow-image]: ./preview/openGLWindow.png "OpenGL Window"

@@ -38,7 +38,7 @@ adb logcat -e "log to filter"
 - Logcat output
 ![logcat][logcat-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [glesView-image]: ./preview/glesView.png "GLES View"
 [logcat-image]: ./preview/logcat.png "Logcat output"

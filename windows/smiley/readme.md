@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi smiley.cpp /link resources\resource.res user32.lib ke
 ###### Preview
 ![smiley][smiley-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [smiley-image]: ./preview/smiley.png "Smiley"

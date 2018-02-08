@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi graphPaper.cpp /link resources\resource.res user32.li
 ###### Preview
 ![graphPaper][graphPaper-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [graphPaper-image]: ./preview/graphPaper.png "Graph Paper"

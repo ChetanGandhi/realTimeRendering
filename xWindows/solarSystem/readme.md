@@ -21,6 +21,6 @@ g++ -o openGLWindow openGLWindow.cpp -lX11 -lGL -lGLU
 - Solar System
 ![solarSystem][solarSystem-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [solarSystem-image]: ./preview/solarSystem.png "Solar System"

@@ -28,6 +28,6 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include triangleAndSquareRotation.cpp 
 
     ![triangleAndSquareRotation][triangleAndSquareRotation-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleAndSquareRotation-image]: ./preview/triangleAndSquareRotation.png "Triangle and Square Rotation"

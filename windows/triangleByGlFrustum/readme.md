@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi triangleByGlFrustum.cpp /link resources\resource.res 
 ###### Preview
 ![triangleByGlFrustum][triangleByGlFrustum-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleByGlFrustum-image]: ./preview/triangleByGlFrustum.png "OpenGL Triangle"

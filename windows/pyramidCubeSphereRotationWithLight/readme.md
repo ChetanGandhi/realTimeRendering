@@ -36,7 +36,7 @@ cl.exe /EHsc /DUNICODE /Zi pyramidCubeSphereRotationWithLight.cpp /link resource
 ![cubeLightOn][cubeLightOn-image]
 ![sphereLightOn][sphereLightOn-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [pyramidLightOn-image]: ./preview/pyramidLightOn.png "Pyramid with light on"
 [cubeLightOn-image]: ./preview/cubeLightOn.png "Cube with light on"

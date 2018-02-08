@@ -152,6 +152,6 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Triangle and Square Rotation](windows/pp/triangleAndSquareRotation)
 * [Pyramid and Cube Rotation](windows/pp/pyramidAndCubeRotation)
 
-<!--Image declaration-->
+[//]: # "Image declaration"
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"

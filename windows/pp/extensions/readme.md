@@ -31,7 +31,7 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include extensions.cpp /link resources
 
     ![extensions][extensions-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [window-image]: ./preview/window.png "Window"
 [extensions-image]: ./preview/extensions.png "Extension list"

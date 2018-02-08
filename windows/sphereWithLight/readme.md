@@ -30,7 +30,7 @@ cl.exe /EHsc /DUNICODE /Zi sphereWithLight.cpp /link resources\resource.res user
 - Lighting disabled
 ![sphereWithLightOff][sphereWithLightOff-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [sphereWithLightOn-image]: ./preview/sphereWithLightOn.png "Sphere with light on"
 [sphereWithLightOff-image]: ./preview/sphereWithLightOff.png "Sphere with light off"

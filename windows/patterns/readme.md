@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi patterns.cpp /link resources\resource.res user32.lib 
 ###### Preview
 ![patterns][patterns-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [patterns-image]: ./preview/patterns.png "India"

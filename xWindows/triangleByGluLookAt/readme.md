@@ -20,6 +20,6 @@ g++ -o triangleByGluLookAt triangleByGluLookAt.cpp -lX11 -lGL -lGLU
 - Triangle By GluLookAt
 ![triangleByGluLookAt][triangleByGluLookAt-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [triangleByGluLookAt-image]: ./preview/triangleByGluLookAt.png "Triangle By GluLookAt"

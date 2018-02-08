@@ -25,6 +25,6 @@ cl.exe /EHsc /DUNICODE /Zi lineCircle.cpp /link resources\resource.res user32.li
 ###### Preview
 ![lineCircle][lineCircle-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [lineCircle-image]: ./preview/lineCircle.png "Line Circle on Graph Paper"

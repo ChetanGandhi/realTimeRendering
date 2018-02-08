@@ -32,7 +32,7 @@ cl.exe /EHsc /DUNICODE /Zi multipleLightsOnSphere.cpp /link resources\resource.r
 - Lighting enabled
 ![sphereLightOn][sphereLightOn-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [sphereLightOff-image]: ./preview/sphereLightOff.png "Sphere with light off"
 [sphereLightOn-image]: ./preview/sphereLightOn.png "Sphere with light on"

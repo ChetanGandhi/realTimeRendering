@@ -26,6 +26,6 @@ cl.exe /EHsc /DUNICODE /Zi checkerboardTexture.cpp /link resources\resource.res 
 
 ![checkerboardTexture][checkerboardTexture-image]
 
-<!-- Image declaration -->
+[//]: # "Image declaration"
 
 [checkerboardTexture-image]: ./preview/checkerboardTexture.png "Checkerboard Texture"
