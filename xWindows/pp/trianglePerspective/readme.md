@@ -12,7 +12,7 @@ g++ -o trianglePerspective trianglePerspective.cpp -lX11 -lGL -lGLU -lGLEW
 - Press ```F``` or ```f``` to toggle full-screen mode.
 
 ###### Preview
-- Triangle Ortho
+- Triangle by Perspective Projection
     ![trianglePerspective][trianglePerspective-image]
 
 [//]: # "Image declaration"

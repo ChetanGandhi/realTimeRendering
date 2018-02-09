@@ -12,7 +12,7 @@ g++ -o multiColoredTriangle multiColoredTriangle.cpp -lX11 -lGL -lGLU -lGLEW
 - Press ```F``` or ```f``` to toggle full-screen mode.
 
 ###### Preview
-- Triangle Ortho
+- Multi Colored Triangle
     ![multiColoredTriangle][multiColoredTriangle-image]
 
 [//]: # "Image declaration"
