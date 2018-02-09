@@ -17,4 +17,4 @@ g++ -o triangleOrtho triangleOrtho.cpp -lX11 -lGL -lGLU -lGLEW
 
 [//]: # "Image declaration"
 
-[triangleOrtho-image]: ./preview/triangleOrtho.png "Extension list"
+[triangleOrtho-image]: ./preview/triangleOrtho.png "Triangle by Orthographic Projection"
