@@ -152,6 +152,14 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Triangle and Square Rotation](windows/pp/triangleAndSquareRotation)
 * [Pyramid and Cube Rotation](windows/pp/pyramidAndCubeRotation)
 
+##### XWindows
+* [Triangle By Perspective Projection](xWindows/pp/trianglePerspective)
+* [Multi Colored Triangle](xWindows/pp/multiColoredTriangle)
+* [Triangle and Square](xWindows/pp/triangleAndSquare)
+* [Triangle and Square Colored](xWindows/pp/triangleAndSquareColored)
+* [Triangle and Square Rotation](xWindows/pp/triangleAndSquareRotation)
+* [Pyramid and Cube Rotation](xWindows/pp/pyramidAndCubeRotation)
+
 [//]: # "Image declaration"
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
