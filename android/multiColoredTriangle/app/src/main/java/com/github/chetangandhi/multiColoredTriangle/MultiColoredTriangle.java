@@ -273,7 +273,7 @@ public class MultiColoredTriangle extends GLSurfaceView implements GLSurfaceView
             1.0f, -1.0f, 0.0f
         };
 
-      final float[] triangleColors = {
+        final float[] triangleColors = {
             1.0f, 0.0f, 0.0f,
             0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 1.0f
@@ -298,8 +298,8 @@ public class MultiColoredTriangle extends GLSurfaceView implements GLSurfaceView
 
         GLES32.glBindBuffer(GLES32.GL_ARRAY_BUFFER, 0);
 
-        GLES32.glGenBuffers(1, this.vboPosition, 0);
-        GLES32.glBindBuffer(GLES32.GL_ARRAY_BUFFER, this.vboPosition[0]);
+        GLES32.glGenBuffers(1, this.vboColor, 0);
+        GLES32.glBindBuffer(GLES32.GL_ARRAY_BUFFER, this.vboColor[0]);
 
         ByteBuffer colorByteBuffer = ByteBuffer.allocateDirect(triangleColors.length * 4);
         colorByteBuffer.order(ByteOrder.nativeOrder());
