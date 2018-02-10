@@ -160,6 +160,14 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Triangle and Square Rotation](xWindows/pp/triangleAndSquareRotation)
 * [Pyramid and Cube Rotation](xWindows/pp/pyramidAndCubeRotation)
 
+##### Android
+* [Triangle By Perspective Projection](android/trianglePerspective)
+* [Multi Colored Triangle](android/multiColoredTriangle)
+* [Triangle and Square](android/triangleAndSquare)
+* [Triangle and Square Colored](android/triangleAndSquareColored)
+* [Triangle and Square Rotation](android/triangleAndSquareRotation)
+* [Pyramid and Cube Rotation](android/pyramidAndCubeRotation)
+
 [//]: # "Image declaration"
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
