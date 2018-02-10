@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Triangle and Square Colored</string>
+    <string name="text_double_tap">Double Tap</string>
+    <string name="text_single_tap_confirmed">Single Tap Confirmed</string>
+    <string name="text_fling">Fling</string>
+    <string name="text_long_press">Long Press</string>
+    <string name="text_scroll">Scroll</string>
+</resources>
