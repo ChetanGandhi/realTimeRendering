@@ -168,6 +168,11 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Triangle and Square Rotation](android/triangleAndSquareRotation)
 * [Pyramid and Cube Rotation](android/pyramidAndCubeRotation)
 
+# Assignments on 10-02-2018
+
+##### Windows
+* [Pyramid and Cube Texture](windows/pp/pyramidAndCubeTexture)
+
 [//]: # "Image declaration"
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
