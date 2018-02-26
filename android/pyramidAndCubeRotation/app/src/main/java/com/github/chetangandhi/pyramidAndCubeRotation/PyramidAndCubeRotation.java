@@ -470,7 +470,7 @@ public class PyramidAndCubeRotation extends GLSurfaceView implements GLSurfaceVi
         GLES32.glGenBuffers(1, this.vboCubeColor, 0);
         GLES32.glBindBuffer(GLES32.GL_ARRAY_BUFFER, this.vboCubeColor[0]);
 
-        ByteBuffer colorByteBuffer = ByteBuffer.allocateDirect(cubeVertices.length * 4);
+        ByteBuffer colorByteBuffer = ByteBuffer.allocateDirect(cubeColors.length * 4);
         colorByteBuffer.order(ByteOrder.nativeOrder());
 
         FloatBuffer colorBuffer = colorByteBuffer.asFloatBuffer();
