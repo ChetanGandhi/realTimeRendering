@@ -173,6 +173,16 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 ##### Windows
 * [Pyramid and Cube Texture](windows/pp/pyramidAndCubeTexture)
 
+##### Android
+* [Pyramid and Cube Texture](android/pyramidAndCubeTexture)
+
+# Assignments on 11-02-2018
+
+##### Windows
+* [Smiley](windows/pp/smiley)
+* [Smiley Tweaked](windows/pp/smileyTweaked)
+* [Checkerboard Texture](windows/pp/checkerboardTexture)
+
 [//]: # "Image declaration"
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
