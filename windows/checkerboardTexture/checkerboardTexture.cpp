@@ -338,7 +338,7 @@ void resize(int width, int height)
     glViewport(0, 0, (GLsizei)width, (GLsizei)height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0f, (GLfloat)width/(GLfloat)height, -1.0f, 1.0f);
+    gluPerspective(60.0f, (GLfloat)width/(GLfloat)height, 1.0f, 30.0f);
 }
 
 void toggleFullscreen(HWND hWnd, bool isFullscreen)
