@@ -261,7 +261,7 @@ void initialize(void)
     // Always cull back face for performance gain.
     // glEnable(GL_CULL_FACE);
 
-        glEnable(GL_TEXTURE_2D);
+    glEnable(GL_TEXTURE_2D);
     loadGLTextures(&textureSmiley, SMILEY_BMP_PATH);
 
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
