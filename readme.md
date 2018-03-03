@@ -183,6 +183,11 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 * [Smiley Tweaked](windows/pp/smileyTweaked)
 * [Checkerboard Texture](windows/pp/checkerboardTexture)
 
+##### Android
+* [Smiley](android/smiley)
+* [Smiley Tweaked](android/smileyTweaked)
+* [Checkerboard Texture](android/checkerboardTexture)
+
 [//]: # "Image declaration"
 
 [theUltimateCreation-image]: ./theUltimateCreation.png "The Ultimate Creation"
