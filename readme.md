@@ -176,6 +176,9 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 ##### Android
 * [Pyramid and Cube Texture](android/pyramidAndCubeTexture)
 
+##### XWindows
+* [Pyramid and Cube Texture](xWindows/pp/pyramidAndCubeTexture)
+
 # Assignments on 11-02-2018
 
 ##### Windows
