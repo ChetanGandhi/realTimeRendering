@@ -636,12 +636,6 @@ void cleanUp(void)
         vaoSmiley = 0;
     }
 
-    if(vaoSmiley)
-    {
-        glDeleteVertexArrays(1, &vaoSmiley);
-        vaoSmiley = 0;
-    }
-
     if(vboSmileyPosition)
     {
         glDeleteBuffers(1, &vboSmileyPosition);
@@ -688,12 +682,6 @@ void cleanUp(void)
     glUseProgram(0);
 
     if (textureSmiley)
-	{
-		glDeleteTextures(1, &textureSmiley);
-		textureSmiley = 0;
-	}
-
-	if (textureSmiley)
 	{
 		glDeleteTextures(1, &textureSmiley);
 		textureSmiley = 0;
