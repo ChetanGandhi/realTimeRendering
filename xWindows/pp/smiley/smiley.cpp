@@ -652,22 +652,14 @@ void drawSmiley()
     // Enable 0th texture
     glActiveTexture(GL_TEXTURE0);
 
-    // Bind with pyramid texture
+    // Bind with smiley texture
     glBindTexture(GL_TEXTURE_2D, textureSmiley);
 
     // Enable 0th sampler.
     glUniform1i(textureSamplerUniform, 0);
 
-    // Draw the smiley
-    // 4 is number of vertices in the array for each face
-    // i.e. element count in cubeVertices for each face divide by 3 (x, y, z) component
-    // 2nd parameter is the index from which we need to use vertices.
+    // Draw the square
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-    glDrawArrays(GL_TRIANGLE_FAN, 4, 4);
-    glDrawArrays(GL_TRIANGLE_FAN, 8, 4);
-    glDrawArrays(GL_TRIANGLE_FAN, 12, 4);
-    glDrawArrays(GL_TRIANGLE_FAN, 16, 4);
-    glDrawArrays(GL_TRIANGLE_FAN, 20, 4);
 
     // unbind the vao
     glBindVertexArray(0);
