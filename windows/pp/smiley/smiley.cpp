@@ -474,10 +474,10 @@ void initializeSmileyBuffers()
     };
 
     const GLfloat smileyTextureCoordinates[] = {
-        1.0f, 1.0f,
-        0.0f, 1.0f,
+        1.0f, 0.0f,
         0.0f, 0.0f,
-        1.0f, 0.0f
+        0.0f, 1.0f,
+        1.0f, 1.0f
     };
 
     glGenVertexArrays(1, &vaoSmiley);
