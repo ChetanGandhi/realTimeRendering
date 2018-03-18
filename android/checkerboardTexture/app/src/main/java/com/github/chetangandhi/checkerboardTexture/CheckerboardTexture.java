@@ -319,7 +319,7 @@ public class CheckerboardTexture extends GLSurfaceView implements GLSurfaceView.
         textureCoordinatesBuffer.put(squareTextureCoordinates);
         textureCoordinatesBuffer.position(0);
 
-        GLES32.glBufferData(GLES32.GL_ARRAY_BUFFER, squareTextureCoordinates.length * 4, textureCoordinatesBuffer, GLES32.GL_DYNAMIC_DRAW);
+        GLES32.glBufferData(GLES32.GL_ARRAY_BUFFER, squareTextureCoordinates.length * 4, textureCoordinatesBuffer, GLES32.GL_STATIC_DRAW);
         GLES32.glVertexAttribPointer(GLESMacros.CG_ATTRIBUTE_TEXTURE0, 2, GLES32.GL_FLOAT, false, 0, 0);
         GLES32.glEnableVertexAttribArray(GLESMacros.CG_ATTRIBUTE_TEXTURE0);
 
