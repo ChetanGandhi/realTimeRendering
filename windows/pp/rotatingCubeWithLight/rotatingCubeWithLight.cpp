@@ -325,7 +325,6 @@ void initialize(void)
 
     glDepthFunc(GL_LEQUAL);
     glShadeModel(GL_SMOOTH);
-    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
     perspectiveProjectionMatrix = vmath::mat4::identity();
 
@@ -375,8 +374,8 @@ void initializeVertexShader()
         "   {" \
         "       vec4 eyeCoordinates = modelViewMatrix * vertexPosition;" \
         "       vec3 tNormal = normalize(mat3(modelViewMatrix) * vertexNormal);" \
-        "       vec3 s = normalize(vec3(lightPosition - eyeCoordinates));" \
-        "       diffuseLight = ld * kd * max(dot(s, tNormal), 0.0);" \
+        "       vec3 source = normalize(vec3(lightPosition - eyeCoordinates));" \
+        "       diffuseLight = ld * kd * max(dot(source, tNormal), 0.0);" \
         "   }" \
         "\n" \
         "   gl_Position = projectionMatrix * modelViewMatrix * vertexPosition;" \
