@@ -506,7 +506,7 @@ void initializeShaderProgram()
     isLightingEnabledUniform = glGetUniformLocation(shaderProgramObject, "isLightingEnabled");
     ldUniform = glGetUniformLocation(shaderProgramObject, "ld");
     kdUniform = glGetUniformLocation(shaderProgramObject, "kd");
-    lightPositionUniform = glGetUniformLocation(shaderProgramObject, "lightPositionUniform");
+    lightPositionUniform = glGetUniformLocation(shaderProgramObject, "lightPosition");
 }
 
 void initializeSphereBuffers()
