@@ -448,8 +448,6 @@ void initializeFragmentShader()
         "\n" \
         "out vec4 fragmentColor;" \
         "\n" \
-        "uniform int isLightingEnabled;" \
-        "\n" \
         "void main(void)" \
         "{" \
         "   fragmentColor = vec4(phongAdsColor, 1.0);" \
