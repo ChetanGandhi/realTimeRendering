@@ -70,8 +70,6 @@ GLfloat materialDiffuse[] = { 1.0f,1.0f,1.0f,1.0f };
 GLfloat materialSpecular[] = { 1.0f,1.0f,1.0f,1.0f };
 GLfloat materialShininess = 50.0f;
 
-
-
 FILE *logFile = NULL;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
@@ -93,8 +91,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - PP - Sphere Per Vertex Light");
-    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_PP_SPHERE_TEXTURE");
+    TCHAR szApplicationTitle[] = TEXT("CG - PP - Per Vertex Light");
+    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_PP_PER_VERTEX_LIGHT");
     bool done = false;
 
 	if (fopen_s(&logFile, "debug.log", "w") != 0)
