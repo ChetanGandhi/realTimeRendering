@@ -93,8 +93,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - PP - Sphere Per Fragment Light");
-    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_PP_SPHERE_TEXTURE");
+    TCHAR szApplicationTitle[] = TEXT("CG - PP - Per Fragment Light");
+    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_PP_PER_FRAGMENT_LIGHT");
     bool done = false;
 
 	if (fopen_s(&logFile, "debug.log", "w") != 0)
