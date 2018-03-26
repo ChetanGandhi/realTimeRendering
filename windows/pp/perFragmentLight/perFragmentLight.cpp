@@ -70,8 +70,6 @@ GLfloat materialDiffuse[] = { 1.0f,1.0f,1.0f,1.0f };
 GLfloat materialSpecular[] = { 1.0f,1.0f,1.0f,1.0f };
 GLfloat materialShininess = 50.0f;
 
-
-
 FILE *logFile = NULL;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
@@ -85,7 +83,6 @@ void initializeSphereBuffers(void);
 void cleanUp(void);
 void display(void);
 void drawSphere(void);
-bool loadGLTextures(GLuint *texture, TCHAR resourceId[]);
 void resize(int width, int height);
 void toggleFullscreen(HWND hWnd, bool isFullscreen);
 

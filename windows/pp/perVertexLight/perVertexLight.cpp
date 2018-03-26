@@ -83,7 +83,6 @@ void initializeSphereBuffers(void);
 void cleanUp(void);
 void display(void);
 void drawSphere(void);
-bool loadGLTextures(GLuint *texture, TCHAR resourceId[]);
 void resize(int width, int height);
 void toggleFullscreen(HWND hWnd, bool isFullscreen);
 

@@ -62,7 +62,6 @@ void update(void);
 void display(void);
 void drawPyramid(void);
 void drawCube(void);
-bool loadGLTextures(GLuint *texture, TCHAR resourceId[]);
 void resize(int width, int height);
 void toggleFullscreen(HWND hWnd, bool isFullscreen);
 
