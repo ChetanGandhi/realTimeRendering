@@ -60,7 +60,6 @@ void initializeCubeBuffers(void);
 void cleanUp(void);
 void update(void);
 void display(void);
-void drawPyramid(void);
 void drawCube(void);
 void resize(int width, int height);
 void toggleFullscreen(HWND hWnd, bool isFullscreen);
