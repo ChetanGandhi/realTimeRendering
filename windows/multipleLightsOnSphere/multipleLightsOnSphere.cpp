@@ -33,7 +33,7 @@ GLfloat lightZeroPosition[] = {0.0f, 0.0f, 0.0f, 0.0f};
 
 GLfloat lightOneAmbient[] = {0.0f, 0.0f, 0.0f, 0.0f};
 GLfloat lightOneDiffuse[] = {0.0f, 1.0f, 0.0f, 0.0f};
-GLfloat lightOneSpecular[] = {0.0f, 0.0f, 1.0f, 0.0f};
+GLfloat lightOneSpecular[] = {0.0f, 1.0f, 0.0f, 0.0f};
 GLfloat lightOnePosition[] = {0.0f, 0.0f, 0.0f, 0.0f};
 
 GLfloat lightTwoAmbient[] = {0.0f, 0.0f, 0.0f, 0.0f};
@@ -369,7 +369,7 @@ void drawSphere(void)
     glPushMatrix();
 
     glRotatef(angleGreenLight, 0.0f, 1.0f, 0.0f);
-    lightOnePosition[0] = angleRedLight;
+    lightOnePosition[0] = angleGreenLight;
     lightOnePosition[1] = 0;
     lightOnePosition[2] = 0;
     glLightfv(GL_LIGHT1, GL_POSITION, lightOnePosition);
@@ -381,9 +381,9 @@ void drawSphere(void)
     glPushMatrix();
 
     glRotatef(angleBlueLight, 0.0f, 0.0f, 1.0f);
-    lightTwoPosition[0] = angleRedLight;
+    lightTwoPosition[0] = 0;
     lightTwoPosition[1] = 0;
-    lightTwoPosition[2] = 0;
+    lightTwoPosition[2] = angleBlueLight;
     glLightfv(GL_LIGHT2, GL_POSITION, lightTwoPosition);
 
     // Light 2 pop
