@@ -20,7 +20,7 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include pyramidMultipleLight.cpp /link
 ###### Keyboard shortcuts
 
 *   Press `Esc` key to quit.
-*   Press `1` to `9` key to increase the Texture speed.
+*   Press `1` to `9` key to increase the speed.
 *   Press `f` key to toggle fullscreen mode.
 *   Press `a` key to toggle animation.
 *   Press `l` key to toggle lighting.
