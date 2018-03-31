@@ -41,7 +41,7 @@ enum
 GLfloat angleRedLight = 0.0f;
 GLfloat angleGreenLight = 0.0f;
 GLfloat angleBlueLight = 0.0f;
-GLfloat speed = 0.001f;
+GLfloat speed = 0.1f;
 
 GLuint vertexShaderObject = 0;
 GLuint fragmentShaderObject = 0;
@@ -717,17 +717,17 @@ void display(void)
 
         lightZeroPosition[0] = 0.0f;
         lightZeroPosition[1] = sinf(angleRedLight) * 100.0f;
-        lightZeroPosition[2] = cosf(angleRedLight) * 100.0f;
+        lightZeroPosition[2] = cosf(angleRedLight) * 100.0f - 3.0f;
         glUniform4fv(lightZeroPositionUniform, 1, lightZeroPosition);
 
         lightOnePosition[0] = sinf(angleGreenLight) * 100.0f;
         lightOnePosition[1] = 0.0f;
-        lightOnePosition[2] = cosf(angleGreenLight) * 100.0f;
+        lightOnePosition[2] = cosf(angleGreenLight) * 100.0f - 3.0f;
         glUniform4fv(lightOnePositionUniform, 1, lightOnePosition);
 
         lightTwoPosition[0] = cosf(angleBlueLight) * 100.0f;
         lightTwoPosition[1] = sinf(angleBlueLight) * 100.0f;
-        lightTwoPosition[2] = 0.0f;
+        lightTwoPosition[2] = -3.0f;
         glUniform4fv(lightTwoPositionUniform, 1, lightTwoPosition);
 
         glUniform3fv(kaUniform, 1, materialAmbient);
