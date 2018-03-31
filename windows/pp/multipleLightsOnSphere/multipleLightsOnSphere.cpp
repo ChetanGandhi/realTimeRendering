@@ -41,7 +41,7 @@ enum
 GLfloat angleRedLight = 0.0f;
 GLfloat angleGreenLight = 0.0f;
 GLfloat angleBlueLight = 0.0f;
-GLfloat speed = 0.1f;
+GLfloat speed = 0.001f;
 
 GLuint vertexShaderObject = 0;
 GLuint fragmentShaderObject = 0;
@@ -716,18 +716,18 @@ void display(void)
         glUniform3fv(lsTwoUniform, 1, lightTwoSpecular);
 
         lightZeroPosition[0] = 0.0f;
-        lightZeroPosition[1] = angleRedLight;
-        lightZeroPosition[2] = 0.0f;
+        lightZeroPosition[1] = sinf(angleRedLight) * 100.0f;
+        lightZeroPosition[2] = cosf(angleRedLight) * 100.0f;
         glUniform4fv(lightZeroPositionUniform, 1, lightZeroPosition);
 
-        lightOnePosition[0] = angleGreenLight;
+        lightOnePosition[0] = sinf(angleGreenLight) * 100.0f;
         lightOnePosition[1] = 0.0f;
-        lightOnePosition[2] = 0.0f;
+        lightOnePosition[2] = cosf(angleGreenLight) * 100.0f;
         glUniform4fv(lightOnePositionUniform, 1, lightOnePosition);
 
-        lightTwoPosition[0] = 0.0f;
-        lightTwoPosition[1] = 0.0f;
-        lightTwoPosition[2] = angleBlueLight;
+        lightTwoPosition[0] = cosf(angleBlueLight) * 100.0f;
+        lightTwoPosition[1] = sinf(angleBlueLight) * 100.0f;
+        lightTwoPosition[2] = 0.0f;
         glUniform4fv(lightTwoPositionUniform, 1, lightTwoPosition);
 
         glUniform3fv(kaUniform, 1, materialAmbient);
@@ -749,16 +749,10 @@ void display(void)
 void drawSphere()
 {
     vmath::mat4 modelMatrix = vmath::mat4::identity();
-    vmath::mat4 rotationMatrix = vmath::mat4::identity();
     vmath::mat4 viewMatrix = vmath::mat4::identity();
 
     // Translate the modal matrix.
     modelMatrix = vmath::translate(0.0f, 0.0f, -3.0f);
-    rotationMatrix = vmath::rotate(angleRedLight, angleGreenLight, angleBlueLight);
-
-    // Rotate after transformation.
-    modelMatrix = modelMatrix * rotationMatrix;
-
     // Pass modelMatrix to vertex shader in 'modelMatrix' variable defined in shader.
     glUniformMatrix4fv(modelMatrixUniform, 1, GL_FALSE, modelMatrix);
 
