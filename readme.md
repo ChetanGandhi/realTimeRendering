@@ -92,14 +92,13 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### Android
 
-*   [Template](android/template)
+*   [Template](android/00-template)
 
 # Assignments on 03-12-2017
 
 ##### Android
 
-*   [Template](android/template)
-*   [00 - Portrait Window](android/00-portraitWindow)
+*   [00 - Portrait Window](android/01-portraitWindow)
 
 # Assignments on 17-12-2017
 
@@ -112,18 +111,19 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### Android
 
-*   [Fullscreen Text View](android/fullscreenTextView)
-*   [Fullscreen Text View Subclass](android/fullscreenMyTextView)
+*   [Fullscreen Text View](android/02-fullscreenTextView)
+*   [Fullscreen Text View Subclass](android/03-fullscreenMyTextView)
 
 # Assignments on 07-01-2018
-
-##### Android
-
-*   [GLES View](android/glesView)
 
 ##### Windows
 
 *   [GLEW Extensions](windows/pp/01-extensions)
+
+##### Android
+
+*   [Gesture Listener](android/04-gestureListener)
+*   [GLES View](android/05-glesView)
 
 ##### XWindows
 
@@ -149,7 +149,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### Android
 
-*   [Triangle by Orthographic Projection](android/triangleOrtho)
+*   [Triangle by Orthographic Projection](android/06-triangleOrtho)
 
 # Assignments on 28-01-2018
 
@@ -173,12 +173,12 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### Android
 
-*   [Triangle By Perspective Projection](android/trianglePerspective)
-*   [Multi Colored Triangle](android/multiColoredTriangle)
-*   [Triangle and Square](android/triangleAndSquare)
-*   [Triangle and Square Colored](android/triangleAndSquareColored)
-*   [Triangle and Square Rotation](android/triangleAndSquareRotation)
-*   [Pyramid and Cube Rotation](android/pyramidAndCubeRotation)
+*   [Triangle By Perspective Projection](android/07-trianglePerspective)
+*   [Multi Colored Triangle](android/08-multiColoredTriangle)
+*   [Triangle and Square](android/09-triangleAndSquare)
+*   [Triangle and Square Colored](android/10-triangleAndSquareColored)
+*   [Triangle and Square Rotation](android/11-triangleAndSquareRotation)
+*   [Pyramid and Cube Rotation](android/12-pyramidAndCubeRotation)
 
 # Assignments on 10-02-2018
 
@@ -188,7 +188,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### Android
 
-*   [Pyramid and Cube Texture](android/pyramidAndCubeTexture)
+*   [Pyramid and Cube Texture](android/13-pyramidAndCubeTexture)
 
 ##### XWindows
 
@@ -204,11 +204,11 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### Android
 
-*   [Smiley](android/smiley)
-*   [Smiley Tweaked](android/smileyTweaked)
-*   [Checkerboard Texture](android/checkerboardTexture)
+*   [Smiley](android/14-smiley)
+*   [Smiley Tweaked](android/15-smileyTweaked)
+*   [Checkerboard Texture](android/16-checkerboardTexture)
 
-##### Android
+##### XWindows
 
 *   [Smiley](xWindows/smiley)
 *   [Smiley Tweaked](xWindows/smileyTweaked)
