@@ -492,7 +492,9 @@ public class RotatingCubeWithLight extends GLSurfaceView implements GLSurfaceVie
         // Scale, translate and rotate the modal view matrix.
         Matrix.scaleM(scaleMatrix, 0, 0.75f, 0.75f, 0.75f);
         Matrix.translateM(modelMatrix, 0, 0.0f, 0.0f, -6.0f);
-        Matrix.rotateM(rotationMatrix, 0, angleCube, 1.0f, 1.0f, 1.0f);
+        Matrix.rotateM(rotationMatrix, 0, angleCube, 1.0f, 0.0f, 0.0f);
+        Matrix.rotateM(rotationMatrix, 0, angleCube, 0.0f, 1.0f, 0.0f);
+        Matrix.rotateM(rotationMatrix, 0, angleCube, 0.0f, 0.0f, 1.0f);
 
         // Rotate then scale and then transformation (Right to left).
         // i.e. first transform, then scale and then rotate
