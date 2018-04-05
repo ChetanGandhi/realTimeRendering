@@ -592,7 +592,6 @@ void display(void)
 
     if(isLightingEnabled)
     {
-        fprintf(logFile, "Light enabled");
         glUniform1i(isLightingEnabledUniform, 1);
         glUniform3fv(laUniform, 1, lightAmbient);
         glUniform3fv(ldUniform, 1, lightDiffuse);
