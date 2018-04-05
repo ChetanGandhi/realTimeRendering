@@ -498,7 +498,7 @@ public class RotatingCubeWithLight extends GLSurfaceView implements GLSurfaceVie
 
         // Rotate then scale and then transformation (Right to left).
         // i.e. first transform, then scale and then rotate
-        // Matrix.multiplyMM(modelMatrix, 0, modelMatrix, 0, scaleMatrix, 0);
+        Matrix.multiplyMM(modelMatrix, 0, modelMatrix, 0, scaleMatrix, 0);
         Matrix.multiplyMM(modelViewMatrix, 0, modelMatrix, 0, rotationMatrix, 0);
 
         // Pass modelViewMatrix and modelViewProjectionMatrix to vertex shader in 'modelViewUniform'
