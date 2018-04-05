@@ -384,18 +384,18 @@ public class SphereWithLight extends GLSurfaceView implements GLSurfaceView.Rend
 
     private void display() {
         GLES32.glClear(GLES32.GL_COLOR_BUFFER_BIT | GLES32.GL_DEPTH_BUFFER_BIT | GLES32.GL_STENCIL_BUFFER_BIT);
-        GLES32.glUseProgram(shaderProgramObject);
+        GLES32.glUseProgram(this.shaderProgramObject);
 
         if(isLightingEnabled) {
-            GLES32.glUniform1i(isLightingEnabledUniform, 1);
-            GLES32.glUniform3f(ldUniform, 1.0f, 1.0f, 1.0f);
-            GLES32.glUniform3f(kdUniform, 0.5f, 0.5f, 0.5f);
+            GLES32.glUniform1i(this.isLightingEnabledUniform, 1);
+            GLES32.glUniform3f(this.ldUniform, 1.0f, 1.0f, 1.0f);
+            GLES32.glUniform3f(this.kdUniform, 0.5f, 0.5f, 0.5f);
 
             float lightPosition[] = { 0.0f, 0.0f, 2.0f, 1.0f };
-            GLES32.glUniform4fv(lightPositionUniform, 1, lightPosition, 0);
+            GLES32.glUniform4fv(this.lightPositionUniform, 1, lightPosition, 0);
         }
         else {
-            GLES32.glUniform1i(isLightingEnabledUniform, 0);
+            GLES32.glUniform1i(this.isLightingEnabledUniform, 0);
         }
 
         this.drawSphere();

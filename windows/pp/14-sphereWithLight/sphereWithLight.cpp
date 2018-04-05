@@ -67,7 +67,6 @@ void initializeSphereBuffers(void);
 void cleanUp(void);
 void display(void);
 void drawSphere(void);
-bool loadGLTextures(GLuint *texture, TCHAR resourceId[]);
 void resize(int width, int height);
 void toggleFullscreen(HWND hWnd, bool isFullscreen);
 
@@ -76,7 +75,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
     WNDCLASSEX wndClassEx;
     MSG message;
     TCHAR szApplicationTitle[] = TEXT("CG - PP - Sphere with Light");
-    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_PP_SPHERE_TEXTURE");
+    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_PP_SPHERE_LIGHT");
     bool done = false;
 
 	if (fopen_s(&logFile, "debug.log", "w") != 0)
