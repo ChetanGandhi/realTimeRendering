@@ -2,8 +2,6 @@
 
 ##### How to compile
 
-*   This code is dependent on `Sphere.java` provided by Sir but not included along wih this source. You can change the implementation to draw any other shape.
-
 ```
 gradlew.bat clean
 gradlew.bat build

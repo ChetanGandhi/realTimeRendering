@@ -711,6 +711,12 @@ void cleanUp(void)
         vboSphereNormal = 0;
     }
 
+    if(vboSphereElement)
+    {
+        glDeleteBuffers(1, &vboSphereElement);
+        vboSphereElement = 0;
+    }
+
     if(shaderProgramObject)
     {
         if(vertexShaderObject)

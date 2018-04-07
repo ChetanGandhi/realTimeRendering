@@ -453,6 +453,11 @@ public class SphereWithLight extends GLSurfaceView implements GLSurfaceView.Rend
             this.vboSphereNormal[0] = 0;
         }
 
+        if(this.vboSphereElement[0] != 0) {
+            GLES32.glDeleteBuffers(1, this.vboSphereElement, 0);
+            this.vboSphereElement[0] = 0;
+        }
+
         if(this.shaderProgramObject != 0) {
             if(this.vertexShaderObject != 0) {
                 GLES32.glDetachShader(this.shaderProgramObject, this.vertexShaderObject);

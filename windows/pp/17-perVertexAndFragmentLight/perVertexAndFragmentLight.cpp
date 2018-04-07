@@ -1036,6 +1036,12 @@ void cleanUp(void)
         vboSphereNormalPerVertex = 0;
     }
 
+    if(vboSphereElementPerVertex)
+    {
+        glDeleteBuffers(1, &vboSphereElementPerVertex);
+        vboSphereElementPerVertex = 0;
+    }
+
     if(shaderProgramObjectPerVertex)
     {
         if(vertexShaderObjectPerVertex)
@@ -1083,6 +1089,12 @@ void cleanUp(void)
     {
         glDeleteBuffers(1, &vboSphereNormalPerFragment);
         vboSphereNormalPerFragment = 0;
+    }
+
+    if(vboSphereElementPerFragment)
+    {
+        glDeleteBuffers(1, &vboSphereElementPerFragment);
+        vboSphereElementPerFragment = 0;
     }
 
     if(shaderProgramObjectPerFragment)

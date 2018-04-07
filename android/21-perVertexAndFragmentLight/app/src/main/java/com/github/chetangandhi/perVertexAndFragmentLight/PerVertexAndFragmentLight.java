@@ -794,6 +794,11 @@ public class PerVertexAndFragmentLight extends GLSurfaceView implements GLSurfac
             this.vboSphereNormalPerVertex[0] = 0;
         }
 
+       if(this.vboSphereElementPerVertex[0] != 0) {
+            GLES32.glDeleteBuffers(1, this.vboSphereElementPerVertex, 0);
+            this.vboSphereElementPerVertex[0] = 0;
+        }
+
         if(this.shaderProgramObjectPerVertex != 0) {
             if(this.vertexShaderObjectPerVertex != 0) {
                 GLES32.glDetachShader(this.shaderProgramObjectPerVertex, this.vertexShaderObjectPerVertex);
@@ -832,6 +837,11 @@ public class PerVertexAndFragmentLight extends GLSurfaceView implements GLSurfac
        if(this.vboSphereNormalPerFragment[0] != 0) {
             GLES32.glDeleteBuffers(1, this.vboSphereNormalPerFragment, 0);
             this.vboSphereNormalPerFragment[0] = 0;
+        }
+
+        if(this.vboSphereElementPerFragment[0] != 0) {
+            GLES32.glDeleteBuffers(1, this.vboSphereElementPerFragment, 0);
+            this.vboSphereElementPerFragment[0] = 0;
         }
 
         if(this.shaderProgramObjectPerFragment != 0) {
