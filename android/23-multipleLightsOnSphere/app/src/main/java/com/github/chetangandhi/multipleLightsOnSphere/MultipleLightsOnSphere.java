@@ -36,7 +36,7 @@ public class MultipleLightsOnSphere extends GLSurfaceView implements GLSurfaceVi
     private float angleRedLight = 0.0f;
     private float angleGreenLight = 0.0f;
     private float angleBlueLight = 0.0f;
-    private float speed = 0.01f;
+    private float speed = 0.1f;
 
     private int singleTapCounter = 1;
     private int numberOfSphereVertices = 0;
