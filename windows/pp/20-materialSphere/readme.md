@@ -34,6 +34,10 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include /I %SPHERE_PATH% materialSpher
 
     ![lightsDisabled][lights-disabled-image]
 
+*   Light Enabled
+
+    ![lightsEnabled][lights-enabled-image]
+
 *   Light Enabled - Rotation on X-Axis
 
     ![lightsEnabled][lights-enabled-x-axis-image]
@@ -48,6 +52,7 @@ cl.exe /EHsc /DUNICODE /Zi /I %GLEW_PATH%\include /I %SPHERE_PATH% materialSpher
 
 [//]: # "Image declaration"
 [lights-disabled-image]: ./preview/lightsDisabled.png "Lights Disabled"
+[lights-enabled-image]: ./preview/lightsEnabled.png "Lights Enabled"
 [lights-enabled-x-axis-image]: ./preview/lightsEnabledXAxis.png "Light Enabled - Rotation on X-Axis"
 [lights-enabled-y-axis-image]: ./preview/lightsEnabledYAxis.png "Light Enabled - Rotation on Y-Axis"
 [lights-enabled-z-axis-image]: ./preview/lightsEnabledZAxis.png "Light Enabled - Rotation on Z-Axis"

@@ -22,6 +22,7 @@ const int numberOfColumns = 4;
 int viewportWidth = 1;
 int viewportHeight = 1;
 int viewportInitialX = 0;
+int viewportInitialY = 0;
 
 bool isFullscreen = false;
 bool isActive = false;
@@ -803,7 +804,7 @@ void display(void)
     {
         for(int rowCounter = 0; rowCounter < numberOfRows; ++rowCounter)
         {
-            glViewport(viewportInitialX + (columnCounter * viewportWidth), rowCounter * viewportHeight, viewportWidth, viewportHeight);
+            glViewport(viewportInitialX + (columnCounter * viewportWidth), viewportInitialY + (rowCounter * viewportHeight), viewportWidth, viewportHeight);
 
             glUseProgram(shaderProgramObject);
 
@@ -820,23 +821,21 @@ void display(void)
                     lightZeroPosition[0] = 0.0f;
                     lightZeroPosition[1] = sinf(angleLightRotation) * 100.0f - 3.0f;
                     lightZeroPosition[2] = cosf(angleLightRotation) * 100.0f - 3.0f;
-                    glUniform4fv(lightZeroPositionUniform, 1, lightZeroPosition);
                 }
                 else if(rotateLightOnYAxis)
                 {
                     lightZeroPosition[0] = sinf(angleLightRotation) * 100.0f - 3.0f;
                     lightZeroPosition[1] = 0.0f;
                     lightZeroPosition[2] = cosf(angleLightRotation) * 100.0f - 3.0f;
-                    glUniform4fv(lightZeroPositionUniform, 1, lightZeroPosition);
                 }
                 else if(rotateLightOnZAxis)
                 {
                     lightZeroPosition[0] = sinf(angleLightRotation) * 100.0f - 3.0f;
                     lightZeroPosition[1] = cosf(angleLightRotation) * 100.0f - 3.0f;
                     lightZeroPosition[2] = 0.0f;
-                    glUniform4fv(lightZeroPositionUniform, 1, lightZeroPosition);
                 }
 
+                glUniform4fv(lightZeroPositionUniform, 1, lightZeroPosition);
                 glUniform3fv(kaUniform, 1, materialAmbient[columnCounter][rowCounter]);
                 glUniform3fv(kdUniform, 1, materialDiffuse[columnCounter][rowCounter]);
                 glUniform3fv(ksUniform, 1, materialSpecular[columnCounter][rowCounter]);
@@ -894,6 +893,7 @@ void resize(int width, int height)
     viewportWidth = width / numberOfRows;
     viewportHeight = height / numberOfRows;
     viewportInitialX = (width - (viewportWidth * numberOfColumns)) / 2;
+    viewportInitialY = (height - (viewportHeight * numberOfRows)) / 2;
     perspectiveProjectionMatrix = vmath::perspective(45.0f, (GLfloat)width / (GLfloat)height, 1.0f, 100.0f);
 }
 
