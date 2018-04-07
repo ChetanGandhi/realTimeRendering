@@ -252,6 +252,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 *   [00 - Canvas](webGL/00-canvas)
 *   [01 - Events](webGL/01-events)
+*   [02 - Fullscreen Canvas](webGL/02-fullScreen)
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
