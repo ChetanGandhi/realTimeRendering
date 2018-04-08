@@ -254,5 +254,11 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 *   [01 - Events](webGL/01-events)
 *   [02 - Fullscreen Canvas](webGL/02-fullScreen)
 
+# Assignments on 09-04-2018
+
+##### WebGL
+
+*   [03 - OpenGL Canvas](webGL/03-openGLCanvas)
+
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
