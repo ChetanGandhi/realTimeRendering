@@ -24,7 +24,7 @@ let cancelAnimationFrame =
 function main() {
     surface = document.getElementById("surface");
 
-    if (!surface) {
+    if(!surface) {
         console.log("CG | Error | Not able to get surface.");
         return;
     }
@@ -43,7 +43,7 @@ function main() {
 }
 
 function onKeyDown(event) {
-    switch (event.key) {
+    switch(event.key) {
         case "F":
         case "f":
             toggleFullscreen();
@@ -51,10 +51,10 @@ function onKeyDown(event) {
     }
 }
 
-function onMouseDown(event) {}
+function onMouseDown(event) { }
 
 function onResize(event) {
-    if (isFullscreen) {
+    if(isFullscreen) {
         resize(window.innerWidth, window.innerHeight);
     } else {
         resize(surfaceOriginalWidth, surfaceOriginalHeight);
@@ -64,7 +64,7 @@ function onResize(event) {
 function initialize() {
     gl = surface.getContext("webgl2");
 
-    if (!gl) {
+    if(!gl) {
         console.log("CG | Error | Not able to get WebGL-2 context.");
         return;
     }
@@ -75,13 +75,16 @@ function initialize() {
     gl.viewportHeight = surface.height;
 
     gl.clearColor(0.0, 0.0, 1.0, 1.0);
+    gl.clearDepth(1.0);
+    gl.enable(gl.DEPTH_TEST);
+    gl.depthFunc(gl.LEQUAL);
 
     resize(surfaceOriginalWidth, surfaceOriginalHeight);
     display();
 }
 
 function display() {
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     requestAnimationFrame(display, surface);
 }
@@ -90,26 +93,26 @@ function toggleFullscreen() {
     let fullscreenElement =
         document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
 
-    if (!fullscreenElement) {
-        if (surface.requestFullscreen) {
+    if(!fullscreenElement) {
+        if(surface.requestFullscreen) {
             surface.requestFullscreen();
-        } else if (surface.mozRequestFullScreen) {
+        } else if(surface.mozRequestFullScreen) {
             surface.mozRequestFullScreen();
-        } else if (surface.webkitRequestFullscreen) {
+        } else if(surface.webkitRequestFullscreen) {
             surface.webkitRequestFullscreen();
-        } else if (surface.msRequestFullscreen) {
+        } else if(surface.msRequestFullscreen) {
             surface.msRequestFullscreen();
         }
 
         isFullscreen = true;
     } else {
-        if (document.exitFullscreen) {
+        if(document.exitFullscreen) {
             document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
+        } else if(document.mozCancelFullScreen) {
             document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
+        } else if(document.webkitExitFullscreen) {
             document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
+        } else if(document.msExitFullscreen) {
             document.msExitFullscreen();
         }
 
@@ -118,7 +121,7 @@ function toggleFullscreen() {
 }
 
 function resize(width, height) {
-    if (height === 0) {
+    if(height === 0) {
         height = 1;
     }
 

@@ -121,6 +121,9 @@ function initialize() {
     perspectiveProjectionMatrix = mat4.create();
 
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clearDepth(1.0);
+    gl.enable(gl.DEPTH_TEST);
+    gl.depthFunc(gl.LEQUAL);
 
     resize(surfaceOriginalWidth, surfaceOriginalHeight);
 }
@@ -251,7 +254,7 @@ function initializeSquareBuffers() {
 }
 
 function display() {
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.useProgram(shaderProgramObject);
 
     drawTriangle();
