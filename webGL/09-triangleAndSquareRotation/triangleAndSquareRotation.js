@@ -51,7 +51,7 @@ let perspectiveProjectionMatrix = null;
 function main() {
     surface = document.getElementById("surface");
 
-    if (!surface) {
+    if(!surface) {
         console.log("CG | Error | Not able to get surface.");
         return;
     }
@@ -71,18 +71,18 @@ function main() {
 }
 
 function onKeyDown(event) {
-    if (!event.repeat) {
+    if(event.repeat) {
         return;
     }
 
-    switch (event.key) {
+    switch(event.key) {
         case "F":
         case "f":
             toggleFullscreen();
             break;
 
         case "Escape":
-            if (!isEscapeKeyPressed) {
+            if(!isEscapeKeyPressed) {
                 isEscapeKeyPressed = true;
                 cleanUp();
                 alert("Rendering is stopped.");
@@ -131,10 +131,10 @@ function onKeyDown(event) {
     }
 }
 
-function onMouseDown(event) {}
+function onMouseDown(event) { }
 
 function onResize(event) {
-    if (isFullscreen) {
+    if(isFullscreen) {
         resize(window.innerWidth, window.innerHeight);
     } else {
         resize(surfaceOriginalWidth, surfaceOriginalHeight);
@@ -144,7 +144,7 @@ function onResize(event) {
 function initialize() {
     gl = surface.getContext("webgl2");
 
-    if (!gl) {
+    if(!gl) {
         console.log("CG | Error | Not able to get WebGL-2 context.");
         return;
     }
@@ -191,10 +191,10 @@ function initializeVertexShaderObject() {
     gl.shaderSource(vertexShaderObject, vertexShaderCode);
     gl.compileShader(vertexShaderObject);
 
-    if (!gl.getShaderParameter(vertexShaderObject, gl.COMPILE_STATUS)) {
+    if(!gl.getShaderParameter(vertexShaderObject, gl.COMPILE_STATUS)) {
         let error = gl.getShaderInfoLog(vertexShaderObject);
 
-        if (error.length > 0) {
+        if(error.length > 0) {
             alert(error);
             cleanUp();
         }
@@ -220,10 +220,10 @@ function initializeFragmentShaderObject() {
     gl.shaderSource(fragmentShaderObject, fragmentShaderCode);
     gl.compileShader(fragmentShaderObject);
 
-    if (!gl.getShaderParameter(fragmentShaderObject, gl.COMPILE_STATUS)) {
+    if(!gl.getShaderParameter(fragmentShaderObject, gl.COMPILE_STATUS)) {
         let error = gl.getShaderInfoLog(fragmentShaderObject);
 
-        if (error.length > 0) {
+        if(error.length > 0) {
             alert(error);
             cleanUp();
         }
@@ -238,10 +238,10 @@ function initializeShaderProgramObject() {
     gl.bindAttribLocation(shaderProgramObject, WebGLMacros.CG_ATTRIBUTE_COLOR, "vertexColor");
     gl.linkProgram(shaderProgramObject);
 
-    if (!gl.getProgramParameter(shaderProgramObject, gl.LINK_STATUS)) {
+    if(!gl.getProgramParameter(shaderProgramObject, gl.LINK_STATUS)) {
         let error = gl.getProgramInfoLog(shaderProgramObject);
 
-        if (error.length > 0) {
+        if(error.length > 0) {
             alert(error);
             cleanUp();
         }
@@ -299,11 +299,11 @@ function update() {
     angleSquare -= speed;
     angleTriangle += speed;
 
-    if (angleSquare <= -360.0) {
+    if(angleSquare <= -360.0) {
         angleSquare = 0.0;
     }
 
-    if (angleTriangle >= 360.0) {
+    if(angleTriangle >= 360.0) {
         angleTriangle = 0.0;
     }
 }
@@ -367,26 +367,26 @@ function toggleFullscreen() {
     let fullscreenElement =
         document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
 
-    if (!fullscreenElement) {
-        if (surface.requestFullscreen) {
+    if(!fullscreenElement) {
+        if(surface.requestFullscreen) {
             surface.requestFullscreen();
-        } else if (surface.mozRequestFullScreen) {
+        } else if(surface.mozRequestFullScreen) {
             surface.mozRequestFullScreen();
-        } else if (surface.webkitRequestFullscreen) {
+        } else if(surface.webkitRequestFullscreen) {
             surface.webkitRequestFullscreen();
-        } else if (surface.msRequestFullscreen) {
+        } else if(surface.msRequestFullscreen) {
             surface.msRequestFullscreen();
         }
 
         isFullscreen = true;
     } else {
-        if (document.exitFullscreen) {
+        if(document.exitFullscreen) {
             document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
+        } else if(document.mozCancelFullScreen) {
             document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
+        } else if(document.webkitExitFullscreen) {
             document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
+        } else if(document.msExitFullscreen) {
             document.msExitFullscreen();
         }
 
@@ -395,7 +395,7 @@ function toggleFullscreen() {
 }
 
 function resize(width, height) {
-    if (height == 0) {
+    if(height == 0) {
         height = 1;
     }
 
@@ -409,57 +409,57 @@ function resize(width, height) {
 function cleanUp() {
     cancelAnimationFrame(displayAnimationRequestId);
 
-    if (vaoTriangle) {
+    if(vaoTriangle) {
         gl.deleteVertexArray(vaoTriangle);
         vaoTriangle = null;
     }
 
-    if (vboTrianglePosition) {
+    if(vboTrianglePosition) {
         gl.deleteBuffer(vboTrianglePosition);
         vboTrianglePosition = null;
     }
 
-    if (vboTriangleColor) {
+    if(vboTriangleColor) {
         gl.deleteBuffer(vboTriangleColor);
         vboTriangleColor = null;
     }
 
-    if (vaoSquare) {
+    if(vaoSquare) {
         gl.deleteVertexArray(vaoSquare);
         vaoSquare = null;
     }
 
-    if (vboSquarePosition) {
+    if(vboSquarePosition) {
         gl.deleteBuffer(vboSquarePosition);
         vboSquarePosition = null;
     }
 
-    if (vboSquareColor) {
+    if(vboSquareColor) {
         gl.deleteBuffer(vboSquareColor);
         vboSquareColor = null;
     }
 
-    if (shaderProgramObject) {
-        if (vertexShaderObject) {
+    if(shaderProgramObject) {
+        if(vertexShaderObject) {
             gl.detachShader(shaderProgramObject, vertexShaderObject);
         }
 
-        if (fragmentShaderObject) {
+        if(fragmentShaderObject) {
             gl.detachShader(shaderProgramObject, fragmentShaderObject);
         }
     }
 
-    if (vertexShaderObject) {
+    if(vertexShaderObject) {
         gl.deleteShader(vertexShaderObject);
         vertexShaderObject = null;
     }
 
-    if (fragmentShaderObject) {
+    if(fragmentShaderObject) {
         gl.deleteShader(fragmentShaderObject);
         fragmentShaderObject = null;
     }
 
-    if (shaderProgramObject) {
+    if(shaderProgramObject) {
         gl.deleteProgram(shaderProgramObject);
         shaderProgramObject = null;
     }
