@@ -259,7 +259,18 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 ##### WebGL
 
 *   [03 - OpenGL Canvas](webGL/03-openGLCanvas)
-*   [04 - OpenGL Canvas](./webGL/04-triangleOrtho)
+*   [04 - Triangle Ortho](webGL/04-triangleOrtho)
+
+# Assignments on 15-04-2018
+
+##### WebGL
+
+* [05 - Triangle Perspective](webGL/05-TrianglePerspective)
+* [06 - Multi Colored Triangle](webGL/06-MultiColoredTriangle)
+* [07 - Triangle and Square](webGL/07-TriangleAndSquare)
+* [08 - Triangle and Square Colored](webGL/08-TriangleAndSquareColored)
+* [09 - Triangle and Square Rotation](webGL/09-TriangleAndSquareRotation)
+* [10 - Pyramid and Cube Rotation](webGL/10-PyramidAndCubeRotation)
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
