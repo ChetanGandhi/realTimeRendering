@@ -731,12 +731,6 @@ void cleanUp(void)
         vaoSmiley = 0;
     }
 
-    if(vaoSmiley)
-    {
-        glDeleteVertexArrays(1, &vaoSmiley);
-        vaoSmiley = 0;
-    }
-
     if(vboSmileyPosition)
     {
         glDeleteBuffers(1, &vboSmileyPosition);

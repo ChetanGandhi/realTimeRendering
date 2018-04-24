@@ -803,7 +803,7 @@ bool loadGLTextures(GLuint *texture, TCHAR resourceId[])
         DeleteObject(hBitmap);
 
         // Unbind the texture else the last loaded texture will be shown in display
-        // if we fo not forgot to specify to which texture to bind in display.
+        // if we forgot to specify to which texture to bind in display.
         glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
