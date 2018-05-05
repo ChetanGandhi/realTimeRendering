@@ -20,4 +20,4 @@ cl.exe /EHsc /DUNICODE /Zi emptyWindow.cpp /link resources\resource.res user32.l
 
 ###### Preview
 
-![emptyWindow](preview/emptyWindow.png?raw=true "Empty Window")
+![emptyWindow](preview/emptyWindow.png "Empty Window")
