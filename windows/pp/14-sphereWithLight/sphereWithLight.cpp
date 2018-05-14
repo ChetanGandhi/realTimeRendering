@@ -362,7 +362,7 @@ void initializeVertexShader()
         "\n" \
         "void main(void)" \
         "{" \
-        "   if(isLightingEnabled == 1);" \
+        "   if(isLightingEnabled == 1)" \
         "   {" \
         "       vec4 eyeCoordinates = modelViewMatrix * vertexPosition;" \
         "       vec3 tNormal = normalize(mat3(modelViewMatrix) * vertexNormal);" \

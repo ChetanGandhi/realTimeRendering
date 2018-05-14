@@ -228,11 +228,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
             if(wParam > 0x30 && wParam < 0x40)
             {
-                speed = 0.01f * (wParam - 0x30);
+                speed = 0.1f * (wParam - 0x30);
             }
             else if(wParam > 0x60 && wParam < 0x70)
             {
-                speed = 0.01f * (wParam - 0x60);
+                speed = 0.1f * (wParam - 0x60);
             }
 
         break;
@@ -351,6 +351,7 @@ void initialize(void)
 
     perspectiveProjectionMatrix = vmath::mat4::identity();
 
+    isAnimationEnabled = false;
     isLightingEnabled = false;
 
     // This is required for DirectX
@@ -484,7 +485,7 @@ void initializeFragmentShader()
         "       vec3 reflectionVectorLightOne = reflect(-normalizedLightOneDirection, normalizedTNormal);" \
         "       vec3 specularLightOne = lsOne * ks * pow(max(dot(reflectionVectorLightOne, normalizedViewVector), 0.0), materialShininess);" \
         "\n" \
-        "       phongAdsColor = ambientLightZero + diffuseLightZero + specularLightZero + ambientLightOne + diffuseLightOne + specularLightOne;"
+        "       phongAdsColor = ambientLightZero + diffuseLightZero + specularLightZero + ambientLightOne + diffuseLightOne + specularLightOne;" \
         "   }" \
         "   else" \
         "   {" \

@@ -204,7 +204,7 @@ function initializeVertexShaderObject() {
         "\n" +
         "void main(void)" +
         "{" +
-        "   if(isLightingEnabled == 1);" +
+        "   if(isLightingEnabled == 1)" +
         "   {" +
         "       vec4 eyeCoordinates = modelViewMatrix * vertexPosition;" +
         "       vec3 tNormal = normalize(mat3(modelViewMatrix) * vertexNormal);" +
@@ -414,6 +414,8 @@ function display() {
 
         let lightPosition = [0.0, 0.0, 2.0, 1.0];
         gl.uniform4fv(lightPositionUniform, lightPosition);
+    } else {
+        gl.uniform1i(isLightingEnabledUniform, 0);
     }
 
     drawCube();
