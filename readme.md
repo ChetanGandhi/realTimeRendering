@@ -218,8 +218,8 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### Windows
 
-*   [13 - Rotating Cube with Light](windows/pp/13-rotatingCubeWithLight)
-*   [14 - Sphere with Light](windows/pp/14-sphereWithLight)
+*   [14 - Rotating Cube with Light](windows/pp/14-rotatingCubeWithLight)
+*   [15 - Sphere with Light](windows/pp/15-sphereWithLight)
 
 ##### Android
 
@@ -230,12 +230,12 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### Windows
 
-*   [15 - Per Vertex Light](windows/pp/15-perVertexLight)
-*   [16 - Per Fragment Light](windows/pp/16-perFragmentLight)
-*   [17 - Per Vertex and Fragment Light](windows/pp/17-perVertexAndFragmentLight)
-*   [18 - Pyramid Multiple Light](windows/pp/18-pyramidMultipleLight)
-*   [19 - Multiple Lights on Sphere](windows/pp/19-multipleLightsOnSphere)
-*   [20 - Material Sphere](windows/pp/20-materialSphere)
+*   [16 - Per Vertex Light](windows/pp/16-perVertexLight)
+*   [17 - Per Fragment Light](windows/pp/17-perFragmentLight)
+*   [18 - Per Vertex and Fragment Light](windows/pp/18-perVertexAndFragmentLight)
+*   [19 - Pyramid Multiple Light](windows/pp/19-pyramidMultipleLight)
+*   [20 - Multiple Lights on Sphere](windows/pp/20-multipleLightsOnSphere)
+*   [21 - Material Sphere](windows/pp/21-materialSphere)
 
 ##### Android
 
