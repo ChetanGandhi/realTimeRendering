@@ -768,6 +768,7 @@ void drawSphere()
     // Draw the sphere
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboSphereElement);
     glDrawElements(GL_TRIANGLES, numberOfSphereElements, GL_UNSIGNED_SHORT, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
     // unbind the vao
     glBindVertexArray(0);
