@@ -265,12 +265,24 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ##### WebGL
 
-* [05 - Triangle Perspective](webGL/05-TrianglePerspective)
-* [06 - Multi Colored Triangle](webGL/06-MultiColoredTriangle)
-* [07 - Triangle and Square](webGL/07-TriangleAndSquare)
-* [08 - Triangle and Square Colored](webGL/08-TriangleAndSquareColored)
-* [09 - Triangle and Square Rotation](webGL/09-TriangleAndSquareRotation)
-* [10 - Pyramid and Cube Rotation](webGL/10-PyramidAndCubeRotation)
+*   [05 - Triangle Perspective](webGL/05-TrianglePerspective)
+*   [06 - Multi Colored Triangle](webGL/06-MultiColoredTriangle)
+*   [07 - Triangle and Square](webGL/07-TriangleAndSquare)
+*   [08 - Triangle and Square Colored](webGL/08-TriangleAndSquareColored)
+*   [09 - Triangle and Square Rotation](webGL/09-TriangleAndSquareRotation)
+*   [10 - Pyramid and Cube Rotation](webGL/10-PyramidAndCubeRotation)
+*   [11 - Pyramid and Cube Texture](webGL/11-pyramidAndCubeTexture)
+*   [12 - Smiley](webGL/12-smiley)
+*   [13 - Smiley Tweaked](webGL/13-smileyTweaked)
+*   [14 - Checkerboard Texture](webGL/14-checkerboardTexture)
+*   [15 - Rotating Cube with Light](webGL/15-rotatingCubeWithLight)
+*   [16 - Sphere with Light](webGL/16-sphereWithLight)
+*   [17 - Per Vertex Light](webGL/17-perVertexLight)
+*   [18 - Per Fragment Light](webGL/18-perFragmentLight)
+*   [19 - Per Vertex and Fragment Light](webGL/19-perVertexAndFragmentLight)
+*   [20 - Pyramid Multiple Light](webGL/20-pyramidMultipleLight)
+*   [21 - Multiple Lights on Sphere](webGL/21-multipleLightsOnSphere)
+*   [22 - Material Sphere](webGL/22-materialSphere)
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
