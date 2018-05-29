@@ -284,5 +284,12 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 *   [21 - Multiple Lights on Sphere](webGL/21-multipleLightsOnSphere)
 *   [22 - Material Sphere](webGL/22-materialSphere)
 
+# Assignments on 20-05-2018
+
+##### MacOS
+
+*   [00 - First Window](macOS/00-window)
+*   [01 - OpenGL Window](macOS/01-openGLWindow)
+
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
