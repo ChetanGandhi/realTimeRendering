@@ -44,7 +44,7 @@ void loadMeshData(char *fileName, MeshData *data)
 
     if(meshFile == NULL)
     {
-        printf("No able to open mesh file: %s", fileName);
+        printf("Not able to open mesh file: %s", fileName);
         exit(EXIT_FAILURE);
     }
 
