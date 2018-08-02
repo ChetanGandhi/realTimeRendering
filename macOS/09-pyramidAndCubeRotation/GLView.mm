@@ -511,7 +511,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     [self render];
 }
 
--(void)updateArena
+-(void)updateScene
 {
     angleCube -= speed;
     anglePyramid += speed;
@@ -547,7 +547,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     CGLFlushDrawable(cglContext);
     CGLUnlockContext(cglContext);
 
-    [self updateArena];
+    [self updateScene];
 }
 
 -(void)drawPyramid

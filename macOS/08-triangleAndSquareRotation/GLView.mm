@@ -401,7 +401,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     [self render];
 }
 
--(void)updateArena
+-(void)updateScene
 {
     angleSquare -= speed;
     angleTriangle += speed;
@@ -437,7 +437,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     CGLFlushDrawable(cglContext);
     CGLUnlockContext(cglContext);
 
-    [self updateArena];
+    [self updateScene];
 }
 
 -(void)drawTriangle
