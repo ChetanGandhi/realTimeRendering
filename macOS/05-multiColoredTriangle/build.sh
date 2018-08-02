@@ -1,3 +1,3 @@
-mkdir -p openGLWindow.app/Contents/MacOS
+mkdir -p multiColoredTriangle.app/Contents/MacOS
 
-clang++ -o openGLWindow.app/Contents/MacOS/openGLWindow *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
+clang++ -o multiColoredTriangle.app/Contents/MacOS/multiColoredTriangle *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
