@@ -1,24 +1,24 @@
-# OpenGL Window
+# Triangle and Square Colored
 
 ###### How to compile
 
-*   Compile the program.
+-   Compile the program.
 
 ```
-mkdir -p openGLWindow.app/Contents/MacOS
+mkdir -p triangleAndSquareColored.app/Contents/MacOS
 
-clang -o openGLWindow.app/Contents/MacOS/openGLWindow *.m *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
+clang -o triangleAndSquareColored.app/Contents/MacOS/triangleAndSquareColored *.m *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
 ```
 
 ###### Keyboard Shortcuts
 
-*   Press `Esc` key to quit.
-*   Press `F` or `f` to toggle full-screen mode.
+-   Press `Esc` key to quit.
+-   Press `F` or `f` to toggle full-screen mode.
 
 ###### Preview
 
-*   OpenGL Window
-    ![openGLWindow][opengl-window-image]
+-   Triangle and Square Colored
+    ![triangleAndSquareColored][triangle-and-square-colored-image]
 
 [//]: # "Image declaration"
-[opengl-window-image]: ./preview/openGLWindow.png "OpenGL Window"
+[triangle-and-square-colored-image]: ./preview/triangleAndSquareColored.png "Triangle and Square Colored"
