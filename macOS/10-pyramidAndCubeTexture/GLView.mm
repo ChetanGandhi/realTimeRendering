@@ -23,11 +23,14 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
 
     GLuint vaoPyramid;
     GLuint vboPyramidPosition;
-    GLuint vboPyramidColor;
+    GLuint vboPyramidTexture;
     GLuint vaoCube;
     GLuint vboCubePosition;
-    GLuint vboCubeColor;
+    GLuint vboCubeTexture;
     GLuint mvpUniform;
+    GLuint textureSamplerUniform;
+    GLuint textureKundali;
+    GLuint textureStone;
 
     vmath::mat4 perspectiveProjectionMatrix;
 }
@@ -71,14 +74,17 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
 
         vaoPyramid = 0;
         vboPyramidPosition = 0;
-        vboPyramidColor = 0;
+        vboPyramidTexture = 0;
         vaoCube = 0;
         vboCubePosition = 0;
-        vboCubeColor = 0;
+        vboCubeTexture = 0;
         mvpUniform = 0;
+        textureSamplerUniform = 0;
+        textureKundali = 0;
+        textureStone = 0;
 
-        angleCube;
-        anglePyramid;
+        angleCube = 0.0f;
+        anglePyramid = 0.0f;
         speed = 0.1f;
     }
 
@@ -155,6 +161,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     glClearDepth(1.0f);
 
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_TEXTURE_2D);
 
     // Disable face culling to see back side of object when rotated.
     // glEnable(GL_CULL_FACE);
@@ -162,6 +169,9 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     glDepthFunc(GL_LEQUAL);
 
     perspectiveProjectionMatrix = vmath::mat4::identity();
+
+    textureStone = [self loadGLTextures:@"resources/stone.bmp"];
+	textureKundali = [self loadGLTextures:@"resources/vijay_kundali.bmp"];
 
     CVDisplayLinkCreateWithActiveCGDisplays(&displayLinkRef);
     CVDisplayLinkSetOutputCallback(displayLinkRef, displayLinkCallBack, self);
@@ -193,16 +203,16 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     const GLchar *vertexShaderCode = "#version 410" \
         "\n" \
         "in vec4 vertexPosition;" \
-        "in vec4 vertexColor;" \
+        "in vec2 vertexTextureCoordinate0;" \
         "\n" \
-        "out vec4 outVertexColor;" \
+        "out vec2 outVertexTextureCoordinate0;" \
         "\n" \
         "uniform mat4 mvpMatrix;" \
         "\n" \
         "void main(void)" \
         "{" \
         "   gl_Position = mvpMatrix * vertexPosition;" \
-        "   outVertexColor = vertexColor;" \
+        "   outVertexTextureCoordinate0 = vertexTextureCoordinate0;" \
         "}";
 
     glShaderSource(vertexShaderObject, 1, (const GLchar**)&vertexShaderCode, NULL);
@@ -240,13 +250,15 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
 
     const GLchar *fragmentShaderCode = "#version 410" \
         "\n" \
-        "in vec4 outVertexColor;" \
+        "in vec2 outVertexTextureCoordinate0;" \
         "\n" \
         "out vec4 fragmentColor;" \
         "\n" \
+        "uniform sampler2D textureSampler0;"
+        "\n" \
         "void main(void)" \
         "{" \
-        "   fragmentColor = outVertexColor;" \
+        "   fragmentColor = texture(textureSampler0, outVertexTextureCoordinate0);" \
         "}";
 
     glShaderSource(fragmentShaderObject, 1, (const GLchar**)&fragmentShaderCode, NULL);
@@ -288,8 +300,8 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     // Bind the position attribute location before linking.
     glBindAttribLocation(shaderProgramObject, CG_ATTRIBUTE_VERTEX_POSITION, "vertexPosition");
 
-    // Bind the color attribute location before linking.
-    glBindAttribLocation(shaderProgramObject, CG_ATTRIBUTE_COLOR, "vertexColor");
+    // Bind the texture attribute location before linking.
+    glBindAttribLocation(shaderProgramObject, CG_ATTRIBUTE_TEXTURE0, "vertexTextureCoordinate0");
 
     // Now link and check for error.
     glLinkProgram(shaderProgramObject);
@@ -321,6 +333,9 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
 
     // After linking get the value of MVP uniform location from the shader program.
     mvpUniform = glGetUniformLocation(shaderProgramObject, "mvpMatrix");
+
+    // Get the texture sampler uniform location from shader program.
+    textureSamplerUniform = glGetUniformLocation(shaderProgramObject, "textureSampler0");
 }
 
 -(void)initializePyramidBuffers
@@ -347,26 +362,26 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
         -1.0f, -1.0f, 1.0f
     };
 
-    const GLfloat pyramidColors[] = {
+    const GLfloat pyramidTextureCoordinates[] = {
         // Front face
-        1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
+        0.5f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
 
         // Right face
-        1.0f, 0.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
-        0.0f, 1.0f, 0.0f,
+        0.5f, 1.0f,
+        1.0f, 0.0f,
+        0.0f, 0.0f,
 
         // Back face
-        1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
+        0.5f, 1.0f,
+        1.0f, 0.0f,
+        0.0f, 0.0f,
 
         // Left face
-        1.0f, 0.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
-        0.0f, 1.0f, 0.0f
+        0.5f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f
     };
 
     glGenVertexArrays(1, &vaoPyramid);
@@ -381,12 +396,12 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-    glGenBuffers(1, &vboPyramidColor);
-    glBindBuffer(GL_ARRAY_BUFFER, vboPyramidColor);
+    glGenBuffers(1, &vboPyramidTexture);
+    glBindBuffer(GL_ARRAY_BUFFER, vboPyramidTexture);
 
-    glBufferData(GL_ARRAY_BUFFER, sizeof(pyramidColors), pyramidColors, GL_STATIC_DRAW);
-    glVertexAttribPointer(CG_ATTRIBUTE_COLOR, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-    glEnableVertexAttribArray(CG_ATTRIBUTE_COLOR);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(pyramidTextureCoordinates), pyramidTextureCoordinates, GL_STATIC_DRAW);
+    glVertexAttribPointer(CG_ATTRIBUTE_TEXTURE0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+    glEnableVertexAttribArray(CG_ATTRIBUTE_TEXTURE0);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
@@ -433,42 +448,42 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
         -1.0f, -1.0f, 1.0f
     };
 
-    const GLfloat cubeColors[] = {
+    const GLfloat cubeTextureCoordinates[] = {
         // Top face
-        1.0f, 0.0f, 0.0f,
-        1.0f, 0.0f, 0.0f,
-        1.0f, 0.0f, 0.0f,
-        1.0f, 0.0f, 0.0f,
+        0.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
 
         // Bottom face
-        0.0f, 1.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
 
         // Front face
-        0.0f, 0.0f, 1.0f,
-        0.0f, 0.0f, 1.0f,
-        0.0f, 0.0f, 1.0f,
-        0.0f, 0.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
 
         // Back face
-        0.0f, 1.0f, 1.0f,
-        0.0f, 1.0f, 1.0f,
-        0.0f, 1.0f, 1.0f,
-        0.0f, 1.0f, 1.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 0.0f,
 
         // right face
-        1.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 1.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 0.0f,
 
         // left face
-        1.0f, 1.0f, 0.0f,
-        1.0f, 1.0f, 0.0f,
-        1.0f, 1.0f, 0.0f,
-        1.0f, 1.0f, 0.0f
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f
     };
 
     glGenVertexArrays(1, &vaoCube);
@@ -483,12 +498,12 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-    glGenBuffers(1, &vboCubeColor);
-    glBindBuffer(GL_ARRAY_BUFFER, vboCubeColor);
+    glGenBuffers(1, &vboCubeTexture);
+    glBindBuffer(GL_ARRAY_BUFFER, vboCubeTexture);
 
-    glBufferData(GL_ARRAY_BUFFER, sizeof(cubeColors), cubeColors, GL_STATIC_DRAW);
-    glVertexAttribPointer(CG_ATTRIBUTE_COLOR, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-    glEnableVertexAttribArray(CG_ATTRIBUTE_COLOR);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(cubeTextureCoordinates), cubeTextureCoordinates, GL_STATIC_DRAW);
+    glVertexAttribPointer(CG_ATTRIBUTE_TEXTURE0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+    glEnableVertexAttribArray(CG_ATTRIBUTE_TEXTURE0);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
@@ -511,7 +526,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     [self render];
 }
 
--(void)updateArena
+-(void)updateScene
 {
     angleCube -= speed;
     anglePyramid += speed;
@@ -547,7 +562,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     CGLFlushDrawable(cglContext);
     CGLUnlockContext(cglContext);
 
-    [self updateArena];
+    [self updateScene];
 }
 
 -(void)drawPyramid
@@ -573,6 +588,15 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
 
     // Now bind the VAO to which we want to use
     glBindVertexArray(vaoPyramid);
+
+    // Enable 0th texture
+    glActiveTexture(GL_TEXTURE0);
+
+    // Bind with pyramid texture
+    glBindTexture(GL_TEXTURE_2D, textureStone);
+
+    // Enable 0th sampler.
+    glUniform1i(textureSamplerUniform, 0);
 
     // Draw the pyramid
     // 12 is number of vertices in the array i.e. element count in pyramidVertices divide by 3 (x, y, z) component
@@ -611,6 +635,15 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     // Now bind the VAO to which we want to use
     glBindVertexArray(vaoCube);
 
+    // Enable 0th texture
+    glActiveTexture(GL_TEXTURE0);
+
+    // Bind with pyramid texture
+    glBindTexture(GL_TEXTURE_2D, textureKundali);
+
+    // Enable 0th sampler.
+    glUniform1i(textureSamplerUniform, 0);
+
     // Draw the cube
     // 4 is number of vertices in the array for each face
     // i.e. element count in cubeVertices for each face divide by 3 (x, y, z) component
@@ -624,6 +657,49 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
 
     // unbind the vao
     glBindVertexArray(0);
+}
+
+-(GLuint)loadGLTextures:(NSString *)textureFileName
+{
+	NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *applicationPath = [mainBundle bundlePath];
+    NSString *parentFolderPath = [applicationPath stringByDeletingLastPathComponent];
+    NSString *textureFilePath = [parentFolderPath stringByAppendingPathComponent:textureFileName];
+    NSImage *image = [[NSImage alloc] initWithContentsOfFile:textureFilePath];
+
+	GLuint texture = 0;
+
+    if(image)
+	{
+        CGImageRef imageRef = [image CGImageForProposedRect:nil context:nil hints:nil];
+        int width = (int)CGImageGetWidth(imageRef);
+        int height = (int)CGImageGetHeight(imageRef);
+
+        CGDataProviderRef imageDataProviderRef = CGImageGetDataProvider(imageRef);
+        CFDataRef imageDataRef = CGDataProviderCopyData(imageDataProviderRef);
+        void *pixels = (void *)CFDataGetBytePtr(imageDataRef);
+
+	    glGenTextures(1, &texture);
+        // For programmable pipeline set 1 instead of 4 for better performation.
+		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+		glBindTexture(GL_TEXTURE_2D, texture);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		// Generate the mipmapped texture
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+		glGenerateMipmap(GL_TEXTURE_2D);
+        CFRelease(imageDataRef);
+
+        // Unbind the texture else the last loaded texture will be shown in display
+        // if we forgot to specify to which texture to bind in display.
+        glBindTexture(GL_TEXTURE_2D, 0);
+	}
+    else
+    {
+        NSLog(@"Not able to load texture: %@", textureFilePath);
+    }
+
+	return texture;
 }
 
 -(void)reshape
@@ -641,7 +717,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     }
 
     glViewport(0, 0, (GLsizei)width, (GLsizei)height);
-    perspectiveProjectionMatrix = vmath::perspective(45.0f, (GLfloat)width / (GLfloat)height, 1.0f, 100.0f);
+    perspectiveProjectionMatrix = vmath::perspective(45.0f, width/height, 1.0f, 100.0f);
     CGLUnlockContext(cglContext);
 }
 
@@ -650,7 +726,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     CVDisplayLinkStop(displayLinkRef);
     CVDisplayLinkRelease(displayLinkRef);
 
-        if(vaoPyramid)
+    if(vaoPyramid)
     {
         glDeleteVertexArrays(1, &vaoPyramid);
         vaoPyramid = 0;
@@ -662,10 +738,10 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
         vboPyramidPosition = 0;
     }
 
-    if(vboPyramidColor)
+    if(vboPyramidTexture)
     {
-        glDeleteBuffers(1, &vboPyramidColor);
-        vboPyramidColor = 0;
+        glDeleteBuffers(1, &vboPyramidTexture);
+        vboPyramidTexture = 0;
     }
 
     if(vaoCube)
@@ -680,10 +756,10 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
         vboCubePosition = 0;
     }
 
-    if(vboCubeColor)
+    if(vboCubeTexture)
     {
-        glDeleteBuffers(1, &vboCubeColor);
-        vboCubeColor = 0;
+        glDeleteBuffers(1, &vboCubeTexture);
+        vboCubeTexture = 0;
     }
 
     if(shaderProgramObject)
@@ -718,6 +794,18 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     }
 
     glUseProgram(0);
+
+    if (textureStone)
+	{
+		glDeleteTextures(1, &textureStone);
+		textureStone = 0;
+	}
+
+	if (textureKundali)
+	{
+		glDeleteTextures(1, &textureKundali);
+		textureKundali = 0;
+	}
 
     [super dealloc];
 }

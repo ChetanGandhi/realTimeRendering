@@ -1,24 +1,25 @@
-# OpenGL Window
+# Pyramid and Cube Texture
 
 ###### How to compile
 
-*   Compile the program.
+-   Compile the program.
 
 ```
-mkdir -p openGLWindow.app/Contents/MacOS
+mkdir -p pyramidAndCubeTexture.app/Contents/MacOS
 
-clang -o openGLWindow.app/Contents/MacOS/openGLWindow *.m *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
+clang -o pyramidAndCubeTexture.app/Contents/MacOS/pyramidAndCubeTexture *.m *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
 ```
 
 ###### Keyboard Shortcuts
 
-*   Press `Esc` key to quit.
-*   Press `F` or `f` to toggle full-screen mode.
+-   Press `Esc` key to quit.
+-   Press `F` or `f` to toggle full-screen mode.
 
 ###### Preview
 
-*   OpenGL Window
-    ![openGLWindow][opengl-window-image]
+-   Pyramid and Cube Texture
+
+    ![pyramidAndCubeTexture][pyramid-and-cube-texture-image]
 
 [//]: # "Image declaration"
-[opengl-window-image]: ./preview/openGLWindow.png "OpenGL Window"
+[pyramid-and-cube-texture-image]: ./preview/pyramidAndCubeTexture.png "Pyramid and Cube Texture"
