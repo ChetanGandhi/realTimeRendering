@@ -1,3 +1,3 @@
-mkdir -p openGLWindow.app/Contents/MacOS
+mkdir -p triangleAndSquare.app/Contents/MacOS
 
-clang++ -o openGLWindow.app/Contents/MacOS/openGLWindow *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
+clang++ -o triangleAndSquare.app/Contents/MacOS/triangleAndSquare *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
