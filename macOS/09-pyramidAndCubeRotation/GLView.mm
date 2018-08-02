@@ -77,8 +77,8 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
         vboCubeColor = 0;
         mvpUniform = 0;
 
-        angleCube;
-        anglePyramid;
+        angleCube = 0.0f;
+        anglePyramid = 0.0f;
         speed = 0.1f;
     }
 

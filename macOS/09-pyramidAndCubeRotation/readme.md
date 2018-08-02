@@ -1,24 +1,26 @@
-# OpenGL Window
+# Pyramid and Cube Rotation
 
 ###### How to compile
 
-*   Compile the program.
+-   Compile the program.
 
 ```
-mkdir -p openGLWindow.app/Contents/MacOS
+mkdir -p pyramidAndCubeRotation.app/Contents/MacOS
 
-clang -o openGLWindow.app/Contents/MacOS/openGLWindow *.m *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
+clang++ -o pyramidAndCubeRotation.app/Contents/MacOS/pyramidAndCubeRotation *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
 ```
 
 ###### Keyboard Shortcuts
 
-*   Press `Esc` key to quit.
-*   Press `F` or `f` to toggle full-screen mode.
+-   Press `Esc` key to quit.
+-   Press `F` or `f` to toggle full-screen mode.
+-   Press `1` to `9` key to increase the rotation speed.
 
 ###### Preview
 
-*   OpenGL Window
-    ![openGLWindow][opengl-window-image]
+-   Pyramid and Cube Rotation
+
+    ![pyramidAndCubeRotation][pyramid-and-cube-rotation-image]
 
 [//]: # "Image declaration"
-[opengl-window-image]: ./preview/openGLWindow.png "OpenGL Window"
+[pyramid-and-cube-rotation-image]: ./preview/pyramidAndCubeRotation.png "Pyramid and Cube Rotation"
