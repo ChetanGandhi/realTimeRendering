@@ -1,24 +1,24 @@
-# OpenGL Window
+# Triangle Perspective
 
 ###### How to compile
 
-*   Compile the program.
+-   Compile the program.
 
 ```
-mkdir -p openGLWindow.app/Contents/MacOS
+mkdir -p trianglePerspective.app/Contents/MacOS
 
-clang -o openGLWindow.app/Contents/MacOS/openGLWindow *.m *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
+clang -o trianglePerspective.app/Contents/MacOS/trianglePerspective *.m *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
 ```
 
 ###### Keyboard Shortcuts
 
-*   Press `Esc` key to quit.
-*   Press `F` or `f` to toggle full-screen mode.
+-   Press `Esc` key to quit.
+-   Press `F` or `f` to toggle full-screen mode.
 
 ###### Preview
 
-*   OpenGL Window
-    ![openGLWindow][opengl-window-image]
+-   Triangle Perspective
+    ![trianglePerspective][triangle-perspective-image]
 
 [//]: # "Image declaration"
-[opengl-window-image]: ./preview/openGLWindow.png "OpenGL Window"
+[triangle-perspective-image]: ./preview/trianglePerspective.png "Triangle Perspective"

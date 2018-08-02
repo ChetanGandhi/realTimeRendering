@@ -1,3 +1,3 @@
-mkdir -p openGLWindow.app/Contents/MacOS
+mkdir -p trianglePerspective.app/Contents/MacOS
 
-clang++ -o openGLWindow.app/Contents/MacOS/openGLWindow *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
+clang++ -o trianglePerspective.app/Contents/MacOS/trianglePerspective *.mm -framework Cocoa -framework QuartzCore -framework OpenGL
