@@ -49,7 +49,7 @@ ALboolean AudioManager::init()
     return initializationCompleted;
 }
 
-ALboolean AudioManager::loadWaveFile(const char* filePath, ALuint bufferId)
+ALboolean AudioManager::loadWaveAudio(const char* filePath, ALuint bufferId)
 {
     ALboolean loaded = AL_FALSE;
 	WAVEID waveId = 0;
