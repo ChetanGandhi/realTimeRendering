@@ -29,10 +29,9 @@ int main(int argc, char const *argv[])
     if(loaded)
     {
         printf("\nq: quit\n");
-        printf("space: start or restart playing\n");
         printf("p: pause\n");
         printf("r: resume\n");
-        printf("s: stop\n");
+        printf("s: start or stop playing\n");
         printf("l: toggle looping\n");
 
         source = new Source(audioBufferId);
@@ -40,7 +39,7 @@ int main(int argc, char const *argv[])
         printf("\nplaying...\n");
         printf(":");
 
-        char c = ' ';
+        char c = ':';
         do
     	{
             while(!_kbhit())
@@ -54,13 +53,13 @@ int main(int argc, char const *argv[])
             switch(c)
             {
                 case 'q':
+                    if(!source->isStoped())
+                    {
+                        source->stop();
+                    }
+
                     done = true;
                     printf("quit");
-                break;
-
-                case ' ':
-                    source->play();
-                    printf("playing...");
                 break;
 
                 case 'p':
@@ -74,8 +73,16 @@ int main(int argc, char const *argv[])
                 break;
 
                 case 's':
-                    source->stop();
-                    printf("stoped");
+                    if(!source->isStoped())
+                    {
+                        source->stop();
+                        printf("stoped");
+                    }
+                    else
+                    {
+                        source->play();
+                        printf("playing...");
+                    }
                 break;
 
                 case 'l':
