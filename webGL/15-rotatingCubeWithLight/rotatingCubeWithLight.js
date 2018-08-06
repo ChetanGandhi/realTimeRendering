@@ -289,7 +289,7 @@ function initializeShaderProgramObject() {
     isLightingEnabledUniform = gl.getUniformLocation(shaderProgramObject, "isLightingEnabled");
     ldUniform = gl.getUniformLocation(shaderProgramObject, "ld");
     kdUniform = gl.getUniformLocation(shaderProgramObject, "kd");
-    lightPositionUniform = gl.getUniformLocation(shaderProgramObject, "lightPositionUniform");
+    lightPositionUniform = gl.getUniformLocation(shaderProgramObject, "lightPosition");
 }
 
 function initializeCubeBuffers() {
@@ -545,5 +545,5 @@ function cleanUp() {
 }
 
 function degreeToRadian(degree) {
-    return degree * Math.PI / 180.0;
+    return (degree * Math.PI) / 180.0;
 }
