@@ -25,6 +25,8 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ## Fixed Functional Pipeline
 
+### Windows
+
 | Date       | Assignment                                                                                       |
 | ---------- | ------------------------------------------------------------------------------------------------ |
 |            | [OpenGl Window Single Buffer - The Wrong Way.](windows/openGLWindow)                             |
@@ -83,11 +85,33 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [Obj Parser](c/objParser)                                                                        |
 |            | [Monkey Head](windows/monkeyHead)                                                                |
 
+### XWindows
+
+| Date       | Assignment                                                            |
+| ---------- | --------------------------------------------------------------------- |
+| 07-01-2018 |                                                                       |
+|            | [GLEW Extensions](xWindows/pp/extensions)                             |
+| 21-01-2018 |                                                                       |
+|            | [Triangle by Orthographic Projection](xWindows/pp/triangleOrtho)      |
+| 28-01-2018 |                                                                       |
+|            | [Triangle By Perspective Projection](xWindows/pp/trianglePerspective) |
+|            | [Multi Colored Triangle](xWindows/pp/multiColoredTriangle)            |
+|            | [Triangle and Square](xWindows/pp/triangleAndSquare)                  |
+|            | [Triangle and Square Colored](xWindows/pp/triangleAndSquareColored)   |
+|            | [Triangle and Square Rotation](xWindows/pp/triangleAndSquareRotation) |
+|            | [Pyramid and Cube Rotation](xWindows/pp/pyramidAndCubeRotation)       |
+| 10-02-2018 |                                                                       |
+|            | [Pyramid and Cube Texture](xWindows/pp/pyramidAndCubeTexture)         |
+| 11-02-2018 |                                                                       |
+|            | [Smiley](xWindows/smiley)                                             |
+|            | [Smiley Tweaked](xWindows/smileyTweaked)                              |
+|            | [Checkerboard Texture](xWindows/checkerboardTexture)                  |
+
 ## Programmable Pipeline
 
-### Windows
-
 ---
+
+### Windows
 
 | Date       | Assignment                                                                    |
 | ---------- | ----------------------------------------------------------------------------- |
@@ -122,8 +146,6 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [21 - Material Sphere](windows/pp/21-materialSphere)                          |
 
 ### Android
-
----
 
 | Date       | Assignment                                                                |
 | ---------- | ------------------------------------------------------------------------- |
@@ -165,31 +187,22 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ### XWindows
 
----
-
-| Date       | Assignment                                                            |
-| ---------- | --------------------------------------------------------------------- |
-| 07-01-2018 |                                                                       |
-|            | [GLEW Extensions](xWindows/pp/extensions)                             |
-| 21-01-2018 |                                                                       |
-|            | [Triangle by Orthographic Projection](xWindows/pp/triangleOrtho)      |
-| 28-01-2018 |                                                                       |
-|            | [Triangle By Perspective Projection](xWindows/pp/trianglePerspective) |
-|            | [Multi Colored Triangle](xWindows/pp/multiColoredTriangle)            |
-|            | [Triangle and Square](xWindows/pp/triangleAndSquare)                  |
-|            | [Triangle and Square Colored](xWindows/pp/triangleAndSquareColored)   |
-|            | [Triangle and Square Rotation](xWindows/pp/triangleAndSquareRotation) |
-|            | [Pyramid and Cube Rotation](xWindows/pp/pyramidAndCubeRotation)       |
-| 10-02-2018 |                                                                       |
-|            | [Pyramid and Cube Texture](xWindows/pp/pyramidAndCubeTexture)         |
-| 11-02-2018 |                                                                       |
-|            | [Smiley](xWindows/smiley)                                             |
-|            | [Smiley Tweaked](xWindows/smileyTweaked)                              |
-|            | [Checkerboard Texture](xWindows/checkerboardTexture)                  |
+| Date | Assignments                                                                |
+| ---- | -------------------------------------------------------------------------- |
+|      | [01 - Extensions](xWindows/pp/extensions)                                  |
+|      | [02 - Triangle by Orthographic Projection](xWindows/pp/triangleOrtho)      |
+|      | [03 - Triangle By Perspective Projection](xWindows/pp/trianglePerspective) |
+|      | [04 - Multi Colored Triangle](xWindows/pp/multiColoredTriangle)            |
+|      | [05 - Triangle and Square](xWindows/pp/triangleAndSquare)                  |
+|      | [06 - Triangle and Square Colored](xWindows/pp/triangleAndSquareColored)   |
+|      | [07 - Triangle and Square Rotation](xWindows/pp/triangleAndSquareRotation) |
+|      | [08 - Pyramid and Cube Rotation](xWindows/pp/pyramidAndCubeRotation)       |
+|      | [09 - Pyramid and Cube Texture](xWindows/pp/pyramidAndCubeTexture)         |
+|      | [10 - Smiley](xWindows/pp/smiley)                                          |
+|      | [11 - Smiley Tweaked](xWindows/pp/smileyTweaked)                           |
+|      | [12 - Checkerboard Texture](xWindows/pp/checkerboardTexture)               |
 
 ### WebGL
-
----
 
 | Date       | Assignment                                                               |
 | ---------- | ------------------------------------------------------------------------ |
@@ -199,9 +212,9 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [02 - Fullscreen Canvas](webGL/02-fullScreen)                            |
 | 08-04-2018 |                                                                          |
 |            | [03 - OpenGL Canvas](webGL/03-openGLCanvas)                              |
-|            | [04 - Triangle Ortho](webGL/04-triangleOrtho)                            |
+|            | [04 - Triangle by Orthographic Projection](webGL/04-triangleOrtho)       |
 | 15-04-2018 |                                                                          |
-|            | [05 - Triangle Perspective](webGL/05-trianglePerspective)                |
+|            | [05 - Triangle By Perspective Projection](webGL/05-trianglePerspective)  |
 |            | [06 - Multi Colored Triangle](webGL/06-multiColoredTriangle)             |
 |            | [07 - Triangle and Square](webGL/07-triangleAndSquare)                   |
 |            | [08 - Triangle and Square Colored](webGL/08-triangleAndSquareColored)    |
@@ -221,8 +234,6 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [22 - Material Sphere](webGL/22-materialSphere)                          |
 
 ### macOS
-
----
 
 | Date       | Assignment                                                               |
 | ---------- | ------------------------------------------------------------------------ |
