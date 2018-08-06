@@ -112,8 +112,6 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ## Programmable Pipeline
 
----
-
 ### Windows
 
 | Date       | Assignment                                                                    |
@@ -261,6 +259,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [18 - Per Vertex and Fragment Light](macOS/18-perVertexAndFragmentLight) |
 |            | [19 - Pyramid Multiple Light](macOS/19-pyramidMultipleLight)             |
 |            | [20 - Multiple Lights On Sphere](macOS/20-multipleLightsOnSphere)        |
+|            | [21 - Material Sphere](macOS/21-materialSphere)                          |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
