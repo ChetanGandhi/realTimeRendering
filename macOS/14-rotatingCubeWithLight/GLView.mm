@@ -80,6 +80,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
         projectionMatrixUniform = 0;
         ldUniform = 0;
         kdUniform = 0;
+        lightPositionUniform = 0;
 
         angleCube = 0.0f;
         speed = 0.1f;
@@ -362,7 +363,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     isLightingEnabledUniform = glGetUniformLocation(shaderProgramObject, "isLightingEnabled");
     ldUniform = glGetUniformLocation(shaderProgramObject, "ld");
     kdUniform = glGetUniformLocation(shaderProgramObject, "kd");
-    lightPositionUniform = glGetUniformLocation(shaderProgramObject, "lightPositionUniform");
+    lightPositionUniform = glGetUniformLocation(shaderProgramObject, "lightPosition");
 }
 
 -(void)initializeCubeBuffers
