@@ -1,5 +1,4 @@
-Pyramid and Cube Rotation
-============================
+# Pyramid and Cube Rotation
 
 ##### How to compile
 
@@ -27,20 +26,52 @@ adb -d install -r app\build\outputs\apk\debug\app-debug.apk
 ```
 
 ##### Run the application
-* Check the ```AndroidManifest.xml``` for required information.
+
+-   Check the `AndroidManifest.xml` for required information.
+
 ```
 adb shell am start -n com.package.name/.MainActivityClassName
 ```
 
 ##### Show logcat output
+
 ```
 adb logcat -e "log to filter"
 ```
 
+###### Update Gradle
+
+-   In `gradle\wrapper\gradle-wrapper.properties` update the `distributionUrl`.
+
+    You can get the latest version information from [Updating Gradle](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle) page.
+
+    ```
+    distributionUrl = https\://services.gradle.org/distributions/gradle-version-all.zip
+    ```
+
+-   In `build.gradle` update the class path for gradle dependency.
+
+    For more information check [Apply Plugin](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration#apply_plugin) page.
+
+    ```
+    buildscript {
+        repositories {
+            ...
+            // You need to add the following repository to download the
+            // new plugin.
+            google()
+        }
+
+        dependencies {
+            classpath 'com.android.tools.build:gradle:3.1.0'
+        }
+    }
+    ```
+
 ##### Preview
-- Pyramid and Cube Rotation
-    ![pyramidAndCubeRotation][pyramidAndCubeRotation-image]
+
+-   Pyramid and Cube Rotation
+    ![pyramidAndCubeRotation][pyramidandcuberotation-image]
 
 [//]: # "Image declaration"
-
-[pyramidAndCubeRotation-image]: ./preview/pyramidAndCubeRotation.png "Pyramid and Cube Rotation"
+[pyramidandcuberotation-image]: ./preview/pyramidAndCubeRotation.png "Pyramid and Cube Rotation"

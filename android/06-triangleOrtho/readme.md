@@ -1,5 +1,4 @@
-Triangle by Orthographic Projection
-===================================
+# Triangle by Orthographic Projection
 
 ###### How to compile
 
@@ -27,14 +26,44 @@ adb -d install -r app\build\outputs\apk\debug\app-debug.apk
 ```
 
 ###### Show Logcat output
+
 ```
 adb logcat -e "log to filter"
 ```
 
+###### Update Gradle
+
+-   In `gradle\wrapper\gradle-wrapper.properties` update the `distributionUrl`.
+
+    You can get the latest version information from [Updating Gradle](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle) page.
+
+    ```
+    distributionUrl = https\://services.gradle.org/distributions/gradle-version-all.zip
+    ```
+
+-   In `build.gradle` update the class path for gradle dependency.
+
+    For more information check [Apply Plugin](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration#apply_plugin) page.
+
+    ```
+    buildscript {
+        repositories {
+            ...
+            // You need to add the following repository to download the
+            // new plugin.
+            google()
+        }
+
+        dependencies {
+            classpath 'com.android.tools.build:gradle:3.1.0'
+        }
+    }
+    ```
+
 ###### Preview
-- Triangle
-    ![triangleOrtho][triangleOrtho-image]
+
+-   Triangle
+    ![triangleOrtho][triangleortho-image]
 
 [//]: # "Image declaration"
-
-[triangleOrtho-image]: ./preview/triangleOrtho.png "Triangle by Orthographic Projection"
+[triangleortho-image]: ./preview/triangleOrtho.png "Triangle by Orthographic Projection"
