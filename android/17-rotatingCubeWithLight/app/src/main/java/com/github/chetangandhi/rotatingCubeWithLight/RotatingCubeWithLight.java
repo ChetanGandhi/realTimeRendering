@@ -326,7 +326,7 @@ public class RotatingCubeWithLight extends GLSurfaceView implements GLSurfaceVie
         this.isLightingEnabledUniform = GLES32.glGetUniformLocation(this.shaderProgramObject, "isLightingEnabled");
         this.ldUniform = GLES32.glGetUniformLocation(this.shaderProgramObject, "ld");
         this.kdUniform = GLES32.glGetUniformLocation(this.shaderProgramObject, "kd");
-        this.lightPositionUniform = GLES32.glGetUniformLocation(this.shaderProgramObject, "lightPositionUniform");
+        this.lightPositionUniform = GLES32.glGetUniformLocation(this.shaderProgramObject, "lightPosition");
     }
 
     private void initializeCubeBuffers() {

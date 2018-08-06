@@ -1,1 +1,1 @@
-[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":-1},"path":"app-release-unsigned.apk","properties":{"packageId":"com.github.chetangandhi.rotatingCubeWithLight","split":"","minSdkVersion":"18"}}]
+[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":-1,"enabled":true,"outputFile":"app-release-unsigned.apk","fullName":"release","baseName":"release"},"path":"app-release-unsigned.apk","properties":{}}]
