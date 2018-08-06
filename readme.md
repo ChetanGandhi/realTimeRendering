@@ -87,25 +87,28 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ### XWindows
 
-| Date       | Assignment                                                            |
-| ---------- | --------------------------------------------------------------------- |
-| 07-01-2018 |                                                                       |
-|            | [GLEW Extensions](xWindows/pp/extensions)                             |
-| 21-01-2018 |                                                                       |
-|            | [Triangle by Orthographic Projection](xWindows/pp/triangleOrtho)      |
-| 28-01-2018 |                                                                       |
-|            | [Triangle By Perspective Projection](xWindows/pp/trianglePerspective) |
-|            | [Multi Colored Triangle](xWindows/pp/multiColoredTriangle)            |
-|            | [Triangle and Square](xWindows/pp/triangleAndSquare)                  |
-|            | [Triangle and Square Colored](xWindows/pp/triangleAndSquareColored)   |
-|            | [Triangle and Square Rotation](xWindows/pp/triangleAndSquareRotation) |
-|            | [Pyramid and Cube Rotation](xWindows/pp/pyramidAndCubeRotation)       |
-| 10-02-2018 |                                                                       |
-|            | [Pyramid and Cube Texture](xWindows/pp/pyramidAndCubeTexture)         |
-| 11-02-2018 |                                                                       |
-|            | [Smiley](xWindows/smiley)                                             |
-|            | [Smiley Tweaked](xWindows/smileyTweaked)                              |
-|            | [Checkerboard Texture](xWindows/checkerboardTexture)                  |
+| Date       | Assignment                                                                               |
+| ---------- | ---------------------------------------------------------------------------------------- |
+|            | [01 - Window](xWindows/window)                                                           |
+|            | [02 - OpenGL Window](xWindows/openGLWindow)                                              |
+|            | [03 - Triangle by glOrtho](xWindows/triangleByGlOrtho)                                   |
+|            | [04 - Triangle by gluLookAt](xWindows/triangleByGluLookAt)                               |
+|            | [05 - Triangle by gluPerspective](xWindows/triangleByGluPerspective)                     |
+|            | [06 - Depth and Double Buffer](xWindows/depthAndDoubleBuffer)                            |
+|            | [07 - Triangle and Square Rotation](xWindows/triangleAndSquareRotation)                  |
+|            | [08 - Pyramid and Cube Rotation](xWindows/pyramidAndCubeRotation)                        |
+|            | [09 - Viewport Placement](xWindows/viewportPlacement)                                    |
+|            | [10 - Solar System](xWindows/solarSystem)                                                |
+|            | [11 - Robot Arm](xWindows/robotArm)                                                      |
+|            | [12 - Debug Log](xWindows/debugLog)                                                      |
+|            | [13 - glxContext with FBConfigs](xWindows/glxContextWithFBConfigs)                       |
+|            | [14 - Deathly Hallows Rotation](xWindows/deathlyHallowsRotation)                         |
+|            | [15 - Graph Paper](xWindows/graphPaper)                                                  |
+|            | [16 - Cube and Pyramid Rotation by Matrix Multiplication](xWindows/matrixMultiplication) |
+| 11-02-2018 |                                                                                          |
+|            | [17 - Smiley](xWindows/smiley)                                                           |
+|            | [18 - Smiley Tweaked](xWindows/smileyTweaked)                                            |
+|            | [19 - Checkerboard Texture](xWindows/checkerboardTexture)                                |
 
 ## Programmable Pipeline
 
