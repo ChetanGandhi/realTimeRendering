@@ -148,43 +148,43 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ### Android
 
-| Date       | Assignment                                                                |
-| ---------- | ------------------------------------------------------------------------- |
-| 26-11-2017 |                                                                           |
-|            | [00 - Template](android/00-template)                                      |
-| 03-12-2017 |                                                                           |
-|            | [01 - Portrait Window](android/01-portraitWindow)                         |
-| 31-12-2018 |                                                                           |
-|            | [02 - Fullscreen Text View](android/02-fullscreenTextView)                |
-|            | [03 - Fullscreen Text View Subclass](android/03-fullscreenMyTextView)     |
-| 07-01-2018 |                                                                           |
-|            | [04 - Gesture Listener](android/04-gestureListener)                       |
-|            | [05 - GLES View](android/05-glesView)                                     |
-| 27-01-2018 |                                                                           |
-|            | [06 - Triangle by Orthographic Projection](android/06-triangleOrtho)      |
-| 28-01-2018 |                                                                           |
-|            | [07 - Triangle By Perspective Projection](android/07-trianglePerspective) |
-|            | [08 - Multi Colored Triangle](android/08-multiColoredTriangle)            |
-|            | [09 - Triangle and Square](android/09-triangleAndSquare)                  |
-|            | [10 - Triangle and Square Colored](android/10-triangleAndSquareColored)   |
-|            | [11 - Triangle and Square Rotation](android/11-triangleAndSquareRotation) |
-|            | [12 - Pyramid and Cube Rotation](android/12-pyramidAndCubeRotation)       |
-| 10-02-2018 |                                                                           |
-|            | [13 - Pyramid and Cube Texture](android/13-pyramidAndCubeTexture)         |
-| 11-02-2018 |                                                                           |
-|            | [14 - Smiley](android/14-smiley)                                          |
-|            | [15 - Smiley Tweaked](android/15-smileyTweaked)                           |
-|            | [16 - Checkerboard Texture](android/16-checkerboardTexture)               |
-| 18-02-2018 |                                                                           |
-|            | [17 - Rotating Cube with Light](android/17-rotatingCubeWithLight)         |
-|            | [18 - sphereWithLight](android/18-sphereWithLight)                        |
-| 25-02-2018 |                                                                           |
-|            | [19-perVertexLight](android/19-perVertexLight)                            |
-|            | [20-perFragmentLight](android/20-perFragmentLight)                        |
-|            | [21-perVertexAndFragmentLight](android/21-perVertexAndFragmentLight)      |
-|            | [22-pyramidMultipleLight](android/22-pyramidMultipleLight)                |
-|            | [23-multipleLightsOnSphere](android/23-multipleLightsOnSphere)            |
-|            | [24-materialSphere](android/24-materialSphere)                            |
+| Date       | Assignment                                                                 |
+| ---------- | -------------------------------------------------------------------------- |
+| 26-11-2017 |                                                                            |
+|            | [00 - Template](android/00-template)                                       |
+| 03-12-2017 |                                                                            |
+|            | [01 - Portrait Window](android/01-portraitWindow)                          |
+| 31-12-2018 |                                                                            |
+|            | [02 - Fullscreen Text View](android/02-fullscreenTextView)                 |
+|            | [03 - Fullscreen Text View Subclass](android/03-fullscreenMyTextView)      |
+| 07-01-2018 |                                                                            |
+|            | [04 - Gesture Listener](android/04-gestureListener)                        |
+|            | [05 - GLES View](android/05-glesView)                                      |
+| 27-01-2018 |                                                                            |
+|            | [06 - Triangle by Orthographic Projection](android/06-triangleOrtho)       |
+| 28-01-2018 |                                                                            |
+|            | [07 - Triangle By Perspective Projection](android/07-trianglePerspective)  |
+|            | [08 - Multi Colored Triangle](android/08-multiColoredTriangle)             |
+|            | [09 - Triangle and Square](android/09-triangleAndSquare)                   |
+|            | [10 - Triangle and Square Colored](android/10-triangleAndSquareColored)    |
+|            | [11 - Triangle and Square Rotation](android/11-triangleAndSquareRotation)  |
+|            | [12 - Pyramid and Cube Rotation](android/12-pyramidAndCubeRotation)        |
+| 10-02-2018 |                                                                            |
+|            | [13 - Pyramid and Cube Texture](android/13-pyramidAndCubeTexture)          |
+| 11-02-2018 |                                                                            |
+|            | [14 - Smiley](android/14-smiley)                                           |
+|            | [15 - Smiley Tweaked](android/15-smileyTweaked)                            |
+|            | [16 - Checkerboard Texture](android/16-checkerboardTexture)                |
+| 18-02-2018 |                                                                            |
+|            | [17 - Rotating Cube with Light](android/17-rotatingCubeWithLight)          |
+|            | [18 - Sphere with Light](android/18-sphereWithLight)                       |
+| 25-02-2018 |                                                                            |
+|            | [19 - Per Vertex Light](android/19-perVertexLight)                         |
+|            | [20 - Per Fragment Light](android/20-perFragmentLight)                     |
+|            | [21 - Per Vertex and Fragment Light](android/21-perVertexAndFragmentLight) |
+|            | [22 - Pyramid Multiple Light](android/22-pyramidMultipleLight)             |
+|            | [23 - Multiple Lights on Sphere](android/23-multipleLightsOnSphere)        |
+|            | [24 - Material Sphere](android/24-materialSphere)                          |
 
 ### XWindows
 
