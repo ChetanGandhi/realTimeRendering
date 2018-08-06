@@ -201,12 +201,12 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [03 - OpenGL Canvas](webGL/03-openGLCanvas)                              |
 |            | [04 - Triangle Ortho](webGL/04-triangleOrtho)                            |
 | 15-04-2018 |                                                                          |
-|            | [05 - Triangle Perspective](webGL/05-TrianglePerspective)                |
-|            | [06 - Multi Colored Triangle](webGL/06-MultiColoredTriangle)             |
-|            | [07 - Triangle and Square](webGL/07-TriangleAndSquare)                   |
-|            | [08 - Triangle and Square Colored](webGL/08-TriangleAndSquareColored)    |
-|            | [09 - Triangle and Square Rotation](webGL/09-TriangleAndSquareRotation)  |
-|            | [10 - Pyramid and Cube Rotation](webGL/10-PyramidAndCubeRotation)        |
+|            | [05 - Triangle Perspective](webGL/05-trianglePerspective)                |
+|            | [06 - Multi Colored Triangle](webGL/06-multiColoredTriangle)             |
+|            | [07 - Triangle and Square](webGL/07-triangleAndSquare)                   |
+|            | [08 - Triangle and Square Colored](webGL/08-triangleAndSquareColored)    |
+|            | [09 - Triangle and Square Rotation](webGL/09-triangleAndSquareRotation)  |
+|            | [10 - Pyramid and Cube Rotation](webGL/10-pyramidAndCubeRotation)        |
 |            | [11 - Pyramid and Cube Texture](webGL/11-pyramidAndCubeTexture)          |
 |            | [12 - Smiley](webGL/12-smiley)                                           |
 |            | [13 - Smiley Tweaked](webGL/13-smileyTweaked)                            |
