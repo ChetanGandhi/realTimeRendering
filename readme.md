@@ -224,11 +224,29 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ---
 
-| Date       | Assignment                                  |
-| ---------- | ------------------------------------------- |
-| 20-05-2018 |                                             |
-|            | [00 - First Window](macOS/00-window)        |
-|            | [01 - OpenGL Window](macOS/01-openGLWindow) |
+| Date       | Assignment                                                               |
+| ---------- | ------------------------------------------------------------------------ |
+| 20-05-2018 |                                                                          |
+|            | [01 - Window](macOS/01-window)                                           |
+|            | [02 - OpenGL Window](macOS/02-openGLWindow)                              |
+|            | [03 - Triangle by Orthographic Projection](macOS/03-triangleOrtho)       |
+|            | [04 - Triangle By Perspective Projection](macOS/04-trianglePerspective)  |
+|            | [05 - Multi Colored Triangle](macOS/05-multiColoredTriangle)             |
+|            | [06 - Triangle and Square](macOS/06-triangleAndSquare)                   |
+|            | [07 - Triangle and Square Colored](macOS/07-triangleAndSquareColored)    |
+|            | [08 - Triangle and Square Rotation](macOS/08-triangleAndSquareRotation)  |
+|            | [09 - Pyramid and Cube Rotation](macOS/09-pyramidAndCubeRotation)        |
+|            | [10 - Pyramid and Cube Texture](macOS/10-pyramidAndCubeTexture)          |
+|            | [11 - Smiley](macOS/11-smiley)                                           |
+|            | [12 - Smiley Tweaked](macOS/12-smileyTweaked)                            |
+|            | [13 - Checkerboard Texture](macOS/13-checkerboardTexture)                |
+|            | [14 - Rotating Cube With Light](macOS/14-rotatingCubeWithLight)          |
+|            | [15 - Sphere With Light](macOS/15-sphereWithLight)                       |
+|            | [16 - Per Vertex Light](macOS/16-perVertexLight)                         |
+|            | [17 - Per Fragment Light](macOS/17-perFragmentLight)                     |
+|            | [18 - Per Vertex and Fragment Light](macOS/18-perVertexAndFragmentLight) |
+|            | [19 - Pyramid Multiple Light](macOS/19-pyramidMultipleLight)             |
+|            | [20 - Multiple Lights On Sphere](macOS/20-multipleLightsOnSphere)        |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
