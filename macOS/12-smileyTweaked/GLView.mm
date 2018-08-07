@@ -438,13 +438,13 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     else if(textureMode == 2)
     {
         smileyTextureCoordinates[0] = 1.0f;
-        smileyTextureCoordinates[1] = 1.0f;
+        smileyTextureCoordinates[1] = 0.0f;
         smileyTextureCoordinates[2] = 0.0f;
-        smileyTextureCoordinates[3] = 1.0f;
+        smileyTextureCoordinates[3] = 0.0f;
         smileyTextureCoordinates[4] = 0.0f;
-        smileyTextureCoordinates[5] = 0.0f;
+        smileyTextureCoordinates[5] = 1.0f;
         smileyTextureCoordinates[6] = 1.0f;
-        smileyTextureCoordinates[7] = 0.0f;
+        smileyTextureCoordinates[7] = 1.0f;
     }
     else if(textureMode == 3)
     {
