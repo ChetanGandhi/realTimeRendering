@@ -51,6 +51,9 @@
     CGPoint textPosition = CGPointMake((rect.size.width - textSize.width) / 2.0f, (rect.size.height - textSize.height) / 2.0f);
     
     [message drawAtPoint:textPosition withAttributes:textAttributes];
+    
+    [textAttributes release];
+    textAttributes = nil;
 }
 
 -(BOOL)acceptsFirstResponder

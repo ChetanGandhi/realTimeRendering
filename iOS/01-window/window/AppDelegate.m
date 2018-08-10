@@ -14,6 +14,8 @@
 
 @implementation AppDelegate
 
+@synthesize window;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     CGRect rect = [[UIScreen mainScreen] bounds];
@@ -64,6 +66,12 @@
     [mainView release];
     [mainViewController release];
     [mainWindow release];
+    [window release];
+    
+    mainView = nil;
+    mainViewController = nil;
+    mainWindow = nil;
+    window = nil;
     
     [super dealloc];
 }

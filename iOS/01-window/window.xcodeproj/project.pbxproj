@@ -350,7 +350,7 @@
 				384CDE682119B86C00027DA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		384CDE692119B86C00027DA0 /* Build configuration list for PBXNativeTarget "window" */ = {
 			isa = XCConfigurationList;
@@ -359,7 +359,7 @@
 				384CDE6B2119B86C00027DA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
