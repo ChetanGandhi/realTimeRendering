@@ -33,7 +33,7 @@
         layer.drawableProperties = drawableProperties;
 
         context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
-        
+
         [drawableProperties release];
         drawableProperties = nil;
 
@@ -149,8 +149,8 @@
     [EAGLContext setCurrentContext:context];
 
     glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
     [context presentRenderbuffer:GL_RENDERBUFFER];
 }
@@ -171,12 +171,12 @@
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, width, height);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderbuffer);
 
-    glViewport(0, 0, width, height);
-
     if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
     {
         NSLog(@"[Error] | Cannot create complete framebuffer object, status: %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));
     }
+
+    glViewport(0, 0, width, height);
 
     [self render: nil];
 }
