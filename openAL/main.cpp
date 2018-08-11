@@ -41,7 +41,6 @@ int main(int argc, char const *argv[])
         printf("z: set source z position\n");
 
         source = new Source(audioBufferId);
-        source->setPosition(2.0f, 5.0f, 2.0f);
         source->setSourcef(AL_ROLLOFF_FACTOR, 1.0f);
         source->setSourcef(AL_REFERENCE_DISTANCE, 1.0f);
         source->play();
