@@ -9,9 +9,10 @@ class Source
         Source(ALuint buffer);
         ~Source();
 
-        void setPosition(float x, float y, float z);
-        void setVolume(float volume);
-        void setPitch(float pitch);
+        void setPosition(ALfloat x, ALfloat y, ALfloat z);
+        void setVolume(ALfloat volume);
+        void setPitch(ALfloat pitch);
+        void setSourcef(ALenum property, ALfloat value);
         void play();
         void pause();
         void resume();

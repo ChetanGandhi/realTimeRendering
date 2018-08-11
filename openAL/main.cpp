@@ -7,6 +7,9 @@
 int main(int argc, char const *argv[])
 {
     bool done = false;
+    ALfloat x = 0.0f;
+    ALfloat y = 0.0f;
+    ALfloat z = 0.0f;
 
     if(argc != 2)
     {
@@ -33,22 +36,24 @@ int main(int argc, char const *argv[])
         printf("r: resume\n");
         printf("s: start or stop playing\n");
         printf("l: toggle looping\n");
+        printf("x: set source x position\n");
+        printf("y: set source y position\n");
+        printf("z: set source z position\n");
 
         source = new Source(audioBufferId);
+        source->setPosition(2.0f, 5.0f, 2.0f);
+        source->setSourcef(AL_ROLLOFF_FACTOR, 1.0f);
+        source->setSourcef(AL_REFERENCE_DISTANCE, 1.0f);
         source->play();
+
         printf("\nplaying...\n");
         printf(":");
 
         char c = ':';
         do
     	{
-            while(!_kbhit())
-            {
-                // Do nothing, wait for input.
-            }
-
-            c = getche();
-            printf("\n:");
+            scanf("%c", &c);
+            printf(":");
 
             switch(c)
             {
@@ -59,29 +64,29 @@ int main(int argc, char const *argv[])
                     }
 
                     done = true;
-                    printf("quit");
+                    printf("quit\n");
                 break;
 
                 case 'p':
                     source->pause();
-                    printf("paused");
+                    printf("paused\n");
                 break;
 
                 case 'r':
                     source->resume();
-                    printf("resuming");
+                    printf("resuming\n");
                 break;
 
                 case 's':
                     if(!source->isStoped())
                     {
                         source->stop();
-                        printf("stoped");
+                        printf("stoped\n");
                     }
                     else
                     {
                         source->play();
-                        printf("playing...");
+                        printf("playing...\n");
                     }
                 break;
 
@@ -89,21 +94,41 @@ int main(int argc, char const *argv[])
                     if(source->isLooping())
                     {
                         source->loop(AL_FALSE);
-                        printf("looping disabled");
+                        printf("looping disabled\n");
                     }
                     else
                     {
                         source->loop(AL_TRUE);
-                        printf("looping enabled");
+                        printf("looping enabled\n");
                     }
+
+                break;
+
+                case 'x':
+                    printf("\nx position: ");
+                    scanf("%f", &x);
+                    source->setPosition(x, y, z);
+
+                break;
+
+                case 'y':
+                    printf("\ny position: ");
+                    scanf("%f", &y);
+                    source->setPosition(x, y, z);
+
+                break;
+
+                case 'z':
+                    printf("\nz position: ");
+                    scanf("%f", &z);
+                    source->setPosition(x, y, z);
 
                 break;
 
                 default:
                 break;
-
-                fflush(stdin);
             }
+            fflush(stdin);
 
 	    } while (!done);
     }

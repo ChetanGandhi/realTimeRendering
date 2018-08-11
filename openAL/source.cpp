@@ -3,25 +3,30 @@
 Source::Source(ALuint buffer)
 {
     alGenSources(1, &sourceId);
-    alSource3f(sourceId, AL_POSITION, 0, 0, 0);
+    alSource3f(sourceId, AL_POSITION, 0.0f, 0.0f, 0.0f);
     alSourcef(sourceId, AL_GAIN, 1.0f);
     alSourcef(sourceId, AL_PITCH, 1.0f);
     alSourcei(sourceId, AL_BUFFER, buffer);
 }
 
-void Source::setPosition(float x, float y, float z)
+void Source::setPosition(ALfloat x, ALfloat y, ALfloat z)
 {
     alSource3f(sourceId, AL_POSITION, x, y, z);
 }
 
-void Source::setVolume(float volume)
+void Source::setVolume(ALfloat volume)
 {
     alSourcef(sourceId, AL_GAIN, volume);
 }
 
-void Source::setPitch(float pitch)
+void Source::setPitch(ALfloat pitch)
 {
     alSourcef(sourceId, AL_PITCH, pitch);
+}
+
+void Source::setSourcef(ALenum property, ALfloat value)
+{
+    alSourcef(sourceId, property, value);
 }
 
 void Source::play()
