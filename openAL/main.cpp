@@ -2,14 +2,15 @@
 #include <conio.h>
 
 #include "audioManager.h"
-#include "source.h"
+#include "soundSource.h"
 
 int main(int argc, char const *argv[])
 {
     bool done = false;
-    ALfloat x = 0.0f;
-    ALfloat y = 0.0f;
-    ALfloat z = 0.0f;
+    ALfloat soundSourcePosition[3] = {0.0f, 0.0f, 0.0f};
+    ALuint audioBufferId = 0;
+	AudioManager *audioManage = NULL;
+    SoundSource *soundSource = NULL;
 
     if(argc != 2)
     {
@@ -17,19 +18,16 @@ int main(int argc, char const *argv[])
         exit(EXIT_FAILURE);
     }
 
-    ALuint audioBufferId = 0;
-	Source *source = NULL;
-
-    AudioManager *audioManage = new AudioManager();
+    audioManage = new AudioManager();
     audioManage->init();
     audioManage->setListenerPosition(0.0f, 0.0f, 0.0f);
     audioManage->setListenerVelocity(0.0f, 0.0f, 0.0f);
 
     alGenBuffers(1, &audioBufferId);
 
-    ALboolean loaded = audioManage->loadWaveAudio(argv[1], audioBufferId);
+    ALboolean waveDataLoaded = audioManage->loadWaveAudio(argv[1], audioBufferId);
 
-    if(loaded)
+    if(waveDataLoaded)
     {
         printf("\nq: quit\n");
         printf("p: pause\n");
@@ -40,10 +38,10 @@ int main(int argc, char const *argv[])
         printf("y: set source y position\n");
         printf("z: set source z position\n");
 
-        source = new Source(audioBufferId);
-        source->setSourcef(AL_ROLLOFF_FACTOR, 1.0f);
-        source->setSourcef(AL_REFERENCE_DISTANCE, 1.0f);
-        source->play();
+        soundSource = new SoundSource();
+        soundSource->setSourcef(AL_ROLLOFF_FACTOR, 1.0f);
+        soundSource->setSourcef(AL_REFERENCE_DISTANCE, 1.0f);
+        soundSource->play(audioBufferId);
 
         printf("\nplaying...\n");
         printf(":");
@@ -57,9 +55,9 @@ int main(int argc, char const *argv[])
             switch(c)
             {
                 case 'q':
-                    if(!source->isStoped())
+                    if(!soundSource->isStoped())
                     {
-                        source->stop();
+                        soundSource->stop();
                     }
 
                     done = true;
@@ -67,37 +65,37 @@ int main(int argc, char const *argv[])
                 break;
 
                 case 'p':
-                    source->pause();
+                    soundSource->pause();
                     printf("paused\n");
                 break;
 
                 case 'r':
-                    source->resume();
+                    soundSource->resume();
                     printf("resuming\n");
                 break;
 
                 case 's':
-                    if(!source->isStoped())
+                    if(!soundSource->isStoped())
                     {
-                        source->stop();
+                        soundSource->stop();
                         printf("stoped\n");
                     }
                     else
                     {
-                        source->play();
+                        soundSource->play(audioBufferId);
                         printf("playing...\n");
                     }
                 break;
 
                 case 'l':
-                    if(source->isLooping())
+                    if(soundSource->isLooping())
                     {
-                        source->loop(AL_FALSE);
+                        soundSource->loop(AL_FALSE);
                         printf("looping disabled\n");
                     }
                     else
                     {
-                        source->loop(AL_TRUE);
+                        soundSource->loop(AL_TRUE);
                         printf("looping enabled\n");
                     }
 
@@ -105,37 +103,37 @@ int main(int argc, char const *argv[])
 
                 case 'x':
                     printf("\nx position: ");
-                    scanf("%f", &x);
-                    source->setPosition(x, y, z);
+                    scanf("%f", &soundSourcePosition[0]);
+                    soundSource->setPosition(soundSourcePosition);
 
                 break;
 
                 case 'y':
                     printf("\ny position: ");
-                    scanf("%f", &y);
-                    source->setPosition(x, y, z);
+                    scanf("%f", &soundSourcePosition[1]);
+                    soundSource->setPosition(soundSourcePosition);
 
                 break;
 
                 case 'z':
                     printf("\nz position: ");
-                    scanf("%f", &z);
-                    source->setPosition(x, y, z);
+                    scanf("%f", &soundSourcePosition[2]);
+                    soundSource->setPosition(soundSourcePosition);
 
                 break;
 
                 default:
                 break;
             }
-            fflush(stdin);
 
+            fflush(stdin);
 	    } while (!done);
     }
 
     printf("\n");
 
-    delete source;
-    source = NULL;
+    delete soundSource;
+    soundSource = NULL;
 
     alDeleteBuffers(1, &audioBufferId);
     audioBufferId = 0;
