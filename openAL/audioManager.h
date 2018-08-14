@@ -14,7 +14,7 @@ class AudioManager
         AudioManager();
         ~AudioManager();
 
-        ALboolean init();
+        ALboolean initialize();
         ALboolean loadWaveAudio(const char* filePath, ALuint bufferId);
 
         void setListenerPosition(float x, float y, float z);

@@ -19,7 +19,7 @@ AudioManager::AudioManager()
     }
 }
 
-ALboolean AudioManager::init()
+ALboolean AudioManager::initialize()
 {
     ALboolean initializationCompleted = AL_FALSE;
     device = alcOpenDevice(NULL);
@@ -68,6 +68,8 @@ ALboolean AudioManager::loadWaveAudio(const char* filePath, ALuint bufferId)
             WAVERESULT waveDataResult = waveLoader->GetWaveData(waveId, (void **)&data);
             WAVERESULT waveFrequencyResult = waveLoader->GetWaveFrequency(waveId, (unsigned long *)&frequency);
             WAVERESULT waveBufferFormatResult = waveLoader->GetWaveALBufferFormat(waveId, &alGetEnumValue, (unsigned long *)&bufferFormat);
+
+            log("[Info] | Buffer format: %d\n", bufferFormat);
 
             if(SUCCEEDED(waveSizeResult) && SUCCEEDED(waveDataResult) && SUCCEEDED(waveFrequencyResult) && SUCCEEDED(waveBufferFormatResult))
             {

@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
     }
 
     audioManage = new AudioManager();
-    audioManage->init();
+    audioManage->initialize();
     audioManage->setListenerPosition(0.0f, 0.0f, 0.0f);
     audioManage->setListenerVelocity(0.0f, 0.0f, 0.0f);
 
