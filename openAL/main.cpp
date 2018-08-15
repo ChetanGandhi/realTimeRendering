@@ -67,34 +67,13 @@ int main(int argc, char const *argv[])
     alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
     alListener3f(AL_VELOCITY, 0.0f, 0.0f, 0.0f);
 
-    // Create audio source.
-    alGenSources(1, &soundSourceId);
-
-    // Check for any errors.
-    ALenum alError = alGetError();
-
-    if(alError != AL_NO_ERROR)
-    {
-        printf("Not able to create audio source, error: %s", alGetString(alError));
-        cleanUp();
-        exit(EXIT_FAILURE);
-    }
-
-    // Reset the error variable.
-    alError = AL_NO_ERROR;
-
-    // Set audio source rolloff factor and reference distance so that
-    // OpenAL can determine how to fade-in and fade-out sound.
-    alSourcef(soundSourceId, AL_ROLLOFF_FACTOR, 1.0f);
-    alSourcef(soundSourceId, AL_REFERENCE_DISTANCE, 1.0f);
-
     // Generate buffers to hold audio data.
     alGenBuffers(1, &defaultAudioBufferId_1);
     alGenBuffers(1, &defaultAudioBufferId_2);
     alGenBuffers(1, &defaultAudioBufferId_3);
 
     // Check for any errors
-    alError = alGetError();
+    ALenum alError = alGetError();
 
     if(alError != AL_NO_ERROR)
     {
@@ -150,6 +129,27 @@ int main(int argc, char const *argv[])
     {
         printf("\nUnable to open default sounds.\n");
     }
+
+    // Create audio source.
+    alGenSources(1, &soundSourceId);
+
+    // Check for any errors.
+    alError = alGetError();
+
+    if(alError != AL_NO_ERROR)
+    {
+        printf("Not able to create audio source, error: %s", alGetString(alError));
+        cleanUp();
+        exit(EXIT_FAILURE);
+    }
+
+    // Reset the error variable.
+    alError = AL_NO_ERROR;
+
+    // Set audio source rolloff factor and reference distance so that
+    // OpenAL can determine how to fade-in and fade-out sound.
+    alSourcef(soundSourceId, AL_ROLLOFF_FACTOR, 1.0f);
+    alSourcef(soundSourceId, AL_REFERENCE_DISTANCE, 1.0f);
 
     if(soundSourceId != 0)
     {
