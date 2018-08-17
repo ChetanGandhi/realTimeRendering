@@ -263,11 +263,18 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ### iOS
 
-| Date       | Assignment                                |
-| ---------- | ----------------------------------------- |
-| 26-05-2018 |                                           |
-|            | [01 - Window](iOS/01-window)              |
-|            | [02 - OpenGL Window](iOS/02-openGLWindow) |
+| Date       | Assignment                                                            |
+| ---------- | --------------------------------------------------------------------- |
+| 26-05-2018 |                                                                       |
+|            | [01 - Window](iOS/01-window)                                          |
+|            | [02 - OpenGL Window](iOS/02-openGLWindow)                             |
+|            | [03 - Triangle by Orthographic Projection](iOS/03-triangleOrtho)      |
+|            | [04 - Triangle By Perspective Projection](iOS/04-trianglePerspective) |
+|            | [05 - Multi Colored Triangle](iOS/05-multiColoredTriangle)            |
+|            | [06 - Triangle and Square](iOS/06-triangleAndSquare)                  |
+|            | [07 - Triangle and Square Colored](iOS/07-triangleAndSquareColored)   |
+|            | [08 - Triangle and Square Rotation](iOS/08-triangleAndSquareRotation) |
+|            | [09 - Pyramid and Cube Rotation](iOS/09-pyramidAndCubeRotation)       |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
