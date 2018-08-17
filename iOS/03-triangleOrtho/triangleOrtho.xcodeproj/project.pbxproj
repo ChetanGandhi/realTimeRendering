@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		380527682119DC62002309AA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805275F2119DC61002309AA /* ViewController.m */; };
+		3805276A2119DC62002309AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 380527612119DC62002309AA /* AppDelegate.m */; };
+		3805276B2119DC62002309AA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 380527642119DC62002309AA /* Default-568h@2x.png */; };
+		3805276C2119DC62002309AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 380527652119DC62002309AA /* main.m */; };
+		3805276D2119DC62002309AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 380527662119DC62002309AA /* Assets.xcassets */; };
+		380527702119DCB1002309AA /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 3805276F2119DCB1002309AA /* readme.md */; };
+		380527982119DD3F002309AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 380527972119DD3F002309AA /* OpenGLES.framework */; };
+		385943FD2122F50D00303EF2 /* triangleOrtho.png in Resources */ = {isa = PBXBuildFile; fileRef = 385943FC2122F50D00303EF2 /* triangleOrtho.png */; };
+		38F0513F21219AF100E7D594 /* GLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38F0513E21219AF100E7D594 /* GLESView.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		380527452119DBFF002309AA /* triangleOrtho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triangleOrtho.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		380527562119DC00002309AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3805275E2119DC61002309AA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3805275F2119DC61002309AA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		380527612119DC62002309AA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		380527622119DC62002309AA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		380527642119DC62002309AA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		380527652119DC62002309AA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		380527662119DC62002309AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3805276F2119DCB1002309AA /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		380527972119DD3F002309AA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		385943FC2122F50D00303EF2 /* triangleOrtho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangleOrtho.png; sourceTree = "<group>"; };
+		38F0513D21219AF100E7D594 /* GLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESView.h; sourceTree = "<group>"; };
+		38F0513E21219AF100E7D594 /* GLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESView.mm; sourceTree = "<group>"; };
+		38F0514021219BA500E7D594 /* vmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vmath.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		380527422119DBFF002309AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				380527982119DD3F002309AA /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3805273C2119DBFF002309AA = {
+			isa = PBXGroup;
+			children = (
+				3805276F2119DCB1002309AA /* readme.md */,
+				3805276E2119DC7C002309AA /* preview */,
+				380527472119DBFF002309AA /* triangleOrtho */,
+				380527462119DBFF002309AA /* Products */,
+				380527962119DD3F002309AA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		380527462119DBFF002309AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				380527452119DBFF002309AA /* triangleOrtho.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		380527472119DBFF002309AA /* triangleOrtho */ = {
+			isa = PBXGroup;
+			children = (
+				38F0514021219BA500E7D594 /* vmath.h */,
+				38F0513D21219AF100E7D594 /* GLESView.h */,
+				38F0513E21219AF100E7D594 /* GLESView.mm */,
+				380527622119DC62002309AA /* AppDelegate.h */,
+				380527612119DC62002309AA /* AppDelegate.m */,
+				380527652119DC62002309AA /* main.m */,
+				3805275E2119DC61002309AA /* ViewController.h */,
+				3805275F2119DC61002309AA /* ViewController.m */,
+				380527562119DC00002309AA /* Info.plist */,
+				380527662119DC62002309AA /* Assets.xcassets */,
+				380527632119DC62002309AA /* resources */,
+			);
+			path = triangleOrtho;
+			sourceTree = "<group>";
+		};
+		380527632119DC62002309AA /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				380527642119DC62002309AA /* Default-568h@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		3805276E2119DC7C002309AA /* preview */ = {
+			isa = PBXGroup;
+			children = (
+				385943FC2122F50D00303EF2 /* triangleOrtho.png */,
+			);
+			path = preview;
+			sourceTree = "<group>";
+		};
+		380527962119DD3F002309AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				380527972119DD3F002309AA /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		380527442119DBFF002309AA /* triangleOrtho */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3805275B2119DC00002309AA /* Build configuration list for PBXNativeTarget "triangleOrtho" */;
+			buildPhases = (
+				380527412119DBFF002309AA /* Sources */,
+				380527422119DBFF002309AA /* Frameworks */,
+				380527432119DBFF002309AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = triangleOrtho;
+			productName = triangleOrtho;
+			productReference = 380527452119DBFF002309AA /* triangleOrtho.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3805273D2119DBFF002309AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Chetan Gandhi";
+				TargetAttributes = {
+					380527442119DBFF002309AA = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 380527402119DBFF002309AA /* Build configuration list for PBXProject "triangleOrtho" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3805273C2119DBFF002309AA;
+			productRefGroup = 380527462119DBFF002309AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				380527442119DBFF002309AA /* triangleOrtho */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		380527432119DBFF002309AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3805276D2119DC62002309AA /* Assets.xcassets in Resources */,
+				380527702119DCB1002309AA /* readme.md in Resources */,
+				385943FD2122F50D00303EF2 /* triangleOrtho.png in Resources */,
+				3805276B2119DC62002309AA /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		380527412119DBFF002309AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				380527682119DC62002309AA /* ViewController.m in Sources */,
+				3805276C2119DC62002309AA /* main.m in Sources */,
+				3805276A2119DC62002309AA /* AppDelegate.m in Sources */,
+				38F0513F21219AF100E7D594 /* GLESView.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		380527592119DC00002309AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3805275A2119DC00002309AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3805275C2119DC00002309AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = triangleOrtho/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.chetangandhi.triangleOrtho;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3805275D2119DC00002309AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = triangleOrtho/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.chetangandhi.triangleOrtho;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		380527402119DBFF002309AA /* Build configuration list for PBXProject "triangleOrtho" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				380527592119DC00002309AA /* Debug */,
+				3805275A2119DC00002309AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3805275B2119DC00002309AA /* Build configuration list for PBXNativeTarget "triangleOrtho" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3805275C2119DC00002309AA /* Debug */,
+				3805275D2119DC00002309AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3805273D2119DBFF002309AA /* Project object */;
+}
