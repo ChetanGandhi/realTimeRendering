@@ -263,10 +263,11 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ### iOS
 
-| Date       | Assignment                   |
-| ---------- | ---------------------------- |
-| 26-05-2018 |                              |
-|            | [01 - Window](iOS/01-window) |
+| Date       | Assignment                                |
+| ---------- | ----------------------------------------- |
+| 26-05-2018 |                                           |
+|            | [01 - Window](iOS/01-window)              |
+|            | [02 - OpenGL Window](iOS/02-openGLWindow) |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
