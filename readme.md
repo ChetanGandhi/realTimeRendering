@@ -275,6 +275,10 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [07 - Triangle and Square Colored](iOS/07-triangleAndSquareColored)   |
 |            | [08 - Triangle and Square Rotation](iOS/08-triangleAndSquareRotation) |
 |            | [09 - Pyramid and Cube Rotation](iOS/09-pyramidAndCubeRotation)       |
+|            | [10 - Pyramid and Cube Texture](iOS/10-pyramidAndCubeTexture)         |
+|            | [11 - Smiley](iOS/11-smiley)                                          |
+|            | [12 - Smiley Tweaked](iOS/12-smileyTweaked)                           |
+|            | [13 - Checkerboard Texture](iOS/13-checkerboardTexture)               |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
