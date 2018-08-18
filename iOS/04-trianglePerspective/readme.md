@@ -53,7 +53,7 @@ In middle pane, from top tab bar, choose `General` tab.
 
 -   Triangle Perspective
 
-    ![trianglePerspective][triangle-perspective-image]
+![trianglePerspective][triangle-perspective-image]
 
 [//]: # "Image declaration"
 [triangle-perspective-image]: ./preview/trianglePerspective.png "Triangle Perspective"
