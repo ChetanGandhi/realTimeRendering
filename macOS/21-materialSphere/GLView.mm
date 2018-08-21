@@ -703,7 +703,6 @@ const int numberOfColumns = 4;
 
 -(void)render
 {
-    NSLog(@"Render");
     [[self openGLContext] makeCurrentContext];
 
     CGLContextObj cglContext = (CGLContextObj)[[self openGLContext] CGLContextObj];
@@ -733,8 +732,6 @@ const int numberOfColumns = 4;
                     lightZeroPosition[0] = 0.0f;
                     lightZeroPosition[1] = sinf(angleLightRotation) * 100.0f - 3.0f;
                     lightZeroPosition[2] = cosf(angleLightRotation) * 100.0f - 3.0f;
-
-                    NSLog(@"lightZeroPosition: %f %f %f", lightZeroPosition[0],lightZeroPosition[1], lightZeroPosition[2]);
                 }
                 else if(rotateLightOnYAxis)
                 {
