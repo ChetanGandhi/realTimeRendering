@@ -204,11 +204,11 @@ enum
     GLint extensionCount = 0;
     glGetIntegerv(GL_NUM_EXTENSIONS, &extensionCount);
 
-    NSLog(@"Number of extensions: %d\n", extensionCount);
+    NSLog(@"[Info] | Number of extensions: %d\n", extensionCount);
 
     for(int counter = 0; counter < extensionCount; ++counter)
     {
-        NSLog(@"%d] Extension name: %s\n", counter + 1, (const char*)glGetStringi(GL_EXTENSIONS, counter));
+        NSLog(@"[Info] | %d] Extension name: %s\n", counter + 1, (const char*)glGetStringi(GL_EXTENSIONS, counter));
     }
 }
 

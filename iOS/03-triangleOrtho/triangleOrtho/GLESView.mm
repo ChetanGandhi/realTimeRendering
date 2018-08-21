@@ -204,11 +204,11 @@ enum
     GLint extensionCount = 0;
     glGetIntegerv(GL_NUM_EXTENSIONS, &extensionCount);
 
-    NSLog(@"Number of extensions: %d\n", extensionCount);
+    NSLog(@"[Info] | Number of extensions: %d\n", extensionCount);
 
     for(int counter = 0; counter < extensionCount; ++counter)
     {
-        NSLog(@"%d] Extension name: %s\n", counter + 1, (const char*)glGetStringi(GL_EXTENSIONS, counter));
+        NSLog(@"[Info] | %d] Extension name: %s\n", counter + 1, (const char*)glGetStringi(GL_EXTENSIONS, counter));
     }
 }
 
@@ -247,7 +247,7 @@ enum
             {
                 GLsizei written = 0;
                 glGetShaderInfoLog(vertexShaderObject, infoLogLength, &written, infoLog);
-                NSLog(@"CG: Vertex shader compilation log: %s\n", infoLog);
+                NSLog(@"[Error] | Vertex shader compilation log: %s\n", infoLog);
                 free(infoLog);
                 [self release];
                 exit(EXIT_FAILURE);
@@ -291,7 +291,7 @@ enum
             {
                 GLsizei written = 0;
                 glGetShaderInfoLog(fragmentShaderObject, infoLogLength, &written, infoLog);
-                NSLog(@"CG: Fragment shader compilation log: %s\n", infoLog);
+                NSLog(@"[Error] | Fragment shader compilation log: %s\n", infoLog);
                 free(infoLog);
                 [self release];
                 exit(EXIT_FAILURE);
@@ -331,7 +331,7 @@ enum
             {
                 GLsizei written = 0;
                 glGetProgramInfoLog(shaderProgramObject, infoLogLength, &written, infoLog);
-                NSLog(@"CG: Shader program link log: %s\n", infoLog);
+                NSLog(@"[Error] | Shader program link log: %s\n", infoLog);
                 free(infoLog);
                 [self release];
                 exit(EXIT_FAILURE);
