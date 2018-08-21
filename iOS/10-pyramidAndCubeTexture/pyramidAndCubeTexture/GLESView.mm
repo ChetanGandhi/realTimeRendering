@@ -19,15 +19,15 @@ enum
     GLuint defaultFramebuffer;
     GLuint colorRenderbuffer;
     GLuint depthRenderbuffer;
-    
+
     GLuint vertexShaderObject;
     GLuint fragmentShaderObject;
     GLuint shaderProgramObject;
-    
+
     GLfloat angleCube;
     GLfloat anglePyramid;
     GLfloat speed;
-    
+
     GLuint vaoPyramid;
     GLuint vboPyramidPosition;
     GLuint vboPyramidTexture;
@@ -38,7 +38,7 @@ enum
     GLuint textureSamplerUniform;
     GLuint textureKundali;
     GLuint textureStone;
-    
+
     vmath::mat4 perspectiveProjectionMatrix;
 
     CADisplayLink *displayLink;
@@ -58,7 +58,7 @@ enum
         vertexShaderObject = 0;
         fragmentShaderObject = 0;
         shaderProgramObject = 0;
-        
+
         vaoPyramid = 0;
         vboPyramidPosition = 0;
         vboPyramidTexture = 0;
@@ -69,7 +69,7 @@ enum
         textureSamplerUniform = 0;
         textureKundali = 0;
         textureStone = 0;
-        
+
         angleCube = 0.0f;
         anglePyramid = 0.0f;
         speed = 0.5f;
@@ -79,32 +79,32 @@ enum
             // Return nil as this will release 'self'
             return nil;
         }
-        
+
         isRendering = NO;
         aimationFrameInterval = 60;
         singleTapCounter = 1;
 
         // Initialize the shaders and shader program object.
-        
+
         [self initializeGestures];
         [self initializeVertexShader];
         [self initializeFragmentShader];
         [self initializeShaderProgram];
         [self initializePyramidBuffers];
         [self initializeCubeBuffers];
-        
+
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        
+
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_TEXTURE_2D);
-        
+
         // Disable face culling to see back side of object when rotated.
         // glEnable(GL_CULL_FACE);
-        
+
         glDepthFunc(GL_LEQUAL);
-        
+
         perspectiveProjectionMatrix = vmath::mat4::identity();
-        
+
         textureStone = [self loadGLTextures:@"stone" ofType:@"bmp"];
         textureKundali = [self loadGLTextures:@"vijay_kundali" ofType:@"bmp"];
     }
@@ -125,14 +125,14 @@ enum
 -(void)onSingleTap:(UIGestureRecognizer *)gestureRecognizer
 {
     singleTapCounter++;
-    
+
     if(singleTapCounter < 1 || singleTapCounter > 9)
     {
         singleTapCounter = 1;
     }
-    
+
     speed = 0.5f * (float)singleTapCounter;
-    
+
     [self setNeedsDisplay];
 }
 
@@ -164,17 +164,17 @@ enum
     [doubleTapGestureRecognizer setNumberOfTouchesRequired:1];
     [doubleTapGestureRecognizer setDelegate:self];
     [self addGestureRecognizer:doubleTapGestureRecognizer];
-    
+
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap:)];
     [singleTapGestureRecognizer setNumberOfTapsRequired:1];
     [singleTapGestureRecognizer setNumberOfTouchesRequired:1];
     [singleTapGestureRecognizer setDelegate:self];
     [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
     [self addGestureRecognizer:singleTapGestureRecognizer];
-    
+
     UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
     [self addGestureRecognizer:longPressGestureRecognizer];
-    
+
     UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwip:)];
     [self addGestureRecognizer:swipeGestureRecognizer];
 }
@@ -184,59 +184,59 @@ enum
     NSMutableDictionary *drawableProperties = [[NSMutableDictionary alloc] init];
     [drawableProperties setObject:[NSNumber numberWithBool:NO] forKey:kEAGLDrawablePropertyRetainedBacking];
     [drawableProperties setObject:kEAGLColorFormatRGBA8 forKey:kEAGLDrawablePropertyColorFormat];
-    
+
     CAEAGLLayer *layer = (CAEAGLLayer *)super.layer;
     layer.opaque = NO;
     layer.drawableProperties = drawableProperties;
-    
+
     context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
-    
+
     [drawableProperties release];
     drawableProperties = nil;
-    
+
     if(context == nil)
     {
         NSLog(@"[Error] | Cannot create OpenGL ES 3.0 context");
         [self release];
         return NO;
     }
-    
+
     [EAGLContext setCurrentContext:context];
-    
+
     glGenFramebuffers(1, &defaultFramebuffer);
     glGenRenderbuffers(1, &colorRenderbuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
-    
+
     [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
-    
+
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderbuffer);
-    
+
     GLint backingWidth = 0;
     GLint backingHeight = 0;
-    
+
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
-    
+
     glGenRenderbuffers(1, &depthRenderbuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, backingWidth, backingHeight);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderbuffer);
-    
+
     if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
     {
         NSLog(@"[Error] | Cannot create complete framebuffer object, status: %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));
         glDeleteFramebuffers(1, &defaultFramebuffer);
         glDeleteRenderbuffers(1, &colorRenderbuffer);
         glDeleteRenderbuffers(1, &depthRenderbuffer);
-        
+
         return NO;
     }
-    
+
     NSLog(@"[Info] | Renderer: %s", glGetString(GL_RENDERER));
     NSLog(@"[Info] | OpenGL ES version: %s", glGetString(GL_VERSION));
     NSLog(@"[Info] | GLSL version: %s", glGetString(GL_SHADING_LANGUAGE_VERSION));
-    
+
     return YES;
 }
 
@@ -244,9 +244,9 @@ enum
 {
     GLint extensionCount = 0;
     glGetIntegerv(GL_NUM_EXTENSIONS, &extensionCount);
-    
+
     NSLog(@"Number of extensions: %d\n", extensionCount);
-    
+
     for(int counter = 0; counter < extensionCount; ++counter)
     {
         NSLog(@"%d] Extension name: %s\n", counter + 1, (const char*)glGetStringi(GL_EXTENSIONS, counter));
@@ -256,7 +256,7 @@ enum
 -(void)initializeVertexShader
 {
     vertexShaderObject = glCreateShader(GL_VERTEX_SHADER);
-    
+
     const GLchar *vertexShaderCode = "#version 300 es" \
     "\n" \
     "in vec4 vertexPosition;" \
@@ -271,29 +271,30 @@ enum
     "   gl_Position = mvpMatrix * vertexPosition;" \
     "   outVertexTextureCoordinate0 = vertexTextureCoordinate0;" \
     "}";
-    
+
     glShaderSource(vertexShaderObject, 1, (const GLchar**)&vertexShaderCode, NULL);
     glCompileShader(vertexShaderObject);
-    
+
     GLint infoLogLength = 0;
     GLint shaderCompileStatus = 0;
     char *infoLog = NULL;
-    
+
     glGetShaderiv(vertexShaderObject, GL_COMPILE_STATUS, &shaderCompileStatus);
-    
+
     if(shaderCompileStatus == GL_FALSE)
     {
         glGetShaderiv(vertexShaderObject, GL_INFO_LOG_LENGTH, &infoLogLength);
-        
+
         if(infoLogLength > 0)
         {
             infoLog = (char *)malloc(infoLogLength);
-            
+
             if(infoLog != NULL)
             {
                 GLsizei written = 0;
                 glGetShaderInfoLog(vertexShaderObject, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Vertex shader compilation log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 exit(EXIT_FAILURE);
             }
@@ -304,7 +305,7 @@ enum
 -(void)initializeFragmentShader
 {
     fragmentShaderObject = glCreateShader(GL_FRAGMENT_SHADER);
-    
+
     const GLchar *fragmentShaderCode = "#version 300 es" \
     "\n" \
     "precision highp float;"\
@@ -318,29 +319,30 @@ enum
     "{" \
     "   fragmentColor = texture(textureSampler0, outVertexTextureCoordinate0);" \
     "}";
-    
+
     glShaderSource(fragmentShaderObject, 1, (const GLchar**)&fragmentShaderCode, NULL);
     glCompileShader(fragmentShaderObject);
-    
+
     GLint infoLogLength = 0;
     GLint shaderCompileStatus = 0;
     char *infoLog = NULL;
-    
+
     glGetShaderiv(fragmentShaderObject, GL_COMPILE_STATUS, &shaderCompileStatus);
-    
+
     if(shaderCompileStatus == GL_FALSE)
     {
         glGetShaderiv(fragmentShaderObject, GL_INFO_LOG_LENGTH, &infoLogLength);
-        
+
         if(infoLogLength > 0)
         {
             infoLog = (char *)malloc(infoLogLength);
-            
+
             if(infoLog != NULL)
             {
                 GLsizei written = 0;
                 glGetShaderInfoLog(fragmentShaderObject, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Fragment shader compilation log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 exit(EXIT_FAILURE);
             }
@@ -351,10 +353,10 @@ enum
 -(void)initializeShaderProgram
 {
     shaderProgramObject = glCreateProgram();
-    
+
     glAttachShader(shaderProgramObject, vertexShaderObject);
     glAttachShader(shaderProgramObject, fragmentShaderObject);
-    
+
     // Bind the position attribute location before linking.
     glBindAttribLocation(shaderProgramObject, CG_ATTRIBUTE_VERTEX_POSITION, "vertexPosition");
 
@@ -363,35 +365,36 @@ enum
 
     // Now link and check for error.
     glLinkProgram(shaderProgramObject);
-    
+
     GLint infoLogLength = 0;
     GLint shaderProgramLinkStatus = 0;
     char *infoLog = NULL;
-    
+
     glGetProgramiv(shaderProgramObject, GL_LINK_STATUS, &shaderProgramLinkStatus);
-    
+
     if(shaderProgramLinkStatus == GL_FALSE)
     {
         glGetProgramiv(shaderProgramObject, GL_INFO_LOG_LENGTH, &infoLogLength);
-        
+
         if(infoLogLength > 0)
         {
             infoLog = (char *)malloc(infoLogLength);
-            
+
             if(infoLog != NULL)
             {
                 GLsizei written = 0;
                 glGetProgramInfoLog(shaderProgramObject, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Shader program link log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 exit(EXIT_FAILURE);
             }
         }
     }
-    
+
     // After linking get the value of MVP uniform location from the shader program.
     mvpUniform = glGetUniformLocation(shaderProgramObject, "mvpMatrix");
-    
+
     // Get the texture sampler uniform location from shader program.
     textureSamplerUniform = glGetUniformLocation(shaderProgramObject, "textureSampler0");
 }
@@ -403,66 +406,66 @@ enum
         0.0f, 1.0f, 0.0f,
         -1.0f, -1.0f, 1.0f,
         1.0f, -1.0f, 1.0f,
-        
+
         // Right face
         0.0f, 1.0f, 0.0f,
         1.0f, -1.0f, 1.0f,
         1.0f, -1.0f, -1.0f,
-        
+
         // Back face
         0.0f, 1.0f, 0.0f,
         1.0f, -1.0f, -1.0f,
         -1.0f, -1.0f, -1.0f,
-        
+
         // Left face
         0.0f, 1.0f, 0.0f,
         -1.0f, -1.0f, -1.0f,
         -1.0f, -1.0f, 1.0f
     };
-    
+
     const GLfloat pyramidTextureCoordinates[] = {
         // Front face
         0.5f, 1.0f,
         0.0f, 0.0f,
         1.0f, 0.0f,
-        
+
         // Right face
         0.5f, 1.0f,
         1.0f, 0.0f,
         0.0f, 0.0f,
-        
+
         // Back face
         0.5f, 1.0f,
         1.0f, 0.0f,
         0.0f, 0.0f,
-        
+
         // Left face
         0.5f, 1.0f,
         0.0f, 0.0f,
         1.0f, 0.0f
     };
-    
+
     glGenVertexArrays(1, &vaoPyramid);
     glBindVertexArray(vaoPyramid);
-    
+
     glGenBuffers(1, &vboPyramidPosition);
     glBindBuffer(GL_ARRAY_BUFFER, vboPyramidPosition);
-    
+
     glBufferData(GL_ARRAY_BUFFER, sizeof(pyramidVertices), pyramidVertices, GL_STATIC_DRAW);
     glVertexAttribPointer(CG_ATTRIBUTE_VERTEX_POSITION, 3, GL_FLOAT, GL_FALSE, 0, NULL);
     glEnableVertexAttribArray(CG_ATTRIBUTE_VERTEX_POSITION);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
+
     glGenBuffers(1, &vboPyramidTexture);
     glBindBuffer(GL_ARRAY_BUFFER, vboPyramidTexture);
-    
+
     glBufferData(GL_ARRAY_BUFFER, sizeof(pyramidTextureCoordinates), pyramidTextureCoordinates, GL_STATIC_DRAW);
     glVertexAttribPointer(CG_ATTRIBUTE_TEXTURE0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
     glEnableVertexAttribArray(CG_ATTRIBUTE_TEXTURE0);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
+
     glBindVertexArray(0);
 }
 
@@ -474,97 +477,97 @@ enum
         -1.0f, 1.0f, -1.0f,
         -1.0f, 1.0f, 1.0f,
         1.0f, 1.0f, 1.0f,
-        
+
         // Bottom face
         1.0f, -1.0f, -1.0f,
         -1.0f, -1.0f, -1.0f,
         -1.0f, -1.0f, 1.0f,
         1.0f, -1.0f, 1.0f,
-        
+
         // Front face
         1.0f, 1.0f, 1.0f,
         -1.0f, 1.0f, 1.0f,
         -1.0f, -1.0f, 1.0f,
         1.0f, -1.0f, 1.0f,
-        
+
         // Back face
         1.0f, 1.0f, -1.0f,
         -1.0f, 1.0f, -1.0f,
         -1.0f, -1.0f, -1.0f,
         1.0f, -1.0f, -1.0f,
-        
+
         // Right face
         1.0f, 1.0f, -1.0f,
         1.0f, 1.0f, 1.0f,
         1.0f, -1.0f, 1.0f,
         1.0f, -1.0f, -1.0f,
-        
+
         // Left face
         -1.0f, 1.0f, 1.0f,
         -1.0f, 1.0f, -1.0f,
         -1.0f, -1.0f, -1.0f,
         -1.0f, -1.0f, 1.0f
     };
-    
+
     const GLfloat cubeTextureCoordinates[] = {
         // Top face
         0.0f, 1.0f,
         0.0f, 0.0f,
         1.0f, 0.0f,
         1.0f, 1.0f,
-        
+
         // Bottom face
         1.0f, 1.0f,
         0.0f, 1.0f,
         0.0f, 0.0f,
         1.0f, 0.0f,
-        
+
         // Front face
         0.0f, 0.0f,
         1.0f, 0.0f,
         1.0f, 1.0f,
         0.0f, 1.0f,
-        
+
         // Back face
         1.0f, 0.0f,
         1.0f, 1.0f,
         0.0f, 1.0f,
         0.0f, 0.0f,
-        
+
         // right face
         1.0f, 0.0f,
         1.0f, 1.0f,
         0.0f, 1.0f,
         0.0f, 0.0f,
-        
+
         // left face
         0.0f, 0.0f,
         1.0f, 0.0f,
         1.0f, 1.0f,
         0.0f, 1.0f
     };
-    
+
     glGenVertexArrays(1, &vaoCube);
     glBindVertexArray(vaoCube);
-    
+
     glGenBuffers(1, &vboCubePosition);
     glBindBuffer(GL_ARRAY_BUFFER, vboCubePosition);
-    
+
     glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVertices), cubeVertices, GL_STATIC_DRAW);
     glVertexAttribPointer(CG_ATTRIBUTE_VERTEX_POSITION, 3, GL_FLOAT, GL_FALSE, 0, NULL);
     glEnableVertexAttribArray(CG_ATTRIBUTE_VERTEX_POSITION);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
+
     glGenBuffers(1, &vboCubeTexture);
     glBindBuffer(GL_ARRAY_BUFFER, vboCubeTexture);
-    
+
     glBufferData(GL_ARRAY_BUFFER, sizeof(cubeTextureCoordinates), cubeTextureCoordinates, GL_STATIC_DRAW);
     glVertexAttribPointer(CG_ATTRIBUTE_TEXTURE0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
     glEnableVertexAttribArray(CG_ATTRIBUTE_TEXTURE0);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
+
     glBindVertexArray(0);
 }
 
@@ -572,12 +575,12 @@ enum
 {
     angleCube -= speed;
     anglePyramid += speed;
-    
+
     if(angleCube <= -360.0f)
     {
         angleCube = 0.0f;
     }
-    
+
     if(anglePyramid >= 360.0f)
     {
         anglePyramid = 0.0f;
@@ -591,16 +594,16 @@ enum
     glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-    
+
     glUseProgram(shaderProgramObject);
-    
+
     [self drawPyramid];
     [self drawCube];
-    
+
     glUseProgram(0);
-    
+
     [context presentRenderbuffer:GL_RENDERBUFFER];
-    
+
     [self updateScene];
 }
 
@@ -609,38 +612,38 @@ enum
     vmath::mat4 modelViewMatrix = vmath::mat4::identity();
     vmath::mat4 rotationMatrix = vmath::mat4::identity();
     vmath::mat4 modelViewProjectionMatrix = vmath::mat4::identity();
-    
+
     // Translate the modal view matrix.
     modelViewMatrix = vmath::translate(-1.5f, 0.0f, -6.0f);
     rotationMatrix = vmath::rotate(anglePyramid, 0.0f, 1.0f, 0.0f);
-    
+
     // Rotate after transformation of modelViewMatrix.
     modelViewMatrix = modelViewMatrix * rotationMatrix;
-    
+
     // Multiply modelViewMatrix and perspectiveProjectionMatrix to get modelViewProjectionMatrix
     // Oder of multiplication is very important projectionMatrix * modelMatrix * viewMatrix
     // As we have model and view matrix combined, we just have to multiply projectionMatrix and modelViewMatrix
     modelViewProjectionMatrix = perspectiveProjectionMatrix * modelViewMatrix;
-    
+
     // Pass modelViewProjectionMatrix to vertex shader in 'mvpMatrix' variable defined in shader.
     glUniformMatrix4fv(mvpUniform, 1, GL_FALSE, modelViewProjectionMatrix);
-    
+
     // Now bind the VAO to which we want to use
     glBindVertexArray(vaoPyramid);
-    
+
     // Enable 0th texture
     glActiveTexture(GL_TEXTURE0);
-    
+
     // Bind with pyramid texture
     glBindTexture(GL_TEXTURE_2D, textureStone);
-    
+
     // Enable 0th sampler.
     glUniform1i(textureSamplerUniform, 0);
-    
+
     // Draw the pyramid
     // 12 is number of vertices in the array i.e. element count in pyramidVertices divide by 3 (x, y, z) component
     glDrawArrays(GL_TRIANGLES, 0, 12);
-    
+
     // unbind the vao
     glBindVertexArray(0);
 }
@@ -651,38 +654,38 @@ enum
     vmath::mat4 rotationMatrix = vmath::mat4::identity();
     vmath::mat4 scaleMatrix = vmath::mat4::identity();
     vmath::mat4 modelViewProjectionMatrix = vmath::mat4::identity();
-    
+
     // Scale, translate and rotate the modal view matrix.
     scaleMatrix = vmath::scale(0.75f, 0.75f, 0.75f);
     modelViewMatrix = vmath::translate(1.5f, 0.0f, -6.0f);
     rotationMatrix = vmath::rotate(angleCube, angleCube, angleCube);
-    
+
     // Scale after transformation of modelViewMatrix.
     modelViewMatrix = modelViewMatrix * scaleMatrix;
-    
+
     // Rotate after transformation and scale of modelViewMatrix.
     modelViewMatrix = modelViewMatrix * rotationMatrix;
-    
+
     // Multiply modelViewMatrix and perspectiveProjectionMatrix to get modelViewProjectionMatrix
     // Oder of multiplication is very important projectionMatrix * modelMatrix * viewMatrix
     // As we have model and view matrix combined, we just have to multiply projectionMatrix and modelViewMatrix
     modelViewProjectionMatrix = perspectiveProjectionMatrix * modelViewMatrix;
-    
+
     // Pass modelViewProjectionMatrix to vertex shader in 'mvpMatrix' variable defined in shader.
     glUniformMatrix4fv(mvpUniform, 1, GL_FALSE, modelViewProjectionMatrix);
-    
+
     // Now bind the VAO to which we want to use
     glBindVertexArray(vaoCube);
-    
+
     // Enable 0th texture
     glActiveTexture(GL_TEXTURE0);
-    
+
     // Bind with pyramid texture
     glBindTexture(GL_TEXTURE_2D, textureKundali);
-    
+
     // Enable 0th sampler.
     glUniform1i(textureSamplerUniform, 0);
-    
+
     // Draw the cube
     // 4 is number of vertices in the array for each face
     // i.e. element count in cubeVertices for each face divide by 3 (x, y, z) component
@@ -693,7 +696,7 @@ enum
     glDrawArrays(GL_TRIANGLE_FAN, 12, 4);
     glDrawArrays(GL_TRIANGLE_FAN, 16, 4);
     glDrawArrays(GL_TRIANGLE_FAN, 20, 4);
-    
+
     // unbind the vao
     glBindVertexArray(0);
 }
@@ -703,19 +706,19 @@ enum
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSString *textureFilePath = [mainBundle pathForResource:textureFileName ofType:fileType];
     UIImage *image = [[UIImage alloc] initWithContentsOfFile:textureFilePath];
-    
+
     GLuint texture = 0;
-    
+
     if(image)
     {
         CGImageRef imageRef = [image CGImage];
         int width = (int)CGImageGetWidth(imageRef);
         int height = (int)CGImageGetHeight(imageRef);
-        
+
         CGDataProviderRef imageDataProviderRef = CGImageGetDataProvider(imageRef);
         CFDataRef imageDataRef = CGDataProviderCopyData(imageDataProviderRef);
         void *pixels = (void *)CFDataGetBytePtr(imageDataRef);
-        
+
         glGenTextures(1, &texture);
         // For programmable pipeline set 1 instead of 4 for better performation.
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
@@ -726,20 +729,20 @@ enum
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
         glGenerateMipmap(GL_TEXTURE_2D);
         CFRelease(imageDataRef);
-        
+
         // Unbind the texture else the last loaded texture will be shown in display
         // if we forgot to specify to which texture to bind in display.
         glBindTexture(GL_TEXTURE_2D, 0);
-        
+
     }
     else
     {
         NSLog(@"Not able to load texture: %@ of type: %@", textureFilePath, fileType);
     }
-    
+
     // Release the image object.
     [image release];
-    
+
     return texture;
 }
 
@@ -758,15 +761,15 @@ enum
     glBindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, width, height);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderbuffer);
-    
+
     if(height == 0)
     {
         height = 1;
     }
-    
+
     glViewport(0, 0, width, height);
     perspectiveProjectionMatrix = vmath::perspective(45.0f, (GLfloat)width / (GLfloat)height, 1.0f, 100.0f);
-    
+
     if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
     {
         NSLog(@"[Error] | Cannot create complete framebuffer object, status: %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));
@@ -803,37 +806,37 @@ enum
 -(void)dealloc
 {
     [self stopRendering];
-    
+
     if(vaoPyramid)
     {
         glDeleteVertexArrays(1, &vaoPyramid);
         vaoPyramid = 0;
     }
-    
+
     if(vboPyramidPosition)
     {
         glDeleteBuffers(1, &vboPyramidPosition);
         vboPyramidPosition = 0;
     }
-    
+
     if(vboPyramidTexture)
     {
         glDeleteBuffers(1, &vboPyramidTexture);
         vboPyramidTexture = 0;
     }
-    
+
     if(vaoCube)
     {
         glDeleteVertexArrays(1, &vaoCube);
         vaoCube = 0;
     }
-    
+
     if(vboCubePosition)
     {
         glDeleteBuffers(1, &vboCubePosition);
         vboCubePosition = 0;
     }
-    
+
     if(vboCubeTexture)
     {
         glDeleteBuffers(1, &vboCubeTexture);
@@ -846,45 +849,45 @@ enum
         {
             glDetachShader(shaderProgramObject, vertexShaderObject);
         }
-        
+
         if(fragmentShaderObject)
         {
             glDetachShader(shaderProgramObject, fragmentShaderObject);
         }
     }
-    
+
     if(vertexShaderObject)
     {
         glDeleteShader(vertexShaderObject);
         vertexShaderObject = 0;
     }
-    
+
     if(fragmentShaderObject)
     {
         glDeleteShader(fragmentShaderObject);
         fragmentShaderObject = 0;
     }
-    
+
     if(shaderProgramObject)
     {
         glDeleteProgram(shaderProgramObject);
         shaderProgramObject = 0;
     }
-    
+
     glUseProgram(0);
-    
+
     if (textureStone)
     {
         glDeleteTextures(1, &textureStone);
         textureStone = 0;
     }
-    
+
     if (textureKundali)
     {
         glDeleteTextures(1, &textureKundali);
         textureKundali = 0;
     }
-    
+
     if(depthRenderbuffer)
     {
         glDeleteRenderbuffers(1, &depthRenderbuffer);
