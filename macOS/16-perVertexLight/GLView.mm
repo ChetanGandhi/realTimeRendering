@@ -114,7 +114,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
         GLfloat _materialAmbient[] = { 0.0f,0.0f,0.0f,1.0f };
         GLfloat _materialDiffuse[] = { 1.0f,1.0f,1.0f,1.0f };
         GLfloat _materialSpecular[] = { 1.0f,1.0f,1.0f,1.0f };
-        
+
         memset(lightAmbient, 0, sizeof(lightAmbient));
         memset(lightDiffuse, 0, sizeof(lightDiffuse));
         memset(lightSpecular, 0, sizeof(lightSpecular));
@@ -314,6 +314,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetShaderInfoLog(vertexShaderObject, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Vertex shader compilation log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -358,6 +359,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetShaderInfoLog(fragmentShaderObject, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Fragment shader compilation log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -400,6 +402,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetProgramInfoLog(shaderProgramObject, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Shader program link log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -623,7 +626,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     free(sphereData.normals);
     free(sphereData.textureCoordinates);
     free(sphereData.elements);
-    
+
     sphereData.vertices = NULL;
     sphereData.normals = NULL;
     sphereData.textureCoordinates = NULL;

@@ -373,6 +373,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetShaderInfoLog(vertexShaderObjectPerVertex, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Vertex shader compilation log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -417,6 +418,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetShaderInfoLog(fragmentShaderObjectPerVertex, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Fragment shader compilation log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -459,6 +461,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetProgramInfoLog(shaderProgramObjectPerVertex, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Shader program link log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -569,6 +572,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetShaderInfoLog(vertexShaderObjectPerFragment, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Vertex shader compilation log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -642,6 +646,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetShaderInfoLog(fragmentShaderObjectPerFragment, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Fragment shader compilation log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -684,6 +689,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetProgramInfoLog(shaderProgramObjectPerFragment, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Shader program link log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }

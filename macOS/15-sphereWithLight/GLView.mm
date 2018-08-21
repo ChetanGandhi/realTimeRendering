@@ -249,6 +249,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetShaderInfoLog(vertexShaderObject, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Vertex shader compilation log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -302,6 +303,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetShaderInfoLog(fragmentShaderObject, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Fragment shader compilation log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -344,6 +346,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
                 GLsizei written = 0;
                 glGetProgramInfoLog(shaderProgramObject, infoLogLength, &written, infoLog);
                 NSLog(@"CG: Shader program link log: %s\n", infoLog);
+                free(infoLog);
                 [self release];
                 [NSApp terminate:self];
             }
@@ -552,7 +555,7 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     free(sphereData.normals);
     free(sphereData.textureCoordinates);
     free(sphereData.elements);
-    
+
     sphereData.vertices = NULL;
     sphereData.normals = NULL;
     sphereData.textureCoordinates = NULL;
