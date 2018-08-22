@@ -288,5 +288,12 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [20 - Multiple Lights On Sphere](iOS/20-multipleLightsOnSphere)        |
 |            | [21 - Material Sphere](iOS/21-materialSphere)                          |
 
+# DirectX Assignments
+
+| Date       | Assignment                                  |
+| ---------- | ------------------------------------------- |
+| 29-07-2018 |                                             |
+|            | [01 - DirectX Window](directX/01-d3dWindow) |
+
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
