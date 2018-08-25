@@ -434,9 +434,9 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
         smileyTextureCoordinates[2] = 0.0f;
         smileyTextureCoordinates[3] = 0.5f;
         smileyTextureCoordinates[4] = 0.0f;
-        smileyTextureCoordinates[5] = 0.0f;
+        smileyTextureCoordinates[5] = 1.0f;
         smileyTextureCoordinates[6] = 0.5f;
-        smileyTextureCoordinates[7] = 0.0f;
+        smileyTextureCoordinates[7] = 1.0f;
     }
     else if(textureMode == 2)
     {
@@ -452,13 +452,13 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     else if(textureMode == 3)
     {
         smileyTextureCoordinates[0] = 2.0f;
-        smileyTextureCoordinates[1] = 2.0f;
+        smileyTextureCoordinates[1] = 0.0f;
         smileyTextureCoordinates[2] = 0.0f;
-        smileyTextureCoordinates[3] = 2.0f;
+        smileyTextureCoordinates[3] = 0.0f;
         smileyTextureCoordinates[4] = 0.0f;
-        smileyTextureCoordinates[5] = 0.0f;
+        smileyTextureCoordinates[5] = 2.0f;
         smileyTextureCoordinates[6] = 2.0f;
-        smileyTextureCoordinates[7] = 0.0f;
+        smileyTextureCoordinates[7] = 2.0f;
     }
     else if(textureMode == 4)
     {
@@ -475,13 +475,13 @@ CVReturn displayLinkCallBack(CVDisplayLinkRef displayLinkRef, const CVTimeStamp 
     {
         currentTexture = textureWhiteColor;
         smileyTextureCoordinates[0] = 1.0f;
-        smileyTextureCoordinates[1] = 1.0f;
+        smileyTextureCoordinates[1] = 0.0f;
         smileyTextureCoordinates[2] = 0.0f;
-        smileyTextureCoordinates[3] = 1.0f;
+        smileyTextureCoordinates[3] = 0.0f;
         smileyTextureCoordinates[4] = 0.0f;
-        smileyTextureCoordinates[5] = 0.0f;
+        smileyTextureCoordinates[5] = 1.0f;
         smileyTextureCoordinates[6] = 1.0f;
-        smileyTextureCoordinates[7] = 0.0f;
+        smileyTextureCoordinates[7] = 1.0f;
     }
 
     glBindBuffer(GL_ARRAY_BUFFER, vboSmileyTexture);
