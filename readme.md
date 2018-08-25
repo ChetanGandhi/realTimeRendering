@@ -290,10 +290,11 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 # DirectX Assignments
 
-| Date       | Assignment                                  |
-| ---------- | ------------------------------------------- |
-| 29-07-2018 |                                             |
-|            | [01 - DirectX Window](directX/01-d3dWindow) |
+| Date       | Assignment                                                           |
+| ---------- | -------------------------------------------------------------------- |
+| 29-07-2018 |                                                                      |
+|            | [01 - DirectX Window](directX/01-d3dWindow)                          |
+|            | [02 - Triangle by Orthographic Projection](directX/02-triangleOrtho) |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
