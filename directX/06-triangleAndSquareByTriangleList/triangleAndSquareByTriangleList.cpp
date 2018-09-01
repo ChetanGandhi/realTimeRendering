@@ -72,7 +72,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - Triangle and Square By Triangle List");
+    TCHAR szApplicationTitle[] = TEXT("CG - Triangle and Square by Triangle List");
     TCHAR szApplicationClassName[] = TEXT("RTR_D3D_TRIANGLE_SQUARE");
     bool done = false;
 

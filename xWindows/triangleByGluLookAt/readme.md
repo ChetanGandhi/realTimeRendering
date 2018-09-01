@@ -1,25 +1,24 @@
-Triangle By GluLookAt
-=====================
+# Triangle by GluLookAt
 
 Draw a multi colored triangle. It usage single buffer for OpenGL rendering and no depth is enabled.
 
 ###### How to compile
 
-- Compile the program.
+-   Compile the program.
 
 ```
 g++ -o triangleByGluLookAt triangleByGluLookAt.cpp -lX11 -lGL -lGLU
-
 ```
 
 ###### Keyboard Shortcuts
-- Press ```Esc``` key to quit.
-- Press ```F``` or ```f``` to toggle full-screen mode.
+
+-   Press `Esc` key to quit.
+-   Press `F` or `f` to toggle full-screen mode.
 
 ###### Preview
-- Triangle By GluLookAt
-![triangleByGluLookAt][triangleByGluLookAt-image]
+
+-   Triangle by GluLookAt
+    ![triangleByGluLookAt][trianglebyglulookat-image]
 
 [//]: # "Image declaration"
-
-[triangleByGluLookAt-image]: ./preview/triangleByGluLookAt.png "Triangle By GluLookAt"
+[trianglebyglulookat-image]: ./preview/triangleByGluLookAt.png "Triangle by GluLookAt"

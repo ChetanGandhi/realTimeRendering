@@ -1,25 +1,24 @@
-Triangle By gluPerspective
-==========================
+# Triangle by gluPerspective
 
 Draw a multi colored triangle. It usage single buffer for OpenGL rendering and no depth is enabled.
 
 ###### How to compile
 
-- Compile the program.
+-   Compile the program.
 
 ```
 g++ -o triangleByGluPerspective triangleByGluPerspective.cpp -lX11 -lGL -lGLU
-
 ```
 
 ###### Keyboard Shortcuts
-- Press ```Esc``` key to quit.
-- Press ```F``` or ```f``` to toggle full-screen mode.
+
+-   Press `Esc` key to quit.
+-   Press `F` or `f` to toggle full-screen mode.
 
 ###### Preview
-- Triangle By gluPerspective
-![triangleByGluPerspective][triangleByGluPerspective-image]
+
+-   Triangle by gluPerspective
+    ![triangleByGluPerspective][trianglebygluperspective-image]
 
 [//]: # "Image declaration"
-
-[triangleByGluPerspective-image]: ./preview/triangleByGluPerspective.png "Triangle By gluPerspective"
+[trianglebygluperspective-image]: ./preview/triangleByGluPerspective.png "Triangle by gluPerspective"

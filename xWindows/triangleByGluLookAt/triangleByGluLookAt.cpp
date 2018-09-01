@@ -109,7 +109,7 @@ void createWindow(void)
         exit(EXIT_FAILURE);
     }
 
-    XStoreName(gDisplay, window, "CG - Triangle By GluLookAt");
+    XStoreName(gDisplay, window, "CG - Triangle by GluLookAt");
 
     Atom windowManagerDelete = XInternAtom(gDisplay, "WM_DELETE_WINDOW", True);
     XSetWMProtocols(gDisplay, window, &windowManagerDelete, 1);

@@ -17,7 +17,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - Fullscreen Center Window By SystemParametersInfo");
+    TCHAR szApplicationTitle[] = TEXT("CG - Fullscreen Center Window by SystemParametersInfo");
     TCHAR szApplicationClassName[] = TEXT("RTR_FULLSCREEN_WINDOW_CENTER_WINDOW_SYSTEM_PARAMETERS_INFO");
 
     wndClassEx.cbSize = sizeof(WNDCLASSEX);

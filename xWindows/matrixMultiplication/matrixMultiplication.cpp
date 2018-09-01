@@ -207,7 +207,7 @@ void createWindow(void)
         exit(EXIT_FAILURE);
     }
 
-    XStoreName(gDisplay, window, "CG - Rotation By Matrix Multiplication");
+    XStoreName(gDisplay, window, "CG - Rotation by Matrix Multiplication");
 
     Atom windowManagerDelete = XInternAtom(gDisplay, "WM_DELETE_WINDOW", True);
     XSetWMProtocols(gDisplay, window, &windowManagerDelete, 1);

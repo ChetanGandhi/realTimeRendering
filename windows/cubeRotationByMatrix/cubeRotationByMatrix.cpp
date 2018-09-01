@@ -47,7 +47,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - Cube Rotation By Matrix");
+    TCHAR szApplicationTitle[] = TEXT("CG - Cube Rotation by Matrix");
     TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_CUBE_ROTATION_MATRIX");
     bool done = false;
 

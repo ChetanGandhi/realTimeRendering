@@ -30,7 +30,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - Triangle By GluPerspective");
+    TCHAR szApplicationTitle[] = TEXT("CG - Triangle by GluPerspective");
     TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_TRIANGLE_BY_GLUPERSPECTIVE");
     bool done = false;
 

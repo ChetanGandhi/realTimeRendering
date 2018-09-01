@@ -108,7 +108,7 @@ void createWindow(void)
         exit(EXIT_FAILURE);
     }
 
-    XStoreName(gDisplay, window, "CG - Triangle By glOrtho");
+    XStoreName(gDisplay, window, "CG - Triangle by glOrtho");
 
     Atom windowManagerDelete = XInternAtom(gDisplay, "WM_DELETE_WINDOW", True);
     XSetWMProtocols(gDisplay, window, &windowManagerDelete, 1);
