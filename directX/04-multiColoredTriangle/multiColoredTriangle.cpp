@@ -454,10 +454,10 @@ HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
     "\n" \
     "vertex_shader_output main(float4 inPosition: POSITION, float4 inColor: COLOR)" \
     "{" \
-    "   vertex_shader_output vs_output;" \
-    "   vs_output.position = mul(worldViewProjectionMatrix, inPosition);" \
-    "   vs_output.color = inColor;" \
-    "   return vs_output;" \
+    "   vertex_shader_output vsOutput;" \
+    "   vsOutput.position = mul(worldViewProjectionMatrix, inPosition);" \
+    "   vsOutput.color = inColor;" \
+    "   return vsOutput;" \
     "}";
 
     ID3DBlob *error = NULL;
