@@ -10,10 +10,10 @@
 
 enum
 {
-    CG_SEMANTIC_VERTEX_POSITION = 0,
-	CG_SEMANTIC_COLOR,
-	CG_SEMANTIC_NORMAL,
-	CG_SEMANTIC_TEXTURE,
+    CG_INPUT_SLOT_VERTEX_POSITION = 0,
+	CG_INPUT_SLOT_COLOR,
+	CG_INPUT_SLOT_NORMAL,
+	CG_INPUT_SLOT_TEXTURE,
 };
 
 struct CBuffer
@@ -489,7 +489,7 @@ HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
 
     if(FAILED(result))
     {
-        log("[Error] | Failed to create vertex shader, error code: %#010x", result);
+        log("[Error] | Failed to create vertex shader, error code: %#010x\n", result);
         return result;
     }
 
@@ -544,7 +544,7 @@ HRESULT initializePixelShader(ID3DBlob **pixelShaderCode)
 
     if(FAILED(result))
     {
-        log("[Error] | Failed to create pixel shader, error code: %#010x", result);
+        log("[Error] | Failed to create pixel shader, error code: %#010x\n", result);
         return result;
     }
 
@@ -555,18 +555,18 @@ HRESULT initializePixelShader(ID3DBlob **pixelShaderCode)
 
 HRESULT initializeInputLayout(ID3DBlob **vertexShaderCode)
 {
-    D3D11_INPUT_ELEMENT_DESC inputLayoutDescriptor = {};
+    D3D11_INPUT_ELEMENT_DESC inputLayoutDescriptor[1];
     ZeroMemory((void *)&inputLayoutDescriptor, sizeof(D3D11_INPUT_ELEMENT_DESC));
 
-    inputLayoutDescriptor.SemanticName = "POSITION";
-    inputLayoutDescriptor.SemanticIndex = CG_SEMANTIC_VERTEX_POSITION;
-    inputLayoutDescriptor.Format = DXGI_FORMAT_R32G32B32_FLOAT;
-    inputLayoutDescriptor.InputSlot = 0;
-    inputLayoutDescriptor.AlignedByteOffset = 0;
-    inputLayoutDescriptor.InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
-    inputLayoutDescriptor.InstanceDataStepRate = 0;
+    inputLayoutDescriptor[0].SemanticName = "POSITION";
+    inputLayoutDescriptor[0].SemanticIndex = 0;
+    inputLayoutDescriptor[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
+    inputLayoutDescriptor[0].InputSlot = CG_INPUT_SLOT_VERTEX_POSITION;
+    inputLayoutDescriptor[0].AlignedByteOffset = 0;
+    inputLayoutDescriptor[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+    inputLayoutDescriptor[0].InstanceDataStepRate = 0;
 
-    HRESULT result = device->CreateInputLayout(&inputLayoutDescriptor,
+    HRESULT result = device->CreateInputLayout(inputLayoutDescriptor,
         1,
         (*vertexShaderCode)->GetBufferPointer(),
         (*vertexShaderCode)->GetBufferSize(),
@@ -575,7 +575,7 @@ HRESULT initializeInputLayout(ID3DBlob **vertexShaderCode)
 
     if(FAILED(result))
     {
-        log("[Error] | Failed to create input layout, error code: %#010x", result);
+        log("[Error] | Failed to create input layout, error code: %#010x\n", result);
         return result;
     }
 
@@ -647,7 +647,7 @@ void display(void)
     UINT stride = sizeof(float) * 3;
     UINT offset = 0;
 
-    deviceContext->IASetVertexBuffers(0, 1, &vertexBuffer, &stride, &offset);
+    deviceContext->IASetVertexBuffers(CG_INPUT_SLOT_VERTEX_POSITION, 1, &vertexBuffer, &stride, &offset);
     deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
     XMMATRIX worldMatrix = XMMatrixIdentity();
