@@ -354,7 +354,12 @@ HRESULT initialize(void)
         return result;
     }
 
-    disableBackFaceCulling();
+    result = disableBackFaceCulling();
+
+    if(FAILED(result))
+    {
+        return result;
+    }
 
     clearColor[0] = 0.0f;
     clearColor[1] = 0.0f;
