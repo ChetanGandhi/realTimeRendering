@@ -444,7 +444,7 @@ HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
     const char *vertexShaderSourceCode = "cbuffer ConstantBuffer" \
     "{" \
     "   float4x4 worldViewProjectionMatrix;"
-    "};" \
+    "} // No semicolon " \
     "\n" \
     "struct vertex_shader_output" \
     "{" \
