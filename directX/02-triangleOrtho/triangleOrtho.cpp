@@ -655,6 +655,8 @@ void display(void)
     XMMATRIX worldViewProjectionMatrix = worldMatrix * viewMatrix * orthographicProjectionMatrix;
 
     CBuffer cBuffer;
+    ZeroMemory((void*)&cBuffer, sizeof(CBuffer));
+
     cBuffer.worldViewProjectionMatrix = worldViewProjectionMatrix;
 
     deviceContext->UpdateSubresource(constantBuffer, 0, NULL, &cBuffer, 0, 0);
