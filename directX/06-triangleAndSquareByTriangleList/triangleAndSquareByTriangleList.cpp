@@ -753,8 +753,7 @@ void drawSquare(void)
     cBuffer.worldViewProjectionMatrix = worldViewProjectionMatrix;
 
     deviceContext->UpdateSubresource(constantBuffer, 0, NULL, &cBuffer, 0, 0);
-    deviceContext->Draw(3, 0);
-    deviceContext->Draw(3, 3);
+    deviceContext->Draw(6, 0);
 }
 
 HRESULT resize(int width, int height)
