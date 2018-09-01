@@ -57,10 +57,10 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [Triangle by glFrustum](windows/triangleByGlFrustum)                                             |
 |            | [Triangle by glOrtho2D](windows/triangleByGluOrtho2D)                                            |
 |            | [Triangle by gluPerspective - Wrong Way](windows/triangleByGluPerspective)                       |
-|            | [Triangle By gluPerspective - Corrected](windows/triangleByGluPerspectiveCorrected)              |
+|            | [Triangle by gluPerspective - Corrected](windows/triangleByGluPerspectiveCorrected)              |
 |            | [Square - Make Square Look Like Square](windows/square)                                          |
 |            | [Modal Transformation](windows/modalTransformation)                                              |
-|            | [View Transformation By gluLookAt](windows/viewTransformationByGluLookAt)                        |
+|            | [View Transformation by gluLookAt](windows/viewTransformationByGluLookAt)                        |
 |            | [Triangle and Square](windows/triangleAndSquare)                                                 |
 |            | [Tangle and Square Rotation](windows/triangleAndSquare)                                          |
 |            | [Triangle Rotation](windows/triangleRotation)                                                    |
@@ -123,7 +123,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 | 21-01-2018 |                                                                               |
 |            | [03 - Triangle by Orthographic Projection](windows/pp/03-triangleOrtho)       |
 | 28-01-2018 |                                                                               |
-|            | [04 - Triangle By Perspective Projection](windows/pp/04-trianglePerspective)  |
+|            | [04 - Triangle by Perspective Projection](windows/pp/04-trianglePerspective)  |
 |            | [05 - Multi Colored Triangle](windows/pp/05-multiColoredTriangle)             |
 |            | [06 - Triangle and Square](windows/pp/06-triangleAndSquare)                   |
 |            | [07 - Triangle and Square Colored](windows/pp/07-triangleAndSquareColored)    |
@@ -163,7 +163,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 | 27-01-2018 |                                                                            |
 |            | [06 - Triangle by Orthographic Projection](android/06-triangleOrtho)       |
 | 28-01-2018 |                                                                            |
-|            | [07 - Triangle By Perspective Projection](android/07-trianglePerspective)  |
+|            | [07 - Triangle by Perspective Projection](android/07-trianglePerspective)  |
 |            | [08 - Multi Colored Triangle](android/08-multiColoredTriangle)             |
 |            | [09 - Triangle and Square](android/09-triangleAndSquare)                   |
 |            | [10 - Triangle and Square Colored](android/10-triangleAndSquareColored)    |
@@ -192,7 +192,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 | ---- | -------------------------------------------------------------------------- |
 |      | [01 - Extensions](xWindows/pp/extensions)                                  |
 |      | [02 - Triangle by Orthographic Projection](xWindows/pp/triangleOrtho)      |
-|      | [03 - Triangle By Perspective Projection](xWindows/pp/trianglePerspective) |
+|      | [03 - Triangle by Perspective Projection](xWindows/pp/trianglePerspective) |
 |      | [04 - Multi Colored Triangle](xWindows/pp/multiColoredTriangle)            |
 |      | [05 - Triangle and Square](xWindows/pp/triangleAndSquare)                  |
 |      | [06 - Triangle and Square Colored](xWindows/pp/triangleAndSquareColored)   |
@@ -215,7 +215,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [03 - OpenGL Canvas](webGL/03-openGLCanvas)                              |
 |            | [04 - Triangle by Orthographic Projection](webGL/04-triangleOrtho)       |
 | 15-04-2018 |                                                                          |
-|            | [05 - Triangle By Perspective Projection](webGL/05-trianglePerspective)  |
+|            | [05 - Triangle by Perspective Projection](webGL/05-trianglePerspective)  |
 |            | [06 - Multi Colored Triangle](webGL/06-multiColoredTriangle)             |
 |            | [07 - Triangle and Square](webGL/07-triangleAndSquare)                   |
 |            | [08 - Triangle and Square Colored](webGL/08-triangleAndSquareColored)    |
@@ -242,7 +242,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [01 - Window](macOS/01-window)                                           |
 |            | [02 - OpenGL Window](macOS/02-openGLWindow)                              |
 |            | [03 - Triangle by Orthographic Projection](macOS/03-triangleOrtho)       |
-|            | [04 - Triangle By Perspective Projection](macOS/04-trianglePerspective)  |
+|            | [04 - Triangle by Perspective Projection](macOS/04-trianglePerspective)  |
 |            | [05 - Multi Colored Triangle](macOS/05-multiColoredTriangle)             |
 |            | [06 - Triangle and Square](macOS/06-triangleAndSquare)                   |
 |            | [07 - Triangle and Square Colored](macOS/07-triangleAndSquareColored)    |
@@ -269,7 +269,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [01 - Window](iOS/01-window)                                           |
 |            | [02 - OpenGL Window](iOS/02-openGLWindow)                              |
 |            | [03 - Triangle by Orthographic Projection](iOS/03-triangleOrtho)       |
-|            | [04 - Triangle By Perspective Projection](iOS/04-trianglePerspective)  |
+|            | [04 - Triangle by Perspective Projection](iOS/04-trianglePerspective)  |
 |            | [05 - Multi Colored Triangle](iOS/05-multiColoredTriangle)             |
 |            | [06 - Triangle and Square](iOS/06-triangleAndSquare)                   |
 |            | [07 - Triangle and Square Colored](iOS/07-triangleAndSquareColored)    |
@@ -290,11 +290,19 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 # DirectX Assignments
 
-| Date       | Assignment                                                           |
-| ---------- | -------------------------------------------------------------------- |
-| 29-07-2018 |                                                                      |
-|            | [01 - DirectX Window](directX/01-d3dWindow)                          |
-|            | [02 - Triangle by Orthographic Projection](directX/02-triangleOrtho) |
+| Date       | Assignment                                                                                |
+| ---------- | ----------------------------------------------------------------------------------------- |
+| 29-07-2018 |                                                                                           |
+|            | [01 - DirectX Window](directX/01-d3dWindow)                                               |
+| 12-08-2018 |                                                                                           |
+|            | [02 - Triangle by Orthographic Projection](directX/02-triangleOrtho)                      |
+|            | [03 - Triangle by Perspective Projection](directX/03-trianglePerspective)                 |
+|            | [04 - Multi Colored Triangle](directX/04-multiColoredTriangle)                            |
+| 19-08-2018 |                                                                                           |
+|            | [05 - Triangle and Square by Triangle Strip](directX/05-triangleAndSquareByTriangleStrip) |
+|            | [05 - Triangle and Square by Triangle List](directX/06-triangleAndSquareByTriangleList)   |
+|            | [07 - Triangle and Square Colored](directX/07-triangleAndSquareColored)                   |
+|            | [08 - Triangle and Square Rotation](directX/08-triangleAndSquareRotation)                 |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
