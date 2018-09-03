@@ -303,6 +303,8 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [05 - Triangle and Square by Triangle List](directX/06-triangleAndSquareByTriangleList)   |
 |            | [07 - Triangle and Square Colored](directX/07-triangleAndSquareColored)                   |
 |            | [08 - Triangle and Square Rotation](directX/08-triangleAndSquareRotation)                 |
+| 25-08-2018 |                                                                                           |
+|            | [09 - Pyramid and Cube Rotation](directX/09-pyramidAndCubeRotation)                       |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
