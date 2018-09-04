@@ -455,13 +455,13 @@ HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
 {
     const char *vertexShaderSourceCode = "cbuffer ConstantBuffer" \
     "{" \
-    "   float4x4 worldViewProjectionMatrix;"
-    "} // No semicolon " \
+    "   float4x4 worldViewProjectionMatrix;" \
+    "} // No semicolon" \
     "\n" \
     "struct vertex_shader_output" \
     "{" \
-    "   float4 position: SV_POSITION;"
-    "   float4 color: COLOR;"
+    "   float4 position: SV_POSITION;" \
+    "   float4 color: COLOR;" \
     "};" \
     "\n" \
     "vertex_shader_output main(float4 inPosition: POSITION, float4 inColor: COLOR)" \

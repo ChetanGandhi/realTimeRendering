@@ -442,9 +442,9 @@ HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
 {
     const char *vertexShaderSourceCode = "cbuffer ConstantBuffer" \
     "{" \
-    "   float4x4 worldViewProjectionMatrix;"
-    "} // No semicolon " \
-    "\n"\
+    "   float4x4 worldViewProjectionMatrix;" \
+    "} // No semicolon" \
+    "\n" \
     "float4 main(float4 position: POSITION): SV_POSITION" \
     "{" \
     "   return mul(worldViewProjectionMatrix, position);" \
