@@ -403,9 +403,13 @@ HRESULT initializeSwapChain(void)
     swapChainDescriptor.BufferDesc.RefreshRate.Denominator = 1;
     swapChainDescriptor.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
     swapChainDescriptor.OutputWindow = hWnd;
-    swapChainDescriptor.SampleDesc.Count = 1;
-    swapChainDescriptor.SampleDesc.Quality = 0;
     swapChainDescriptor.Windowed = TRUE;
+
+    // Try between 1 to 4
+    swapChainDescriptor.SampleDesc.Count = 1;
+
+    // As we have SampleDesc.Count = 4. If its 1, then use 0.
+    swapChainDescriptor.SampleDesc.Quality = 0;
 
     for(UINT driverTypeCounter = 0; driverTypeCounter < numberOfDriverTypes; ++driverTypeCounter)
     {
@@ -480,13 +484,13 @@ HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
 {
     const char *vertexShaderSourceCode = "cbuffer ConstantBuffer" \
     "{" \
-    "   float4x4 worldViewProjectionMatrix;"
-    "} // No semicolon " \
+    "   float4x4 worldViewProjectionMatrix;" \
+    "} // No semicolon" \
     "\n" \
     "struct vertex_shader_output" \
     "{" \
-    "   float4 position: SV_POSITION;"
-    "   float4 color: COLOR;"
+    "   float4 position: SV_POSITION;" \
+    "   float4 color: COLOR;" \
     "};" \
     "\n" \
     "vertex_shader_output main(float4 inPosition: POSITION, float4 inColor: COLOR)" \
@@ -696,8 +700,8 @@ HRESULT initializePyramidBuffers(void)
     const float pyramidVertices[] = {
         // Front face
         0.0f, 1.0f, 0.0f,
-        -1.0f, -1.0f, 1.0f,
-        1.0f, -1.0f, 1.0f,
+        1.0f, -1.0f, -1.0f,
+        -1.0f, -1.0f, -1.0f,
 
         // Right face
         0.0f, 1.0f, 0.0f,
@@ -706,8 +710,8 @@ HRESULT initializePyramidBuffers(void)
 
         // Back face
         0.0f, 1.0f, 0.0f,
-        1.0f, -1.0f, -1.0f,
-        -1.0f, -1.0f, -1.0f,
+        -1.0f, -1.0f, 1.0f,
+        1.0f, -1.0f, 1.0f,
 
         // Left face
         0.0f, 1.0f, 0.0f,
@@ -717,24 +721,24 @@ HRESULT initializePyramidBuffers(void)
 
     const float pyramidColors[] = {
         // Front face
-        1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
+		1.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 1.0f,
+		0.0f, 1.0f, 0.0f,
 
         // Right face
         1.0f, 0.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
-        0.0f, 1.0f, 0.0f,
+		0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 1.0f,
 
         // Back face
-        1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
+		1.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 1.0f,
+		0.0f, 1.0f, 0.0f,
 
         // Left face
         1.0f, 0.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
-        0.0f, 1.0f, 0.0f
+		0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 1.0f,
     };
 
     // Position
@@ -1248,6 +1252,12 @@ void cleanUp(void)
     {
         pixelShaderObject->Release();
         pixelShaderObject = NULL;
+    }
+
+    if(depthStencilView != NULL)
+    {
+        depthStencilView->Release();
+        depthStencilView = NULL;
     }
 
     if(renderTargetView != NULL)
