@@ -1,0 +1,6 @@
+#include "resource.h"
+
+CP_ICON ICON DISCARDABLE "cp.ico"
+CP_ICON_SMALL ICON DISCARDABLE "cpSmall.ico"
+STONE_BMP BITMAP DISCARDABLE "stone.bmp"
+VIJAY_KUNDALI_BMP BITMAP DISCARDABLE "vijay_kundali.bmp"
