@@ -307,6 +307,10 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [09 - Pyramid and Cube Rotation](directX/09-pyramidAndCubeRotation)                       |
 | 26-08-2018 |                                                                                           |
 |            | [10 - Pyramid and Cube Texture](directX/10-pyramidAndCubeTexture)                         |
+|            | [11 - Smiley](directX/11-smiley)                                                          |
+|            | [12 - Smiley Tweaked](directX/12-smileyTweaked)                                           |
+| 01-09-2018 |                                                                                           |
+|            | [14 - Rotating Cube With Light](directX/14-rotatingCubeWithLight)                         |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
