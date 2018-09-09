@@ -18,7 +18,12 @@ enum
 
 struct CBuffer
 {
-    XMMATRIX worldViewProjectionMatrix;
+    XMMATRIX worldViewMatrix;
+    XMMATRIX projectionMatrix;
+    XMVECTOR ld;
+    XMVECTOR kd;
+    XMVECTOR lightPosition;
+    unsigned int isLightingEnabled;
 };
 
 HWND hWnd = NULL;
@@ -32,9 +37,10 @@ RECT windowRect = {0, 0, 800, 600};
 bool isFullscreen = false;
 bool isActive = false;
 bool isEscapeKeyPressed = false;
+bool isLightingEnabled = false;
+bool isAnimationEnabled = false;
 
 float clearColor[4];
-float anglePyramid = 0.0f;
 float angleCube = 0.0f;
 float speed = 0.1f;
 
@@ -47,10 +53,8 @@ ID3D11DepthStencilView *depthStencilView = NULL;
 ID3D11VertexShader *vertexShaderObject = NULL;
 ID3D11PixelShader *pixelShaderObject = NULL;
 ID3D11InputLayout *inputLayout = NULL;
-ID3D11Buffer *vertexBufferPyramidPosition = NULL;
-ID3D11Buffer *vertexBufferPyramidColor = NULL;
 ID3D11Buffer *vertexBufferCubePosition = NULL;
-ID3D11Buffer *vertexBufferCubeColor = NULL;
+ID3D11Buffer *vertexBufferCubeNormals = NULL;
 ID3D11Buffer *constantBuffer = NULL;
 
 XMMATRIX perspectiveProjectionMatrix;
@@ -64,13 +68,11 @@ HRESULT initializeSwapChain(void);
 HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode);
 HRESULT initializePixelShader(ID3DBlob **pixelShaderCode);
 HRESULT initializeInputLayout(ID3DBlob **vertexShaderCode);
-HRESULT initializePyramidBuffers(void);
 HRESULT initializeCubeBuffers(void);
 HRESULT initializeConstantBuffers(void);
 HRESULT disableBackFaceCulling(void);
 void update(void);
 void display(void);
-void drawPyramid(void);
 void drawCube(void);
 HRESULT resize(int width, int height);
 void toggleFullscreen(HWND hWnd, bool isFullscreen);
@@ -81,8 +83,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - Pyramid and Cube Rotation");
-    TCHAR szApplicationClassName[] = TEXT("RTR_D3D_PYRAMID_CUBE_ROTATION");
+    TCHAR szApplicationTitle[] = TEXT("CG - Rotating Cube with Light");
+    TCHAR szApplicationClassName[] = TEXT("RTR_D3D_ROTATING_CUBE_LIGHT");
     bool done = false;
 
 	if (fopen_s(&logFile, "debug.log", "w") != 0)
@@ -224,21 +226,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
                 break;
             }
 
-        break;
-
-        case WM_CHAR:
-            switch(wParam)
-            {
-                case 'F':
-                case 'f':
-                    isFullscreen = !isFullscreen;
-                    toggleFullscreen(hWnd, isFullscreen);
-                break;
-
-                default:
-                break;
-            }
-
             if(wParam > 0x30 && wParam <= 0x39)
             {
                 speed = 0.1f * (wParam - 0x30);
@@ -246,6 +233,31 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
             else if(wParam > 0x60 && wParam <= 0x69)
             {
                 speed = 0.1f * (wParam - 0x60);
+            }
+
+        break;
+
+        case WM_CHAR:
+            switch(wParam)
+            {
+                case 'A':
+                case 'a':
+                    isAnimationEnabled = !isAnimationEnabled;
+                break;
+
+                case 'F':
+                case 'f':
+                    isFullscreen = !isFullscreen;
+                    toggleFullscreen(hWnd, isFullscreen);
+                break;
+
+                case 'L':
+                case 'l':
+                    isLightingEnabled = !isLightingEnabled;
+                break;
+
+                default:
+                break;
             }
 
         break;
@@ -340,13 +352,6 @@ HRESULT initialize(void)
         return result;
     }
 
-    result = initializePyramidBuffers();
-
-    if(FAILED(result))
-    {
-        return result;
-    }
-
     result = initializeCubeBuffers();
 
     if(FAILED(result))
@@ -367,6 +372,9 @@ HRESULT initialize(void)
     clearColor[3] = 1.0f;
 
     perspectiveProjectionMatrix = XMMatrixIdentity();
+
+    isAnimationEnabled = false;
+    isLightingEnabled = false;
 
     result = resize(windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
 
@@ -483,20 +491,39 @@ HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
 {
     const char *vertexShaderSourceCode = "cbuffer ConstantBuffer" \
     "{" \
-    "   float4x4 worldViewProjectionMatrix;" \
+    "   float4x4 worldViewMatrix;" \
+    "   float4x4 projectionMatrix;" \
+    "   float4 ld;" \
+    "   float4 kd;" \
+    "   float4 lightPosition;" \
+    "   uint isLightingEnabled;" \
     "} // No semicolon" \
     "\n" \
     "struct vertex_shader_output" \
     "{" \
     "   float4 position: SV_POSITION;" \
-    "   float4 color: COLOR;" \
+    "   float4 diffuseLight: COLOR;" \
     "};" \
     "\n" \
-    "vertex_shader_output main(float4 inPosition: POSITION, float4 inColor: COLOR)" \
+    "vertex_shader_output main(float4 inPosition: POSITION, float4 inNormal: NORMAL)" \
     "{" \
     "   vertex_shader_output vsOutput;" \
-    "   vsOutput.position = mul(worldViewProjectionMatrix, inPosition);" \
-    "   vsOutput.color = inColor;" \
+    "\n" \
+    "   if(isLightingEnabled == 1)" \
+    "   {" \
+    "       float4 eyeCoordinates = mul(worldViewMatrix, inPosition);" \
+    "       float3 tNormal = normalize(mul((float3x3)worldViewMatrix, (float3)inNormal));" \
+    "       float3 source = (float3)normalize(lightPosition - eyeCoordinates);" \
+    "       float sourceDotTNormal = dot(source, tNormal);" \
+    "       vsOutput.diffuseLight = ld * kd * saturate(sourceDotTNormal);" \
+    "   }" \
+    "   else" \
+    "   {" \
+    "       vsOutput.diffuseLight = float4(1.0, 1.0, 1.0, 1.0);" \
+    "   }" \
+    "\n" \
+    "   vsOutput.position = mul(worldViewMatrix, inPosition);" \
+    "   vsOutput.position = mul(projectionMatrix, vsOutput.position);" \
     "   return vsOutput;" \
     "}";
 
@@ -550,9 +577,9 @@ HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
 
 HRESULT initializePixelShader(ID3DBlob **pixelShaderCode)
 {
-    const char *pixelShaderSourceCode = "float4 main(float4 inPosition: SV_POSITION, float4 inColor: COLOR): SV_TARGET" \
+    const char *pixelShaderSourceCode = "float4 main(float4 inPosition: SV_POSITION, float4 diffuseLight: COLOR): SV_TARGET" \
     "{" \
-    "   float4 outColor = inColor;" \
+    "   float4 outColor = diffuseLight;" \
     "   return outColor;" \
     "}";
 
@@ -595,7 +622,7 @@ HRESULT initializePixelShader(ID3DBlob **pixelShaderCode)
 
     if(FAILED(result))
     {
-        log("[Error] | Failed to create pixel shader, error code: %#010x", result);
+        log("[Error] | Failed to create pixel shader, error code: %#010x\n", result);
         return result;
     }
 
@@ -617,10 +644,10 @@ HRESULT initializeInputLayout(ID3DBlob **vertexShaderCode)
     inputLayoutDescriptor[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
     inputLayoutDescriptor[0].InstanceDataStepRate = 0;
 
-    inputLayoutDescriptor[1].SemanticName = "COLOR";
+    inputLayoutDescriptor[1].SemanticName = "NORMAL";
     inputLayoutDescriptor[1].SemanticIndex = 0;
     inputLayoutDescriptor[1].Format = DXGI_FORMAT_R32G32B32_FLOAT;
-    inputLayoutDescriptor[1].InputSlot = CG_INPUT_SLOT_COLOR;
+    inputLayoutDescriptor[1].InputSlot = CG_INPUT_SLOT_NORMAL;
     inputLayoutDescriptor[1].AlignedByteOffset = 0;
     inputLayoutDescriptor[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
     inputLayoutDescriptor[1].InstanceDataStepRate = 0;
@@ -634,7 +661,7 @@ HRESULT initializeInputLayout(ID3DBlob **vertexShaderCode)
 
     if(FAILED(result))
     {
-        log("[Error] | Failed to create input layout, error code: %#010x", result);
+        log("[Error] | Failed to create input layout, error code: %#010x\n", result);
         return result;
     }
 
@@ -694,101 +721,6 @@ HRESULT disableBackFaceCulling(void)
     return S_OK;
 }
 
-HRESULT initializePyramidBuffers(void)
-{
-    const float pyramidVertices[] = {
-        // Front face
-        0.0f, 1.0f, 0.0f,
-        1.0f, -1.0f, -1.0f,
-        -1.0f, -1.0f, -1.0f,
-
-        // Right face
-        0.0f, 1.0f, 0.0f,
-        1.0f, -1.0f, 1.0f,
-        1.0f, -1.0f, -1.0f,
-
-        // Back face
-        0.0f, 1.0f, 0.0f,
-        -1.0f, -1.0f, 1.0f,
-        1.0f, -1.0f, 1.0f,
-
-        // Left face
-        0.0f, 1.0f, 0.0f,
-        -1.0f, -1.0f, -1.0f,
-        -1.0f, -1.0f, 1.0f
-    };
-
-    const float pyramidColors[] = {
-        // Front face
-		1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f,
-		0.0f, 1.0f, 0.0f,
-
-        // Right face
-        1.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 1.0f,
-
-        // Back face
-		1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f,
-		0.0f, 1.0f, 0.0f,
-
-        // Left face
-        1.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 1.0f,
-    };
-
-    // Position
-    D3D11_BUFFER_DESC vertexBufferDescriptor = {};
-    ZeroMemory((void *)&vertexBufferDescriptor, sizeof(D3D11_BUFFER_DESC));
-
-    vertexBufferDescriptor.Usage = D3D11_USAGE_DYNAMIC;
-    vertexBufferDescriptor.ByteWidth = sizeof(float) * ARRAYSIZE(pyramidVertices);
-    vertexBufferDescriptor.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-    vertexBufferDescriptor.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-
-    HRESULT result = device->CreateBuffer(&vertexBufferDescriptor, nullptr, &vertexBufferPyramidPosition);
-
-    if(FAILED(result))
-    {
-        log("[Error] | Cannot create vertex buffer for position, error code: %#010x\n", result);
-        return result;
-    }
-
-    D3D11_MAPPED_SUBRESOURCE mappedSubresource = {};
-    ZeroMemory((void *)&mappedSubresource, sizeof(D3D11_MAPPED_SUBRESOURCE));
-
-    deviceContext->Map(vertexBufferPyramidPosition, NULL, D3D11_MAP_WRITE_DISCARD, NULL, &mappedSubresource);
-    memcpy(mappedSubresource.pData, pyramidVertices, sizeof(pyramidVertices));
-    deviceContext->Unmap(vertexBufferPyramidPosition, NULL);
-
-    // Color
-    ZeroMemory((void *)&vertexBufferDescriptor, sizeof(D3D11_BUFFER_DESC));
-
-    vertexBufferDescriptor.Usage = D3D11_USAGE_DYNAMIC;
-    vertexBufferDescriptor.ByteWidth = sizeof(float) * ARRAYSIZE(pyramidColors);
-    vertexBufferDescriptor.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-    vertexBufferDescriptor.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-
-    result = device->CreateBuffer(&vertexBufferDescriptor, nullptr, &vertexBufferPyramidColor);
-
-    if(FAILED(result))
-    {
-        log("[Error] | Cannot create vertex buffer for color, error code: %#010x\n", result);
-        return result;
-    }
-
-    ZeroMemory((void *)&mappedSubresource, sizeof(D3D11_MAPPED_SUBRESOURCE));
-
-    deviceContext->Map(vertexBufferPyramidColor, NULL, D3D11_MAP_WRITE_DISCARD, NULL, &mappedSubresource);
-    memcpy(mappedSubresource.pData, pyramidColors, sizeof(pyramidColors));
-    deviceContext->Unmap(vertexBufferPyramidColor, NULL);
-
-    return S_OK;
-}
-
 HRESULT initializeCubeBuffers(void)
 {
     const float cubeVertices[] = {
@@ -835,14 +767,7 @@ HRESULT initializeCubeBuffers(void)
         1.0f, 1.0f, 1.0f,
     };
 
-    const float cubeColors[] = {
-        1.0f, 0.0f, 0.0f,
-        1.0f, 0.0f, 0.0f,
-        1.0f, 0.0f, 0.0f,
-        1.0f, 0.0f, 0.0f,
-        1.0f, 0.0f, 0.0f,
-        1.0f, 0.0f, 0.0f,
-
+    const float cubeNormals[] = {
         0.0f, 1.0f, 0.0f,
         0.0f, 1.0f, 0.0f,
         0.0f, 1.0f, 0.0f,
@@ -850,6 +775,20 @@ HRESULT initializeCubeBuffers(void)
         0.0f, 1.0f, 0.0f,
         0.0f, 1.0f, 0.0f,
 
+        0.0f, -1.0f, 0.0f,
+        0.0f, -1.0f, 0.0f,
+        0.0f, -1.0f, 0.0f,
+        0.0f, -1.0f, 0.0f,
+        0.0f, -1.0f, 0.0f,
+        0.0f, -1.0f, 0.0f,
+
+        0.0f, 0.0f, -1.0f,
+        0.0f, 0.0f, -1.0f,
+        0.0f, 0.0f, -1.0f,
+        0.0f, 0.0f, -1.0f,
+        0.0f, 0.0f, -1.0f,
+        0.0f, 0.0f, -1.0f,
+
         0.0f, 0.0f, 1.0f,
         0.0f, 0.0f, 1.0f,
         0.0f, 0.0f, 1.0f,
@@ -857,26 +796,19 @@ HRESULT initializeCubeBuffers(void)
         0.0f, 0.0f, 1.0f,
         0.0f, 0.0f, 1.0f,
 
-        0.0f, 1.0f, 1.0f,
-        0.0f, 1.0f, 1.0f,
-        0.0f, 1.0f, 1.0f,
-        0.0f, 1.0f, 1.0f,
-        0.0f, 1.0f, 1.0f,
-        0.0f, 1.0f, 1.0f,
+        -1.0f, 0.0f, 0.0f,
+        -1.0f, 0.0f, 0.0f,
+        -1.0f, 0.0f, 0.0f,
+        -1.0f, 0.0f, 0.0f,
+        -1.0f, 0.0f, 0.0f,
+        -1.0f, 0.0f, 0.0f,
 
-        1.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 1.0f,
-
-        1.0f, 1.0f, 0.0f,
-        1.0f, 1.0f, 0.0f,
-        1.0f, 1.0f, 0.0f,
-        1.0f, 1.0f, 0.0f,
-        1.0f, 1.0f, 0.0f,
-        1.0f, 1.0f, 0.0f
+        1.0f, 0.0f, 0.0f,
+        1.0f, 0.0f, 0.0f,
+        1.0f, 0.0f, 0.0f,
+        1.0f, 0.0f, 0.0f,
+        1.0f, 0.0f, 0.0f,
+        1.0f, 0.0f, 0.0f
     };
 
     // Position
@@ -903,44 +835,43 @@ HRESULT initializeCubeBuffers(void)
     memcpy(mappedSubresource.pData, cubeVertices, sizeof(cubeVertices));
     deviceContext->Unmap(vertexBufferCubePosition, NULL);
 
-    // Color
+    // Normals
     ZeroMemory((void *)&vertexBufferDescriptor, sizeof(D3D11_BUFFER_DESC));
 
     vertexBufferDescriptor.Usage = D3D11_USAGE_DYNAMIC;
-    vertexBufferDescriptor.ByteWidth = sizeof(float) * ARRAYSIZE(cubeColors);
+    vertexBufferDescriptor.ByteWidth = sizeof(float) * ARRAYSIZE(cubeNormals);
     vertexBufferDescriptor.BindFlags = D3D11_BIND_VERTEX_BUFFER;
     vertexBufferDescriptor.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 
-    result = device->CreateBuffer(&vertexBufferDescriptor, nullptr, &vertexBufferCubeColor);
+    result = device->CreateBuffer(&vertexBufferDescriptor, nullptr, &vertexBufferCubeNormals);
 
     if(FAILED(result))
     {
-        log("[Error] | Cannot create vertex buffer for color, error code: %#010x\n", result);
+        log("[Error] | Cannot create vertex buffer for normals, error code: %#010x\n", result);
         return result;
     }
 
     ZeroMemory((void *)&mappedSubresource, sizeof(D3D11_MAPPED_SUBRESOURCE));
 
-    deviceContext->Map(vertexBufferCubeColor, NULL, D3D11_MAP_WRITE_DISCARD, NULL, &mappedSubresource);
-    memcpy(mappedSubresource.pData, cubeColors, sizeof(cubeColors));
-    deviceContext->Unmap(vertexBufferCubeColor, NULL);
+    deviceContext->Map(vertexBufferCubeNormals, NULL, D3D11_MAP_WRITE_DISCARD, NULL, &mappedSubresource);
+    memcpy(mappedSubresource.pData, cubeNormals, sizeof(cubeNormals));
+    deviceContext->Unmap(vertexBufferCubeNormals, NULL);
 
     return S_OK;
 }
 
 void update(void)
 {
+    if(!isAnimationEnabled)
+    {
+        return;
+    }
+
     angleCube -= speed;
-    anglePyramid += speed;
 
     if(angleCube <= -360.0f)
     {
         angleCube = 0.0f;
-    }
-
-    if(anglePyramid >= 360.0f)
-    {
-        anglePyramid = 0.0f;
     }
 }
 
@@ -949,40 +880,9 @@ void display(void)
     deviceContext->ClearRenderTargetView(renderTargetView, clearColor);
     deviceContext->ClearDepthStencilView(depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 
-    drawPyramid();
     drawCube();
 
     swapChain->Present(0, 0);
-}
-
-void drawPyramid(void)
-{
-    // stride and offset is same for position and color as they both have 3 values, i.e xyz.
-    UINT stride = sizeof(float) * 3;
-    UINT offset = 0;
-
-    deviceContext->IASetVertexBuffers(CG_INPUT_SLOT_VERTEX_POSITION, 1, &vertexBufferPyramidPosition, &stride, &offset);
-    deviceContext->IASetVertexBuffers(CG_INPUT_SLOT_COLOR, 1, &vertexBufferPyramidColor, &stride, &offset);
-    deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
-    XMMATRIX worldMatrix = XMMatrixIdentity();
-    XMMATRIX viewMatrix = XMMatrixIdentity();
-    XMMATRIX rotationMatrix = XMMatrixIdentity();
-    XMMATRIX translationMatrix = XMMatrixTranslation(-1.5f, 0.0f, 6.0f);
-
-    float angleInRadians = XMConvertToRadians(anglePyramid);
-
-    rotationMatrix = XMMatrixRotationY(angleInRadians);
-    worldMatrix = rotationMatrix * translationMatrix;
-    XMMATRIX worldViewProjectionMatrix = worldMatrix * viewMatrix * perspectiveProjectionMatrix;
-
-    CBuffer cBuffer;
-    ZeroMemory((void *)&cBuffer, sizeof(CBuffer));
-
-    cBuffer.worldViewProjectionMatrix = worldViewProjectionMatrix;
-
-    deviceContext->UpdateSubresource(constantBuffer, 0, NULL, &cBuffer, 0, 0);
-    deviceContext->Draw(12, 0);
 }
 
 void drawCube(void)
@@ -992,7 +892,7 @@ void drawCube(void)
     UINT offset = 0;
 
     deviceContext->IASetVertexBuffers(CG_INPUT_SLOT_VERTEX_POSITION, 1, &vertexBufferCubePosition, &stride, &offset);
-    deviceContext->IASetVertexBuffers(CG_INPUT_SLOT_COLOR, 1, &vertexBufferCubeColor, &stride, &offset);
+    deviceContext->IASetVertexBuffers(CG_INPUT_SLOT_NORMAL, 1, &vertexBufferCubeNormals, &stride, &offset);
     deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
     XMMATRIX worldMatrix = XMMatrixIdentity();
@@ -1002,7 +902,7 @@ void drawCube(void)
     XMMATRIX rotationYMatrix = XMMatrixIdentity();
     XMMATRIX rotationZMatrix = XMMatrixIdentity();
     XMMATRIX rotationMatrix = XMMatrixIdentity();
-    XMMATRIX translationMatrix = XMMatrixTranslation(1.5f, 0.0f, 6.0f);
+    XMMATRIX translationMatrix = XMMatrixTranslation(0.0f, 0.0f, 6.0f);
 
     float angleInRadians = XMConvertToRadians(angleCube);
 
@@ -1014,12 +914,17 @@ void drawCube(void)
     scaleMatrix = XMMatrixScaling(0.75f, 0.75f, 0.75f);
 
     worldMatrix = scaleMatrix * rotationMatrix * translationMatrix;
-    XMMATRIX worldViewProjectionMatrix = worldMatrix * viewMatrix * perspectiveProjectionMatrix;
+    XMMATRIX worldViewMatrix = worldMatrix * viewMatrix;
 
     CBuffer cBuffer;
     ZeroMemory((void *)&cBuffer, sizeof(CBuffer));
 
-    cBuffer.worldViewProjectionMatrix = worldViewProjectionMatrix;
+    cBuffer.worldViewMatrix = worldViewMatrix;
+    cBuffer.projectionMatrix = perspectiveProjectionMatrix;
+    cBuffer.ld = XMVectorSet(1.0f, 1.0f, 1.0f, 1.0f);
+    cBuffer.kd = XMVectorSet(0.5f, 0.5f, 0.5f, 0.5f);
+    cBuffer.lightPosition = XMVectorSet(0.0f, 0.0f, -2.0f, 1.0f);
+    cBuffer.isLightingEnabled = isLightingEnabled ? 1 : 0;
 
     deviceContext->UpdateSubresource(constantBuffer, 0, NULL, &cBuffer, 0, 0);
     deviceContext->Draw(6, 0);
@@ -1205,28 +1110,16 @@ void cleanUp(void)
         rasterizerState = NULL;
     }
 
-    if(vertexBufferPyramidPosition != NULL)
-    {
-        vertexBufferPyramidPosition->Release();
-        vertexBufferPyramidPosition = NULL;
-    }
-
-    if(vertexBufferPyramidColor != NULL)
-    {
-        vertexBufferPyramidColor->Release();
-        vertexBufferPyramidColor = NULL;
-    }
-
     if(vertexBufferCubePosition != NULL)
     {
         vertexBufferCubePosition->Release();
         vertexBufferCubePosition = NULL;
     }
 
-    if(vertexBufferCubeColor != NULL)
+    if(vertexBufferCubeNormals != NULL)
     {
-        vertexBufferCubeColor->Release();
-        vertexBufferCubeColor = NULL;
+        vertexBufferCubeNormals->Release();
+        vertexBufferCubeNormals = NULL;
     }
 
     if(constantBuffer != NULL)
