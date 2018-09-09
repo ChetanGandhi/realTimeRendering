@@ -200,7 +200,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
             {
                 textureMode = (wParam - 0x30);
             }
-            else if(wParam >= 0x60 && wParam <= 0x74)
+            else if(wParam >= 0x60 && wParam <= 0x64)
             {
                 textureMode = (wParam - 0x60);
             }
