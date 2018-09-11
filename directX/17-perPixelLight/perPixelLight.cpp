@@ -98,7 +98,6 @@ void display(void);
 void drawSphere(void);
 HRESULT resize(int width, int height);
 void toggleFullscreen(HWND hWnd, bool isFullscreen);
-HRESULT readFile(const char *fileName, char **data);
 void cleanUp(void);
 void log(const char* message, ...);
 
@@ -496,19 +495,8 @@ HRESULT initializeSwapChain(void)
 
 HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
 {
-    char *vertexShaderSourceCode = NULL;
-    HRESULT result = readFile("./vertexShader.hlsl", &vertexShaderSourceCode);
-
-    if(FAILED(result))
-    {
-        return result;
-    }
-
     ID3DBlob *error = NULL;
-
-    result = D3DCompile(vertexShaderSourceCode,
-        lstrlenA(vertexShaderSourceCode) + 1,
-        "VS",
+    HRESULT result = D3DCompileFromFile(L"./vertexShader.hlsl",
         NULL,
         D3D_COMPILE_STANDARD_FILE_INCLUDE,
         "main",
@@ -554,19 +542,8 @@ HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
 
 HRESULT initializePixelShader(ID3DBlob **pixelShaderCode)
 {
-    char *pixelShaderSourceCode = NULL;
-    HRESULT result = readFile("./pixelShader.hlsl", &pixelShaderSourceCode);
-
-    if(FAILED(result))
-    {
-        return result;
-    }
-
     ID3DBlob *error = NULL;
-
-    result = D3DCompile(pixelShaderSourceCode,
-        lstrlenA(pixelShaderSourceCode) + 1,
-        "PS",
+    HRESULT result = D3DCompileFromFile(L"./pixelShader.hlsl",
         NULL,
         D3D_COMPILE_STANDARD_FILE_INCLUDE,
         "main",
@@ -966,35 +943,6 @@ void toggleFullscreen(HWND hWnd, bool isFullscreen)
         SetWindowPos(hWnd, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER | SWP_NOZORDER | SWP_FRAMECHANGED);
         ShowCursor(TRUE);
     }
-}
-
-HRESULT readFile(const char *fileName, char **data)
-{
-    FILE *shaderFile = NULL;
-    errno_t error = fopen_s(&shaderFile, fileName, "r");
-
-    if(shaderFile == NULL)
-    {
-        log("[Error] | Unable to open shader source file: %s, error code: %d\n", fileName, error);
-        return S_FALSE;
-    }
-
-    fseek(shaderFile, 0, SEEK_END);
-    long fileSize = ftell(shaderFile);
-    fseek(shaderFile, 0, SEEK_SET);
-
-    *data = (char *)malloc((fileSize + 1) * sizeof(char)); // fileSize + 1 for '\0'
-
-    if(*data == NULL)
-    {
-        log("[Error] | Unable to allocate memory for shader source file: %s\n", fileName);
-        return E_OUTOFMEMORY;
-    }
-
-    fread(*data, fileSize, 1, shaderFile);
-    fclose(shaderFile);
-
-    return S_OK;
 }
 
 void log(const char* message, ...)
