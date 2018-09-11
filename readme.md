@@ -311,6 +311,10 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [12 - Smiley Tweaked](directX/12-smileyTweaked)                                           |
 | 01-09-2018 |                                                                                           |
 |            | [14 - Rotating Cube With Light](directX/14-rotatingCubeWithLight)                         |
+|            | [15 - Sphere With Light](directX/15-sphereWithLight)                                      |
+| 02-09-2018 |                                                                                           |
+|            | [16 - Per Vertex Light](directX/16-perVertexLight)                                        |
+|            | [17 - Per Fragment Light](directX/17-perFragmentLight)                                    |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
