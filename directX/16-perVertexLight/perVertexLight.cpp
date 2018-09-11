@@ -106,7 +106,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
     WNDCLASSEX wndClassEx;
     MSG message;
     TCHAR szApplicationTitle[] = TEXT("CG - Per Vertex Light");
-    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_PP_PER_VERTEX_LIGHT");
+    TCHAR szApplicationClassName[] = TEXT("RTR_PER_VERTEX_LIGHT");
     bool done = false;
 
 	if (fopen_s(&logFile, "debug.log", "w") != 0)
@@ -495,63 +495,8 @@ HRESULT initializeSwapChain(void)
 
 HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
 {
-    const char *vertexShaderSourceCode = "cbuffer ConstantBuffer" \
-    "{" \
-    "   float4x4 worldMatrix;" \
-    "   float4x4 viewMatrix;" \
-    "   float4x4 projectionMatrix;" \
-    "   float4 la;" \
-    "   float4 ld;" \
-    "   float4 ls;" \
-    "   float4 ka;" \
-    "   float4 kd;" \
-    "   float4 ks;" \
-    "   float4 lightPosition;" \
-    "   float materialShininess;" \
-    "   uint isLightingEnabled;" \
-    "} // No semicolon" \
-    "\n" \
-    "struct vertex_shader_output" \
-    "{" \
-    "   float4 position: SV_POSITION;" \
-    "   float4 phongAdsColor: COLOR;" \
-    "};" \
-    "\n" \
-    "vertex_shader_output main(float4 inPosition: POSITION, float4 inNormal: NORMAL)" \
-    "{" \
-    "   vertex_shader_output vsOutput;" \
-    "\n" \
-    "   if(isLightingEnabled == 1)" \
-    "   {" \
-    "       float4 eyeCoordinates = mul(worldMatrix, inPosition);" \
-    "       eyeCoordinates = mul(viewMatrix, eyeCoordinates);" \
-    "       float4x4 viewMatrixMulWorldMatrix = mul(viewMatrix, worldMatrix);" \
-    "       float3 tNormal = normalize(mul((float3x3)viewMatrixMulWorldMatrix, inNormal.xyz));" \
-    "       float3 source = normalize(lightPosition.xyz - eyeCoordinates.xyz);" \
-    "       float tNormalDotLightDirection = saturate(dot(tNormal, source));" \
-    "       float4 ambient = la * ka;" \
-    "       float4 diffuse = ld * kd * tNormalDotLightDirection;" \
-    "       float3 reflectionVector = reflect(-source, tNormal);" \
-    "       float3 viewVector = normalize(-eyeCoordinates.xyz);" \
-    "       float4 specular = ls * ks * pow(saturate(dot(reflectionVector, viewVector)), materialShininess);" \
-    "       vsOutput.phongAdsColor = ambient + diffuse + specular;" \
-    "   }" \
-    "   else" \
-    "   {" \
-    "       vsOutput.phongAdsColor = float4(1.0, 1.0, 1.0, 1.0);" \
-    "   }" \
-    "\n" \
-    "   vsOutput.position = mul(worldMatrix, inPosition);" \
-    "   vsOutput.position = mul(viewMatrix, vsOutput.position);" \
-    "   vsOutput.position = mul(projectionMatrix, vsOutput.position);" \
-    "   return vsOutput;" \
-    "}";
-
     ID3DBlob *error = NULL;
-
-    HRESULT result = D3DCompile(vertexShaderSourceCode,
-        lstrlenA(vertexShaderSourceCode) + 1,
-        "VS",
+    HRESULT result = D3DCompileFromFile(L"./vertexShader.hlsl",
         NULL,
         D3D_COMPILE_STANDARD_FILE_INCLUDE,
         "main",
@@ -597,17 +542,8 @@ HRESULT initializeVertexShader(ID3DBlob **vertexShaderCode)
 
 HRESULT initializePixelShader(ID3DBlob **pixelShaderCode)
 {
-    const char *pixelShaderSourceCode = "float4 main(float4 inPosition: SV_POSITION, float4 phongAdsColor: COLOR): SV_TARGET" \
-    "{" \
-    "   float4 outColor = phongAdsColor;" \
-    "   return outColor;" \
-    "}";
-
     ID3DBlob *error = NULL;
-
-    HRESULT result = D3DCompile(pixelShaderSourceCode,
-        lstrlenA(pixelShaderSourceCode) + 1,
-        "PS",
+    HRESULT result = D3DCompileFromFile(L"./pixelShader.hlsl",
         NULL,
         D3D_COMPILE_STANDARD_FILE_INCLUDE,
         "main",
