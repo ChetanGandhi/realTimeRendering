@@ -314,7 +314,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [15 - Sphere With Light](directX/15-sphereWithLight)                                      |
 | 02-09-2018 |                                                                                           |
 |            | [16 - Per Vertex Light](directX/16-perVertexLight)                                        |
-|            | [17 - Per Fragment Light](directX/17-perFragmentLight)                                    |
+|            | [17 - Per Pixel Light](directX/17-perPixelLight)                                          |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
