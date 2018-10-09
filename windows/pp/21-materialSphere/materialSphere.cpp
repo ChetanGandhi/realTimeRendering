@@ -242,8 +242,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsatnce, LPSTR lpszCmdLi
 {
     WNDCLASSEX wndClassEx;
     MSG message;
-    TCHAR szApplicationTitle[] = TEXT("CG - PP - Sphere with Multiple Light");
-    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_PP_SPHERE_MULTIPLE_LIGHT");
+    TCHAR szApplicationTitle[] = TEXT("CG - PP - 24 Material Sphere");
+    TCHAR szApplicationClassName[] = TEXT("RTR_OPENGL_PP_MATERIAL_SPHERE");
     bool done = false;
 
 	if (fopen_s(&logFile, "debug.log", "w") != 0)
