@@ -315,7 +315,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 | 02-09-2018 |                                                                                           |
 |            | [16 - Per Vertex Light](directX/16-perVertexLight)                                        |
 |            | [17 - Per Pixel Light](directX/17-perPixelLight)                                          |
-|            | [18 - Per Vertex and Fragment Light](directX/18-perVertexAndFragmentLight)                |
+|            | [18 - Per Vertex and Pixel Light](directX/18-perVertexAndPixelLight)                      |
 |            | [19 - Pyramid Multiple Light](directX/19-pyramidMultipleLight)                            |
 |            | [20 - Multiple Lights On Sphere](directX/20-multipleLightsOnSphere)                       |
 |            | [21 - Material Sphere](directX/21-materialSphere)                                         |
