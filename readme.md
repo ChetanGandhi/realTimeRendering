@@ -290,39 +290,39 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 # DirectX Assignments
 
-| Date       | Assignment                                                                                | Preview                                                                                                               |
-| ---------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| 29-07-2018 |                                                                                           |                                                                                                                       |
-|            | [01 - DirectX Window](directX/01-d3dWindow)                                               | <img src="directX/01-d3dWindow/preview/directXWindow.png" width="45"></img>                                           |
-| 12-08-2018 |                                                                                           |                                                                                                                       |
-|            | [02 - Triangle by Orthographic Projection](directX/02-triangleOrtho)                      | <img src="directX/02-triangleOrtho/preview/triangleOrtho.png" width="45"></img>                                       |
-|            | [03 - Triangle by Perspective Projection](directX/03-trianglePerspective)                 | <img src="directX/03-trianglePerspective/preview/trianglePerspective.png" width="45"></img>                           |
-|            | [04 - Multi Colored Triangle](directX/04-multiColoredTriangle)                            | <img src="directX/04-multiColoredTriangle/preview/multiColoredTriangle.png" width="45"></img>                         |
-| 19-08-2018 |                                                                                           |                                                                                                                       |
-|            | [05 - Triangle and Square by Triangle Strip](directX/05-triangleAndSquareByTriangleStrip) | <img src="directX/05-triangleAndSquareByTriangleStrip/preview/triangleAndSquareByTriangleStrip.png" width="45"></img> |
-|            | [05 - Triangle and Square by Triangle List](directX/06-triangleAndSquareByTriangleList)   | <img src="directX/06-triangleAndSquareByTriangleList/preview/triangleAndSquareByTriangleList.png" width="45"></img>   |
-|            | [07 - Triangle and Square Colored](directX/07-triangleAndSquareColored)                   | <img src="directX/07-triangleAndSquareColored/preview/triangleAndSquareColored.png" width="45"></img>                 |
-|            | [08 - Triangle and Square Rotation](directX/08-triangleAndSquareRotation)                 | <img src="directX/08-triangleAndSquareRotation/preview/triangleAndSquareRotation.png" width="45"></img>               |
-| 25-08-2018 |                                                                                           |                                                                                                                       |
-|            | [09 - Pyramid and Cube Rotation](directX/09-pyramidAndCubeRotation)                       | <img src="directX/09-pyramidAndCubeRotation/preview/pyramidAndCubeRotation.png" width="45"></img>                     |
-| 26-08-2018 |                                                                                           |                                                                                                                       |
-|            | [10 - Pyramid and Cube Texture](directX/10-pyramidAndCubeTexture)                         | <img src="directX/10-pyramidAndCubeTexture/preview/pyramidAndCubeTexture.png" width="45"></img>                       |
-|            | [11 - Smiley](directX/11-smiley)                                                          | <img src="directX/11-smiley/preview/smiley.png" width="45"></img>                                                     |
-|            | [12 - Smiley Tweaked](directX/12-smileyTweaked)                                           | <img src="directX/12-smileyTweaked/preview/repeatTexture.png" width="45"></img>                                       |
-| 01-09-2018 |                                                                                           |                                                                                                                       |
-|            | [14 - Rotating Cube With Light](directX/14-rotatingCubeWithLight)                         | <img src="directX/14-rotatingCubeWithLight/preview/rotatingCubeWithLightEnabled.png" width="45"></img>                |
-|            | [15 - Sphere With Light](directX/15-sphereWithLight)                                      | <img src="directX/15-sphereWithLight/preview/sphereWithLightEnabled.png" width="45"></img>                            |
-| 02-09-2018 |                                                                                           |                                                                                                                       |
-|            | [16 - Per Vertex Light](directX/16-perVertexLight)                                        | <img src="directX/16-perVertexLight/preview/perVertexLightEnabled.png" width="45"></img>                              |
-|            | [17 - Per Pixel Light](directX/17-perPixelLight)                                          | <img src="directX/17-perPixelLight/preview/perPixelLightEnabled.png" width="45"></img>                                |
-|            | [18 - Per Vertex and Pixel Light](directX/18-perVertexAndPixelLight)                      | <img src="directX/18-perVertexAndPixelLight/preview/perPixelLightEnabled.png" width="45"></img>                       |
-|            | [19 - Pyramid Multiple Light](directX/19-pyramidMultipleLight)                            | <img src="directX/19-pyramidMultipleLight/preview/pyramidLightEnabled.png" width="45"></img>                          |
-|            | [20 - Multiple Lights On Sphere](directX/20-multipleLightsOnSphere)                       | <img src="directX/20-multipleLightsOnSphere/preview/lightsEnabled.png" width="45"></img>                              |
-|            | [21 - Material Sphere](directX/21-materialSphere)                                         | <img src="directX/21-materialSphere/preview/lightsEnabled.png" width="45"></img>                                      |
-|            | [22 - Interleaved](directX/22-interleaved)                                                | <img src="directX/22-interleaved/preview/lightEnabled.png" width="45"></img>                                          |
-| 29-09-2018 |                                                                                           |                                                                                                                       |
-|            | [23 - Tessellation Shader](directX/23-tessellationShader)                                 | <img src="directX/23-tessellationShader/preview/curve.png" width="45"></img>                                          |
-|            | [24 - Geometry Shader](directX/24-geometryShader)                                         | <img src="directX/24-geometryShader/preview/geometryShader.png" width="45"></img>                                     |
+| Date       | Assignment                                                                                |
+| ---------- | ----------------------------------------------------------------------------------------- |
+| 29-07-2018 |                                                                                           |
+|            | [01 - DirectX Window](directX/01-d3dWindow)                                               |
+| 12-08-2018 |                                                                                           |
+|            | [02 - Triangle by Orthographic Projection](directX/02-triangleOrtho)                      |
+|            | [03 - Triangle by Perspective Projection](directX/03-trianglePerspective)                 |
+|            | [04 - Multi Colored Triangle](directX/04-multiColoredTriangle)                            |
+| 19-08-2018 |                                                                                           |
+|            | [05 - Triangle and Square by Triangle Strip](directX/05-triangleAndSquareByTriangleStrip) |
+|            | [05 - Triangle and Square by Triangle List](directX/06-triangleAndSquareByTriangleList)   |
+|            | [07 - Triangle and Square Colored](directX/07-triangleAndSquareColored)                   |
+|            | [08 - Triangle and Square Rotation](directX/08-triangleAndSquareRotation)                 |
+| 25-08-2018 |                                                                                           |
+|            | [09 - Pyramid and Cube Rotation](directX/09-pyramidAndCubeRotation)                       |
+| 26-08-2018 |                                                                                           |
+|            | [10 - Pyramid and Cube Texture](directX/10-pyramidAndCubeTexture)                         |
+|            | [11 - Smiley](directX/11-smiley)                                                          |
+|            | [12 - Smiley Tweaked](directX/12-smileyTweaked)                                           |
+| 01-09-2018 |                                                                                           |
+|            | [14 - Rotating Cube With Light](directX/14-rotatingCubeWithLight)                         |
+|            | [15 - Sphere With Light](directX/15-sphereWithLight)                                      |
+| 02-09-2018 |                                                                                           |
+|            | [16 - Per Vertex Light](directX/16-perVertexLight)                                        |
+|            | [17 - Per Pixel Light](directX/17-perPixelLight)                                          |
+|            | [18 - Per Vertex and Pixel Light](directX/18-perVertexAndPixelLight)                      |
+|            | [19 - Pyramid Multiple Light](directX/19-pyramidMultipleLight)                            |
+|            | [20 - Multiple Lights On Sphere](directX/20-multipleLightsOnSphere)                       |
+|            | [21 - Material Sphere](directX/21-materialSphere)                                         |
+|            | [22 - Interleaved](directX/22-interleaved)                                                |
+| 29-09-2018 |                                                                                           |
+|            | [23 - Tessellation Shader](directX/23-tessellationShader)                                 |
+|            | [24 - Geometry Shader](directX/24-geometryShader)                                         |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
