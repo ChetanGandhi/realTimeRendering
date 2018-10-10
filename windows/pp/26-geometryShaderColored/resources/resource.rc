@@ -1,0 +1,4 @@
+#include "resource.h"
+
+CP_ICON ICON DISCARDABLE "cp.ico"
+CP_ICON_SMALL ICON DISCARDABLE "cpSmall.ico"
