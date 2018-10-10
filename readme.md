@@ -319,6 +319,10 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |            | [19 - Pyramid Multiple Light](directX/19-pyramidMultipleLight)                            |
 |            | [20 - Multiple Lights On Sphere](directX/20-multipleLightsOnSphere)                       |
 |            | [21 - Material Sphere](directX/21-materialSphere)                                         |
+|            | [22 - Interleaved](directX/22-interleaved)                                                |
+| 29-09-2018 |                                                                                           |
+|            | [23 - Tessellation Shader](directX/23-tessellationShader)                                 |
+|            | [24 - Geometry Shader](directX/24-geometryShader)                                         |
 
 [//]: # "Image declaration"
 [the-ultimate-creation-image]: ./theUltimateCreation.png "The Ultimate Creation"
