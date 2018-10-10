@@ -74,7 +74,7 @@ float clearColor[4];
 float lightZeroAmbient[] = {0.5f, 0.5f, 0.5f, 1.0f};
 float lightZeroDiffuse[] = {1.0f, 1.0f, 1.0f, 1.0f};
 float lightZeroSpecular[] = {1.0f, 1.0f, 1.0f, 1.0f};
-float lightZeroPosition[] = {0.0f, 0.0f, 1.0f, 0.0f};
+float lightZeroPosition[] = {0.0f, 0.0f, -100.0f, 0.0f};
 
 float materialAmbient[numberOfColumns][numberOfRows][4] = {
     {   // Column 1
@@ -1012,19 +1012,19 @@ void drawSphere(int columnCounter, int rowCounter)
     if(rotateLightOnXAxis)
     {
         lightZeroPosition[0] = 0.0f;
-        lightZeroPosition[1] = sinf(angleLightRotation) * 100.0f + 3.0f;
-        lightZeroPosition[2] = cosf(angleLightRotation) * 100.0f + 3.0f;
+        lightZeroPosition[1] = sinf(angleLightRotation) * 100.0f - 3.0f;
+        lightZeroPosition[2] = -cosf(angleLightRotation) * 100.0f - 3.0f;
     }
     else if(rotateLightOnYAxis)
     {
-        lightZeroPosition[0] = sinf(angleLightRotation) * 100.0f + 3.0f;
+        lightZeroPosition[0] = sinf(angleLightRotation) * 100.0f - 3.0f;
         lightZeroPosition[1] = 0.0f;
-        lightZeroPosition[2] = cosf(angleLightRotation) * 100.0f + 3.0f;
+        lightZeroPosition[2] = -cosf(angleLightRotation) * 100.0f - 3.0f;
     }
     else if(rotateLightOnZAxis)
     {
-        lightZeroPosition[0] = sinf(angleLightRotation) * 100.0f + 3.0f;
-        lightZeroPosition[1] = cosf(angleLightRotation) * 100.0f + 3.0f;
+        lightZeroPosition[0] = sinf(angleLightRotation) * 100.0f - 3.0f;
+        lightZeroPosition[1] = cosf(angleLightRotation) * 100.0f - 3.0f;
         lightZeroPosition[2] = 0.0f;
     }
 

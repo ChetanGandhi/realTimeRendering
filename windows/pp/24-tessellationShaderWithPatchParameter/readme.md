@@ -1,4 +1,4 @@
-# Tessellation Shader with Color
+# Tessellation Shader with Patch Parameter
 
 ###### How to compile
 
