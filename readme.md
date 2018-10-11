@@ -148,9 +148,9 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 | 23-06-2018 |                                                                                                     |
 |            | [22 - Interleaved](windows/pp/22-interleaved)                                                       |
 |            | [23 - Interleaved using Array](windows/pp/23-interleavedArray)                                      |
-| 24-06-2018 |                                                                                                     |
 |            | [24 - Interleaved using struct](windows/pp/24-interleavedStruct)                                    |
 |            | [25 - Interleaved using buffersubdata](windows/pp/25-interleavedBuffersubdata)                      |
+| 24-06-2018 |                                                                                                     |
 |            | [26 - Tessellation Shader](windows/pp/26-tessellationShader)                                        |
 |            | [27 - Tessellation Shader with Patch Parameter](windows/pp/27-tessellationShaderWithPatchParameter) |
 | 30-06-2018 |                                                                                                     |
