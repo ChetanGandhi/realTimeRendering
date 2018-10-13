@@ -1237,17 +1237,17 @@ void cleanUp(void)
         shaderResourceViewSmileyTexture = NULL;
     }
 
-    // if(samplerStateWhiteColorTexture != NULL)
-    // {
-    //     samplerStateWhiteColorTexture->Release();
-    //     samplerStateWhiteColorTexture = NULL;
-    // }
+    if(samplerStateWhiteColorTexture != NULL)
+    {
+        samplerStateWhiteColorTexture->Release();
+        samplerStateWhiteColorTexture = NULL;
+    }
 
-    // if(shaderResourceViewWhiteColorTexture != NULL)
-    // {
-    //     shaderResourceViewWhiteColorTexture->Release();
-    //     shaderResourceViewWhiteColorTexture = NULL;
-    // }
+    if(shaderResourceViewWhiteColorTexture != NULL)
+    {
+        shaderResourceViewWhiteColorTexture->Release();
+        shaderResourceViewWhiteColorTexture = NULL;
+    }
 
     if(rasterizerState != NULL)
     {
