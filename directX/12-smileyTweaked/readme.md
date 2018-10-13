@@ -65,6 +65,10 @@ cl.exe /EHsc /DUNICODE /Zi smileyTweaked.cpp /link /NODEFAULTLIB:msvcrt.lib reso
 
 ###### Preview
 
+-   No Texture
+
+    ![whiteSquare][white-square-image]
+
 -   Bottom Left Quadrant of Texture
 
     ![bottomLeftQuadrant][bottom-left-quadrant-image]

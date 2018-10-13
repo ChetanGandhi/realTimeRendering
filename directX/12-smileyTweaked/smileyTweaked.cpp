@@ -50,9 +50,9 @@ ID3D11Buffer *vertexBufferSmileyPosition = NULL;
 ID3D11Buffer *vertexBufferSmileyTexture = NULL;
 ID3D11Buffer *constantBuffer = NULL;
 ID3D11ShaderResourceView *shaderResourceViewSmileyTexture = NULL;
-// ID3D11ShaderResourceView *shaderResourceViewWhiteColorTexture = NULL;
+ID3D11ShaderResourceView *shaderResourceViewWhiteColorTexture = NULL;
 ID3D11SamplerState *samplerStateSmileyTexture = NULL;
-// ID3D11SamplerState *samplerStateWhiteColorTexture = NULL;
+ID3D11SamplerState *samplerStateWhiteColorTexture = NULL;
 
 XMMATRIX perspectiveProjectionMatrix;
 
@@ -69,7 +69,8 @@ HRESULT initializeSmileyBuffers(void);
 HRESULT initializeConstantBuffers(void);
 HRESULT disableBackFaceCulling(void);
 HRESULT loadTexture(const wchar_t *fileName, ID3D11SamplerState **samplerState, ID3D11ShaderResourceView **shaderResourceView);
-// HRESULT makeWhiteColorTexture(ID3D11SamplerState **samplerState, ID3D11ShaderResourceView **shaderResourceView);
+HRESULT makeWhiteColorTexture(ID3D11SamplerState **samplerState, ID3D11ShaderResourceView **shaderResourceView);
+UINT createBitmapImage(long imageWidth, long imageHeight, byte *imageColorData, UINT imageColorDataSize, byte **bitmap);
 void update(void);
 void display(void);
 void drawSmiley(void);
@@ -366,12 +367,12 @@ HRESULT initialize(void)
         return result;
     }
 
-    // result = makeWhiteColorTexture(&samplerStateWhiteColorTexture,  &shaderResourceViewWhiteColorTexture);
+    result = makeWhiteColorTexture(&samplerStateWhiteColorTexture,  &shaderResourceViewWhiteColorTexture);
 
-    // if(FAILED(result))
-    // {
-    //     return result;
-    // }
+    if(FAILED(result))
+    {
+        return result;
+    }
 
     clearColor[0] = 0.0f;
     clearColor[1] = 0.0f;
@@ -845,23 +846,23 @@ void drawSmiley(void)
         smileyTextureCoordinates[10] = 0.5f;
         smileyTextureCoordinates[11] = 0.5f;
     }
-    // else
-    // {
-    //     currentShaderResourceView = shaderResourceViewWhiteColorTexture;
-    //     currentSamplerState = samplerStateWhiteColorTexture;
-    //     smileyTextureCoordinates[0] = 0.0f;
-    //     smileyTextureCoordinates[1] = 0.0f;
-    //     smileyTextureCoordinates[2] = 1.0f;
-    //     smileyTextureCoordinates[3] = 0.0f;
-    //     smileyTextureCoordinates[4] = 0.0f;
-    //     smileyTextureCoordinates[5] = 1.0f;
-    //     smileyTextureCoordinates[6] = 0.0f;
-    //     smileyTextureCoordinates[7] = 1.0f;
-    //     smileyTextureCoordinates[8] = 1.0f;
-    //     smileyTextureCoordinates[9] = 0.0f;
-    //     smileyTextureCoordinates[10] = 1.0f;
-    //     smileyTextureCoordinates[11] = 1.0f;
-    // }
+    else
+    {
+        currentShaderResourceView = shaderResourceViewWhiteColorTexture;
+        currentSamplerState = samplerStateWhiteColorTexture;
+        smileyTextureCoordinates[0] = 0.0f;
+        smileyTextureCoordinates[1] = 0.0f;
+        smileyTextureCoordinates[2] = 1.0f;
+        smileyTextureCoordinates[3] = 0.0f;
+        smileyTextureCoordinates[4] = 0.0f;
+        smileyTextureCoordinates[5] = 1.0f;
+        smileyTextureCoordinates[6] = 0.0f;
+        smileyTextureCoordinates[7] = 1.0f;
+        smileyTextureCoordinates[8] = 1.0f;
+        smileyTextureCoordinates[9] = 0.0f;
+        smileyTextureCoordinates[10] = 1.0f;
+        smileyTextureCoordinates[11] = 1.0f;
+    }
 
     D3D11_MAPPED_SUBRESOURCE mappedSubresource = {};
     ZeroMemory((void *)&mappedSubresource, sizeof(D3D11_MAPPED_SUBRESOURCE));
@@ -923,55 +924,21 @@ HRESULT loadTexture(const wchar_t *fileName, ID3D11SamplerState **samplerState, 
 
 HRESULT makeWhiteColorTexture(ID3D11SamplerState **samplerState, ID3D11ShaderResourceView **shaderResourceView)
 {
-    //  static const uint32_t pixels = 0xffffff;
+    const long imageWidth = 1;
+    const long imageHeight = 1;
 
-    // D3D11_SUBRESOURCE_DATA textureData = {};
-    // ZeroMemory((void *)&textureData, sizeof(D3D11_SUBRESOURCE_DATA));
+    byte whiteColorImage[4] = { (byte)255, (byte)255, (byte)255, (byte)255 };
 
-    // textureData.pSysMem = &pixels;
-    // textureData.SysMemPitch = sizeof(uint32_t);
-    // textureData.SysMemSlicePitch = 0;
+    byte *bitmapImage = NULL;
+    UINT totalBitmapImageSize = createBitmapImage(imageWidth, imageHeight, whiteColorImage, sizeof(whiteColorImage), &bitmapImage);
 
-    // D3D11_TEXTURE2D_DESC textureDescriptor = {};
-    // ZeroMemory((void *)&textureDescriptor, sizeof(D3D11_TEXTURE2D_DESC));
+    HRESULT result = DirectX::CreateWICTextureFromMemory(device, deviceContext, (const uint8_t*)bitmapImage, (size_t)totalBitmapImageSize, NULL, shaderResourceView, NULL);
 
-    // textureDescriptor.Width = 1;
-    // textureDescriptor.Height = 1;
-    // textureDescriptor.MipLevels = 1;
-    // textureDescriptor.ArraySize = 1;
-    // textureDescriptor.Format = DXGI_FORMAT_R32G32B32_UINT;
-    // textureDescriptor.SampleDesc.Count = 1;
-    // textureDescriptor.Usage = D3D11_USAGE_DEFAULT;
-    // textureDescriptor.BindFlags = D3D11_BIND_SHADER_RESOURCE;
-
-    // ID3D11Texture2D *texture = NULL;
-    // HRESULT result = device->CreateTexture2D(&textureDescriptor, &textureData, &texture);
-
-    // if(FAILED(result))
-    // {
-    //     log("[Error] | Cannot create white color texture, error code: %#010x\n", result);
-    //     return result;
-    // }
-
-    // D3D11_SHADER_RESOURCE_VIEW_DESC shaderResourceViewDescriptor = {};
-    // ZeroMemory((void*)&shaderResourceViewDescriptor, sizeof(D3D11_SHADER_RESOURCE_VIEW_DESC));
-
-    // shaderResourceViewDescriptor.Format = DXGI_FORMAT_R32G32B32A32_UINT;
-    // shaderResourceViewDescriptor.Texture2D.MostDetailedMip = 0;
-    // shaderResourceViewDescriptor.Texture2D.MipLevels = 0;
-    // shaderResourceViewDescriptor.ViewDimension = D3D_SRV_DIMENSION_TEXTURE2D;
-
-    // result = device->CreateShaderResourceView(texture, &shaderResourceViewDescriptor, shaderResourceView);
-
-    // if(FAILED(result))
-    // {
-    //     log("[Error] | Cannot create shader resource view for white color texture, error code: %#010x\n", result);
-    //     return result;
-    // }
-
-    uint8_t colorData[4] = {255, 255, 255, 255};
-    ID3D11Resource *texture = NULL;
-    HRESULT result = DirectX::CreateWICTextureFromMemory(device, deviceContext, colorData, sizeof(uint8_t) * 4, &texture, shaderResourceView);
+    if(bitmapImage != NULL)
+    {
+        free(bitmapImage);
+        bitmapImage = NULL;
+    }
 
     if(FAILED(result))
     {
@@ -996,6 +963,97 @@ HRESULT makeWhiteColorTexture(ID3D11SamplerState **samplerState, ID3D11ShaderRes
     }
 
     return S_OK;
+}
+
+UINT createBitmapImage(long imageWidth, long imageHeight, byte *imageColorData, UINT imageColorDataSize, byte **bitmap)
+{
+    BITMAPINFOHEADER bitmapInfoHeader;
+	memset((void *)&bitmapInfoHeader, 0, sizeof(BITMAPINFOHEADER));
+
+    bitmapInfoHeader.biSize = sizeof(BITMAPINFOHEADER);
+    bitmapInfoHeader.biWidth = imageWidth;
+    bitmapInfoHeader.biHeight = imageHeight;
+    bitmapInfoHeader.biPlanes = 1;
+    bitmapInfoHeader.biBitCount = 32; // 4 bytes for each color component.
+    bitmapInfoHeader.biCompression = BI_RGB;
+    bitmapInfoHeader.biXPelsPerMeter = 0;
+    bitmapInfoHeader.biYPelsPerMeter = 0;
+
+    WORD cClrBits = (WORD)(bitmapInfoHeader.biPlanes * bitmapInfoHeader.biBitCount);
+
+    if (cClrBits == 1)
+    {
+        cClrBits = 1;
+    }
+    else if (cClrBits <= 4)
+    {
+        cClrBits = 4;
+    }
+    else if (cClrBits <= 8)
+    {
+        cClrBits = 8;
+    }
+    else if (cClrBits <= 16)
+    {
+        cClrBits = 16;
+    }
+    else if (cClrBits <= 24)
+    {
+        cClrBits = 24;
+    }
+    else
+    {
+        cClrBits = 32;
+    }
+
+    if (cClrBits < 24)
+    {
+        bitmapInfoHeader.biClrUsed = (1 << cClrBits);
+    }
+
+    // If the bitmap is not compressed, set the BI_RGB flag.
+    bitmapInfoHeader.biCompression = BI_RGB;
+
+    // Compute the number of bytes in the array of color
+    // indices and store the result in biSizeImage.
+    // The width must be DWORD aligned unless the bitmap is RLE
+    // compressed.
+    bitmapInfoHeader.biSizeImage = ((bitmapInfoHeader.biWidth * cClrBits + 31) & ~31) / 8 * bitmapInfoHeader.biHeight;
+
+    // Set biClrImportant to 0, indicating that all of the
+    // device colors are important.
+    bitmapInfoHeader.biClrImportant = 0;
+
+    BITMAPFILEHEADER bitmapFileHeader;
+    memset((void *)&bitmapFileHeader, 0, sizeof(BITMAPFILEHEADER));
+
+    bitmapFileHeader.bfType = 0x4d42; // 0x42 = "B" 0x4d = "M"
+
+    // Compute the offset to the array of color indices.
+    bitmapFileHeader.bfOffBits = (DWORD) sizeof(BITMAPFILEHEADER) + bitmapInfoHeader.biSize + bitmapInfoHeader.biClrUsed * sizeof (RGBQUAD); ;
+
+    // Compute the size of the entire file.
+    bitmapFileHeader.bfSize = (DWORD) (sizeof(BITMAPFILEHEADER) +  bitmapInfoHeader.biSize + bitmapInfoHeader.biClrUsed * sizeof(RGBQUAD) + bitmapInfoHeader.biSizeImage);
+
+    bitmapFileHeader.bfReserved1 = 0;
+    bitmapFileHeader.bfReserved2 = 0;
+
+    BITMAPINFO bitmapInfo;
+	memset((void *)&bitmapInfo, 0, sizeof(BITMAPINFO));
+	bitmapInfo.bmiHeader = bitmapInfoHeader;
+
+    UINT sizeofBitmapFileHeader = sizeof(bitmapFileHeader);
+    UINT sizeofBitmapInfoHeader = sizeof(bitmapInfoHeader);
+    UINT totalBitmapImageSize =  sizeofBitmapFileHeader + sizeofBitmapInfoHeader + imageColorDataSize;
+
+    *bitmap = (BYTE *)malloc(totalBitmapImageSize);
+    memset((void *)*bitmap, 0, totalBitmapImageSize);
+
+	memcpy_s(*bitmap, totalBitmapImageSize, &bitmapFileHeader, sizeofBitmapFileHeader);
+	memcpy_s(*bitmap + sizeofBitmapFileHeader, totalBitmapImageSize, &bitmapInfoHeader, sizeofBitmapInfoHeader);
+	memcpy_s(*bitmap + sizeofBitmapFileHeader + sizeofBitmapInfoHeader, totalBitmapImageSize, imageColorData, imageColorDataSize);
+
+    return totalBitmapImageSize;
 }
 
 HRESULT resize(int width, int height)
