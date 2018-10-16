@@ -1,4 +1,4 @@
-# OpenGl Window
+# OpenGL Window
 
 ###### How to compile
 
