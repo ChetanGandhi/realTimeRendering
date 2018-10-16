@@ -199,20 +199,21 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 ### XWindows
 
-| Date | Assignments                                                                |
-| ---- | -------------------------------------------------------------------------- |
-|      | [01 - Extensions](xWindows/pp/extensions)                                  |
-|      | [02 - Triangle by Orthographic Projection](xWindows/pp/triangleOrtho)      |
-|      | [03 - Triangle by Perspective Projection](xWindows/pp/trianglePerspective) |
-|      | [04 - Multi Colored Triangle](xWindows/pp/multiColoredTriangle)            |
-|      | [05 - Triangle and Square](xWindows/pp/triangleAndSquare)                  |
-|      | [06 - Triangle and Square Colored](xWindows/pp/triangleAndSquareColored)   |
-|      | [07 - Triangle and Square Rotation](xWindows/pp/triangleAndSquareRotation) |
-|      | [08 - Pyramid and Cube Rotation](xWindows/pp/pyramidAndCubeRotation)       |
-|      | [09 - Pyramid and Cube Texture](xWindows/pp/pyramidAndCubeTexture)         |
-|      | [10 - Smiley](xWindows/pp/smiley)                                          |
-|      | [11 - Smiley Tweaked](xWindows/pp/smileyTweaked)                           |
-|      | [12 - Checkerboard Texture](xWindows/pp/checkerboardTexture)               |
+| Date | Assignments                                                                   |
+| ---- | ----------------------------------------------------------------------------- |
+|      | [01 - OpenGL Window](xWindows/pp/01-extensions)                               |
+|      | [02 - Extensions](xWindows/pp/02-extensions)                                  |
+|      | [03 - Triangle by Orthographic Projection](xWindows/pp/03-triangleOrtho)      |
+|      | [04 - Triangle by Perspective Projection](xWindows/pp/04-trianglePerspective) |
+|      | [05 - Multi Colored Triangle](xWindows/pp/05-multiColoredTriangle)            |
+|      | [06 - Triangle and Square](xWindows/pp/06-triangleAndSquare)                  |
+|      | [07 - Triangle and Square Colored](xWindows/pp/07-triangleAndSquareColored)   |
+|      | [08 - Triangle and Square Rotation](xWindows/pp/08-triangleAndSquareRotation) |
+|      | [09 - Pyramid and Cube Rotation](xWindows/pp/09-pyramidAndCubeRotation)       |
+|      | [10 - Pyramid and Cube Texture](xWindows/pp/10-pyramidAndCubeTexture)         |
+|      | [11 - Smiley](xWindows/pp/11-smiley)                                          |
+|      | [12 - Smiley Tweaked](xWindows/pp/12-smileyTweaked)                           |
+|      | [13 - Checkerboard Texture](xWindows/pp/13-checkerboardTexture)               |
 
 ### WebGL
 
