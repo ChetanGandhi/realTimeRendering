@@ -214,6 +214,8 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 |      | [11 - Smiley](xWindows/pp/11-smiley)                                          |
 |      | [12 - Smiley Tweaked](xWindows/pp/12-smileyTweaked)                           |
 |      | [13 - Checkerboard Texture](xWindows/pp/13-checkerboardTexture)               |
+|      | [14 - Rotating Cube with Light](xWindows/pp/14-rotatingCubeWithLight)         |
+|      | [19 - Pyramid Multiple Light](xWindows/pp/19-pyramidMultipleLight)            |
 
 ### WebGL
 
