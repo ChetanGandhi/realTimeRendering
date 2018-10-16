@@ -201,7 +201,7 @@ Thanks to [Aniruddha Kshirsagar]() for Sanskrit translation.
 
 | Date | Assignments                                                                   |
 | ---- | ----------------------------------------------------------------------------- |
-|      | [01 - OpenGL Window](xWindows/pp/01-extensions)                               |
+|      | [01 - OpenGL Window](xWindows/pp/01-openGLWindow)                             |
 |      | [02 - Extensions](xWindows/pp/02-extensions)                                  |
 |      | [03 - Triangle by Orthographic Projection](xWindows/pp/03-triangleOrtho)      |
 |      | [04 - Triangle by Perspective Projection](xWindows/pp/04-trianglePerspective) |
